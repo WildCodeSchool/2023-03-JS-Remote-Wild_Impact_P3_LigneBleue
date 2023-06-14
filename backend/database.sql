@@ -1,4 +1,6 @@
 -- SQLBook: Code
+
+
 CREATE TABLE users (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
@@ -19,14 +21,21 @@ CREATE TABLE quizz (
   title varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE images (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  src VARCHAR(255),
+  alt VARCHAR(255)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8; 
+
 CREATE TABLE tutorials (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name varchar(255) NOT NULL,
   target varchar(255) NOT NULL,
   explanation longtext NOT NULL,
-  image longtext,
   published TINYINT NOT NULL,
   creation_date date NOT NULL,
+  image_id INT NOT NULL,
+  CONSTRAINT fk_image_id FOREIGN KEY (image_id) REFERENCES images(id) ON DELETE CASCADE,
   quizz_id INT NOT NULL,
     CONSTRAINT fk_quizz_id FOREIGN KEY (quizz_id) REFERENCES quizz(id) ON DELETE CASCADE,
   formation_id INT NOT NULL,
@@ -86,15 +95,21 @@ INSERT INTO quizz(title) VALUES ('Quizz 1 - Vérifiez vos connaissances sur What
 INSERT INTO quizz(title) VALUES ('Quizz 2 - Vérifiez vos connaissances sur l''utilisation de votre téléphone');
 INSERT INTO quizz(title) VALUES ('Quizz 3 - Vérifiez vos connaissances sur le visionnage d''une vidéo');
 
+INSERT INTO images(src, alt) VALUES ('Src1','alt1');
+INSERT INTO images(src, alt) VALUES ('Src2','alt2');
+INSERT INTO images(src, alt) VALUES ('Src3','alt3');
+INSERT INTO images(src, alt) VALUES ('Src4','alt4');
+INSERT INTO images(src, alt) VALUES ('Src5','alt5');
+INSERT INTO images(src, alt) VALUES ('Src6','alt6');
 
-INSERT INTO tutorials(name,target,explanation,image, published,creation_date,quizz_id,formation_id) 
-VALUES ('Tuto 1','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1','https://randompicturegenerator.com/img/dragon-generator/g9b72abb3388f87375d88f2c3cb2fa279a0fe380ab82edac115301d9331dfe3b7c3e453d72e99ba931de26c3f1540df1e_640.jpg',true,'2023/04/14',1,1);
-INSERT INTO tutorials(name,target,explanation,image, published,creation_date,quizz_id,formation_id) VALUES ('Tuto 2','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2','https://randompicturegenerator.com/img/dragon-generator/g9d319c882c20258e422f2e608f9cb4f132faccc2c5d0d8f642b331e75e59815d87c2cba770a8ce77fce4afdacaacc782_640.jpg',true,'2023/04/05',2,2);
-INSERT INTO tutorials(name,target,explanation,image,published,creation_date,quizz_id,formation_id) VALUES ('Tuto 3','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3','https://randompicturegenerator.com/img/dragon-generator/g43a4ef235a57ff339250b27e486be537454a43ec5fb652c2cdc99754019d679e232a4785776983bc39a755e687f362a3_640.jpg',false,'2022/06/17',3,3);
-INSERT INTO tutorials(name,target,explanation,image, published,creation_date,quizz_id,formation_id) 
-VALUES ('Tuto 4','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1','https://randompicturegenerator.com/img/dragon-generator/g9b72abb3388f87375d88f2c3cb2fa279a0fe380ab82edac115301d9331dfe3b7c3e453d72e99ba931de26c3f1540df1e_640.jpg',true,'2023/04/14',1,1);
-INSERT INTO tutorials(name,target,explanation,image, published,creation_date,quizz_id,formation_id) VALUES ('Tuto 5','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2','https://randompicturegenerator.com/img/dragon-generator/g9d319c882c20258e422f2e608f9cb4f132faccc2c5d0d8f642b331e75e59815d87c2cba770a8ce77fce4afdacaacc782_640.jpg',true,'2023/04/05',2,2);
-INSERT INTO tutorials(name,target,explanation,image,published,creation_date,quizz_id,formation_id) VALUES ('Tuto 6','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3','https://randompicturegenerator.com/img/dragon-generator/g43a4ef235a57ff339250b27e486be537454a43ec5fb652c2cdc99754019d679e232a4785776983bc39a755e687f362a3_640.jpg',false,'2022/06/17',3,3);
+INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Tuto 1','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',1,1,1);
+INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 2','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',2,2,2);
+INSERT INTO tutorials(name,target,explanation,published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 3','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Tuto 4','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',4,1,1);
+INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 5','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',5,2,2);
+INSERT INTO tutorials(name,target,explanation,published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 6','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',6,3,3);
 
 
 INSERT INTO validated_by_user(user_id,tutorial_id) VALUES (1,2);
