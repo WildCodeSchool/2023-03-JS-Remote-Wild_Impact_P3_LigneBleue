@@ -10,4 +10,8 @@ router.put("/tuto/:id", TutoControllers.edit);
 router.post("/tuto", TutoControllers.add);
 router.delete("/tuto/:id", TutoControllers.destroy);
 
+const FormationsControllers = require("./controllers/FormationsControllers");
+
+router.get("/formations", FormationsControllers.browse);
+
 module.exports = router;
