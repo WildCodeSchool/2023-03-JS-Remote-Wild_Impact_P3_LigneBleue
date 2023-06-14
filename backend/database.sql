@@ -1,3 +1,4 @@
+-- SQLBook: Code
 CREATE TABLE users (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,

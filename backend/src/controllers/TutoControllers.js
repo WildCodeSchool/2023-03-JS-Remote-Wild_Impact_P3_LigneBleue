@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.TutoAdmin.findAll()
+  models.Tuto.findAll()
     .then(([rows]) => {
       res.send(rows);
     })
@@ -12,7 +12,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.TutoAdmin.find(req.params.id)
+  models.Tuto.find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -27,13 +27,13 @@ const read = (req, res) => {
 };
 
 const edit = (req, res) => {
-  const TutoAdmin = req.body;
+  const Tuto = req.body;
 
   // TODO validations (length, format...)
 
-  TutoAdmin.id = parseInt(req.params.id, 10);
+  Tuto.id = parseInt(req.params.id, 10);
 
-  models.TutoAdmin.update(TutoAdmin)
+  models.Tuto.update(Tuto)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -48,13 +48,13 @@ const edit = (req, res) => {
 };
 
 const add = (req, res) => {
-  const TutoAdmin = req.body;
+  const Tuto = req.body;
 
   // TODO validations (length, format...)
 
-  models.TutoAdmin.insert(TutoAdmin)
+  models.Tuto.insert(Tuto)
     .then(([result]) => {
-      res.location(`/admin/tuto/${result.insertId}`).sendStatus(201);
+      res.location(`/tuto/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -63,7 +63,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.TutoAdmin.delete(req.params.id)
+  models.Tuto.delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);

@@ -34,10 +34,10 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
-const TutoAdminManager = require("./TutoAdminManager");
+const TutoManager = require("./TutoManager");
 
-models.TutoAdmin = new TutoAdminManager();
-models.TutoAdmin.setDatabase(pool);
+models.Tuto = new TutoManager();
+models.Tuto.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
