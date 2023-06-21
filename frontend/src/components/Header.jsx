@@ -9,7 +9,7 @@ function Header() {
           <img src={logo} alt="Logo_la ligne Bleue" />
         </div>
         <div>
-          <h1 className="text-2xl font-bold mt-6 pl-4 text-blue">
+          <h1 className=" text-2xl font-bold mt-6 pl-4 text-blue">
             LA LIGNE BLEUE
           </h1>
           <h6 className="text-xs pr-8">
