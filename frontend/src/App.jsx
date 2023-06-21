@@ -1,4 +1,3 @@
-import "./App.css";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Home";
 import Header from "./components/Header";
