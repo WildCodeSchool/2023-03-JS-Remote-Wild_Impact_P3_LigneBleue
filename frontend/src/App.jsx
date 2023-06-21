@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 function App() {
   return (
     <div className="App">
-      {/* <Home /> */}
+      <Home />
 
       <Connexion />
       {/* <p className="text-3xl font-bold underline">coucou</p> */}

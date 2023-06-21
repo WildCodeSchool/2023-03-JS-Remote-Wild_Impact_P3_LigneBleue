@@ -11,7 +11,7 @@ function Connexion() {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2 flex justify-center"
-              for="username"
+              htmlFor="username"
             >
               E-mail ou nom d'utilisateur
             </label>
@@ -25,7 +25,7 @@ function Connexion() {
           <div className="mb-6">
             <label
               className="flex justify-center block text-gray-700 text-sm font-bold mb-2"
-              for="password"
+              htmlFor="password"
             >
               Mot de passe
             </label>
@@ -37,10 +37,16 @@ function Connexion() {
             />
           </div>
           <div className="flex flex-col">
-            <button className="bg-blue opacity-80 text-gray-light rounded-full m-2 p-1">
+            <button
+              className="bg-blue opacity-80 text-gray-light rounded-full m-2 p-1"
+              type="submit"
+            >
               Continuer
             </button>
-            <button className=" text-blue text-sm underline underline-offset-1 rounded-full m-2">
+            <button
+              className=" text-blue text-sm underline underline-offset-1 rounded-full m-2"
+              type="submit"
+            >
               Mot de passe oublié ?
             </button>
           </div>
