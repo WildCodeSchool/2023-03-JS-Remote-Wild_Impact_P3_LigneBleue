@@ -12,16 +12,29 @@ function Breadcrumbs() {
     .map((crumb) => {
       currentLink = +`/${crumb}`;
       return (
-        <div key={crumb}>
+        <div
+          className=" after:content-['>'] after:mx-2 last:after:hidden"
+          key={crumb}
+        >
           <Link to={currentLink}>{crumb}</Link>
         </div>
       );
     });
 
   return (
-    <div className="flex  flex-row mt-1">
-      <img src={logoBreadcrumbs} alt=" " className="w-6 h-6 ml-2" />
-      {crumbs}
+    <div className="flex flex-row mt-1">
+      <img src={logoBreadcrumbs} alt="" className="w-6 h-6 ml-2" />
+      {location.pathname === "/" ? (
+        <div>Accueil</div>
+      ) : (
+        <>
+          <div className="mr-2">
+            <Link to="/">Accueil</Link>
+          </div>
+          <p className="mr-2">{">"}</p>
+          {crumbs}
+        </>
+      )}
     </div>
   );
 }
