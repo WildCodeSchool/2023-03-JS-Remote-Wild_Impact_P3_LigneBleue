@@ -8,7 +8,6 @@ function App() {
       <Home />
 
       <Connexion />
-      {/* <p className="text-3xl font-bold underline">coucou</p> */}
     </div>
   );
 }
