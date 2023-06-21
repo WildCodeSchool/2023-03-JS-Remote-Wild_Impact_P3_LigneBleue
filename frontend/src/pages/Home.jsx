@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Icons from "../components/Icons";
 
 function Home() {
   const [formations, setFormations] = useState([]);
@@ -11,16 +12,30 @@ function Home() {
   }, []);
   return (
     <section>
-      <div className="flex flex-row">
-        {formations.map((formation) => (
-          <>
-            <h3>{formation.title}</h3>
-            <img
-              key={formation.id}
-              src={formation.icon}
-              alt="icon de la formation"
-            />
-          </>
+      <div>
+        {formations.slice(0, 9).map((formation) => (
+          <div
+            key={formation.id}
+            className="flex-auto grid-cols-4 grid-rows-4 bg-light_blue px-2 py-2 my-6 mx-6"
+          >
+            <h3 className="text-2xl">{formation.title}</h3>
+            <div>
+              <Icons icon={formation.icon} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div>
+        {formations.slice(9, 12).map((formation) => (
+          <div
+            key={formation.id}
+            className="flex-auto grid-cols-4 grid-rows-4 bg-yellow px-2 py-2 my-6 mx-6"
+          >
+            <h3 className="text-2xl">{formation.title}</h3>
+            <div>
+              <Icons icon={formation.icon} />
+            </div>
+          </div>
         ))}
       </div>
     </section>

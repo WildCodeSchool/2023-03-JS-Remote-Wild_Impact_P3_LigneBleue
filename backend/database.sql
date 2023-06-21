@@ -77,18 +77,18 @@ INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Don Bishop','
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Heather Simmmons','heather.simmmons@example.com','575757',true,'2021/03/04');
 
 
-INSERT INTO formations(title,icon) VALUES ('Utiliser Ligne bleue','https://img.icons8.com/?size=512&id=13616&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone','https://img.icons8.com/?size=512&id=5wGnhtHODuE9&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Me divertir sur mon téléphone','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Aller sur internet','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Vie courante','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Mes emails','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Communiquer','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone en sécurité','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Se déplacer','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Se faire aider','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Rechercher un tuto','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
-INSERT INTO formations(title,icon) VALUES ('Pour aller plus loin','https://img.icons8.com/?size=512&id=nWZlu7wJW-Sr&format=png%27');
+INSERT INTO formations(title,icon) VALUES ('Utiliser Ligne bleue','lignebleue');
+INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone','utiliser');
+INSERT INTO formations(title,icon) VALUES ('Aller sur internet','internet');
+INSERT INTO formations(title,icon) VALUES ('Vie courante','vie');
+INSERT INTO formations(title,icon) VALUES ('Me Divertir','divertir');
+INSERT INTO formations(title,icon) VALUES ('Mes emails','email');
+INSERT INTO formations(title,icon) VALUES ('Communiquer','communiquer');
+INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone en sécurité','securite');
+INSERT INTO formations(title,icon) VALUES ('Se déplacer','deplacer');
+INSERT INTO formations(title,icon) VALUES ('Se faire aider','aider');
+INSERT INTO formations(title,icon) VALUES ('Rechercher un tuto','rechercher');
+INSERT INTO formations(title,icon) VALUES ('Pour aller plus loin','plusloin');
 
 
 INSERT INTO quizz(title) VALUES ('Quizz 1 - Vérifiez vos connaissances sur WhatsApp');
