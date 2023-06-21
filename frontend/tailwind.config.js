@@ -6,6 +6,7 @@ export default {
       blue: "#022994",
       "gray-light": "#FFFDFD",
       yellow: "#F8C20D",
+      lightblue: "#33A8CB",
     },
     fontFamily: {
       sans: ["Roboto", "sans-serif"],

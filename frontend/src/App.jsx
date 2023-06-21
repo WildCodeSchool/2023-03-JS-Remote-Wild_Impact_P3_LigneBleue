@@ -1,4 +1,6 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Connexion from "./pages/Connexion";
 import Home from "./pages/Home";
 import Test from "./pages/Test";
 import Test2 from "./pages/Test2";
