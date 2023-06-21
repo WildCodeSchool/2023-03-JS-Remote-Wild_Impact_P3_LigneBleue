@@ -1,3 +1,5 @@
+import "./App.css";
+import Connexion from "./pages/Connexion";
 import Home from "./pages/Home";
 import Header from "./components/Header";
 import Breadcrumbs from "./components/Breadcrumbs";
@@ -10,6 +12,7 @@ function App() {
       <Header />
       <Home />
       <Breadcrumbs />
+      <Connexion />
     </div>
   );
 }
