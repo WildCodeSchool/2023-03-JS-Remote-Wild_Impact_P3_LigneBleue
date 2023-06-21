@@ -1,4 +1,3 @@
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Home";
@@ -20,6 +19,7 @@ function App() {
           <Route path="/test" element={<Test />} />
           <Route path="/test/test" element={<Test2 />} />
         </Routes>
+        <Connexion />
       </div>
     </BrowserRouter>
   );
