@@ -11,12 +11,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Home />
-      <Footerbis />
       <BrowserRouter>
         <Breadcrumbs />
       </BrowserRouter>
+      <Home />
       <Connexion />
+      <Footerbis />
     </div>
   );
 }
