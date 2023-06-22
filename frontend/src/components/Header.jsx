@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className=" bg-yellow h-28 pt-2">
       <div className="flex  flex-row items-center justify-between bg-yellow pb-2 ">
-        <div className="w-16 h-26 ml-3">
+        <div className="w-16 h-26 ml-3  min-[600px]:w-20 min-[600px]:h-30 min-[600px]:pt-2">
           <img src={logo} alt="Logo_la ligne Bleue" />
         </div>
         <div>
