@@ -1,11 +1,13 @@
 import React from "react";
+import Formations from "../components/Formations";
 
 function Home() {
   return (
-    <div>
-      HOME Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit,
-      harum!
-    </div>
+    <section>
+      <div>
+        <Formations />
+      </div>
+    </section>
   );
 }
 

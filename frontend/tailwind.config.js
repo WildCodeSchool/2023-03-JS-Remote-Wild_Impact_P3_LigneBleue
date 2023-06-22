@@ -1,15 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,jsx}"],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
       blue: "#022994",
-      "gray-light": "#FFFDFD",
+      gray_light: "F9F4EC",
       yellow: "#F8C20D",
-      lightblue: "#33A8CB",
+      light_blue: "#DADDEB",
+      champagne: "#F9F4EC",
+      white: "#FFFFFF",
     },
     fontFamily: {
-      sans: ["Roboto", "sans-serif"],
+      sans: ["Montserrat"],
     },
     extend: {},
   },
