@@ -1,6 +1,6 @@
 const AbstractManager = require("./AbstractManager");
 
-class FormationsManager extends AbstractManager {
+class formationsManager extends AbstractManager {
   constructor() {
     super({ table: "formations" });
   }
@@ -10,4 +10,4 @@ class FormationsManager extends AbstractManager {
   }
 }
 
-module.exports = FormationsManager;
+module.exports = formationsManager;

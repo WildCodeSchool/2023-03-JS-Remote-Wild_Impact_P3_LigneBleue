@@ -33,7 +33,7 @@ function Icons({ icon }) {
 
   const IconComponent = iconMapping[icon] || null;
 
-  return <div>{IconComponent && <IconComponent />}</div>;
+  return <div>{IconComponent && <IconComponent size={40} />}</div>;
 }
 
 export default Icons;
