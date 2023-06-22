@@ -3,7 +3,7 @@ import UserLayout from "./pages/Layout/UserLayout";
 import OneTuto from "./pages/Users/OneTuto";
 import AdminLayout from "./pages/Layout/AdminLayout";
 import TutoAdmin from "./pages/Admin/TutoAdmin";
-import Footer from "./components/Footerbis";
+import Footer from "./components/Footer";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Users/Home";
 import Header from "./components/Header";
