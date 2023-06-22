@@ -39,6 +39,11 @@ const TutoAdminManager = require("./TutoAdminManager");
 models.TutoAdmin = new TutoAdminManager();
 models.TutoAdmin.setDatabase(pool);
 
+const FormationsManager = require("./FormationsManager");
+
+models.Formations = new FormationsManager();
+models.Formations.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

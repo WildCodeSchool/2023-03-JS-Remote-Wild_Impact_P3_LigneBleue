@@ -1,9 +1,12 @@
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./pages/Layout/UserLayout";
 import Tutorials from "./pages/Users/Tutorials";
 import OneTuto from "./pages/Users/OneTuto";
 import AdminLayout from "./pages/Layout/AdminLayout";
 import TutoAdmin from "./pages/Admin/TutoAdmin";
+import Connexion from "./pages/Connexion";
+import Home from "./pages/Home";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Breadcrumbs from "./components/Breadcrumbs";
@@ -14,6 +17,7 @@ function App() {
   return (
     <>
       <Header />
+      <Home />
       <BrowserRouter>
         <Breadcrumbs />
         <div className="App">
@@ -28,8 +32,10 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      <Footer />
-    </>
+     <Connexion />
+     <Footer />   
+
+   </>
   );
 }
 
