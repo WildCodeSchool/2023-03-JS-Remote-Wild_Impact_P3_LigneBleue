@@ -1,3 +1,4 @@
+import Footerbis from "./components/Footerbis";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Home";
 import Header from "./components/Header";
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <Home />
+      <Footerbis />
       <Breadcrumbs />
       <Connexion />
     </div>
