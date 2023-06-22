@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import Footerbis from "./components/Footerbis";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Home";
@@ -12,7 +13,9 @@ function App() {
       <Header />
       <Home />
       <Footerbis />
-      <Breadcrumbs />
+      <BrowserRouter>
+        <Breadcrumbs />
+      </BrowserRouter>
       <Connexion />
     </div>
   );
