@@ -11,6 +11,7 @@ import Breadcrumbs from "./components/Breadcrumbs";
 import Erreur from "./pages/Erreur";
 
 import "./App.css";
+import Tutoriel from "./components/Tutoriel";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Routes>
             <Route path="/" element={<UserLayout />}>
               <Route path="/" element={<Home />} />
+              <Route path="tutoriel" element={<Tutoriel />} />
               <Route path="tutorials/:id" element={<OneTuto />} />
               <Route path="/connexion" element={<Connexion />} />
               <Route path="/*" element={<Erreur />} />
