@@ -1,5 +1,5 @@
 import React from "react";
-import Formations from "../components/Formations";
+import Formations from "../../components/Formations";
 
 function Home() {
   return (
