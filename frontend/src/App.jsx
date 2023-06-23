@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./pages/Layout/UserLayout";
-import OneTuto from "./pages/Users/OneTuto";
+import TutorialsList from "./pages/Users/TutorialsList";
 import AdminLayout from "./pages/Layout/AdminLayout";
 import TutoAdmin from "./pages/Admin/TutoAdmin";
 import Footer from "./components/Footer";
@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route path="/" element={<UserLayout />}>
               <Route path="/" element={<Home />} />
-              <Route path="tutorials/:id" element={<OneTuto />} />
+              <Route path="formations/:id" element={<TutorialsList />} />
               <Route path="/connexion" element={<Connexion />} />
               <Route path="/*" element={<Erreur />} />
             </Route>
