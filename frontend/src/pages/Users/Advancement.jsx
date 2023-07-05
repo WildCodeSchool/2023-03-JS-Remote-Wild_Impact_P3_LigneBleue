@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Icons from "../../components/Icons";
+import LineAnimation from "../../components/LineAnimation";
 import Picture from "../../assets/picture.png";
+import Arrived from "../../assets/arrived.png";
 
 function Advancement() {
   const [categorie, setCategorie] = useState([]);
@@ -12,44 +14,52 @@ function Advancement() {
   }, []);
 
   return (
-    <section className=" bg-champagne pb-4">
-      <h1 className=" text-blue text-[6rem] font-bold">Votre Parcours</h1>
-      <p className="pl-8 text-2xl font-bold opacity-25 ">
-        Cliquer sur une catégorie pour connaitre le détail de votre avancement{" "}
-      </p>
+    <section className=" bg-champagne pb-40">
+      <h1 className=" text-blue text-[3rem] font-bold">Votre Parcours</h1>
       <div className="flex">
-        <div className="max-[750  px]:hidden">
+        <div className="flex-1">
           <img
             src={Picture}
-            alt="crumbs"
-            className="w-[60rem] h-[60rem] pt-20 opacity-25"
+            alt="img"
+            className=" w-28 h-30 pt-8 pl-8 opacity-80"
+          />
+          <p className="pl-8 pb-4 text-xl font-bold opacity-25 ">
+            Cliquer sur une catégorie pour connaitre le détail de votre
+            avancement.
+          </p>
+          <img
+            src={Arrived}
+            alt="Ligne_d_arrivee"
+            className=" h-72 ml-16 mt-28 rotate-div animate-spin-2s "
           />
         </div>
-        <div className="grid grid-cols-5">
-          {categorie.map((formation, index) => (
-            <div
-              key={formation.id}
-              className={` ${index === 0 ? "col-start-3 col-end-4" : ""} ${
-                index === 1 ? "col-start-2 col-end-3" : ""
-              } ${index === 2 ? "col-start-4 col-end-5" : ""} ${
-                index === 3 || index === 6 || index === 9
-                  ? "col-start-1 col-end-2"
-                  : ""
-              } ${
-                index === 4 || index === 7 || index === 10 ? "col-start-3" : ""
-              } ${
-                index === 5 || index === 8 || index === 11 ? "col-start-5" : ""
-              }`}
-            >
-              <div className=" bg-light_blue h-40 w-30 px-3 py-3 my-10 mx-10 rounded-lg  ">
-                <h3 className="text-2xl text-center pt-2">{formation.title}</h3>
-                <div className="flex justify-center">
-                  <Icons icon={formation.icon} />
+        <div className="flex pl-8">
+          <div className="pt-6">
+            <LineAnimation />
+          </div>
+          <div className="absolute grid grid-cols-6 ">
+            {categorie.map((formation, index) => (
+              <div
+                key={formation.id}
+                className={`${
+                  index === 0 || index === 6 ? "col-start-1 col-end-2" : ""
+                }
+                ${index === 5 || index === 11 ? "col-start-6 col-end-6" : ""}${
+                  index === 1 || index === 7 ? "col-start-3 col-end-4" : ""
+                } ${index === 2 || index === 8 ? "col-start-5" : ""} ${
+                  index === 3 || index === 9 ? "col-start-2 col-end-3" : ""
+                } ${index === 4 || index === 10 ? "col-start-4" : ""}`}
+              >
+                <div className=" active:col-span-2 bg-white shadow-xl h-36 w-36 px-3 py-3 mx-2 rounded-lg transition hover:rotate-2 hover:scale-150 focus:outline-none focus:ring hover:bg-blue_light  active:font-bold  ">
+                  <h3 className="text-center pt-2">{formation.title}</h3>
+                  <div className="flex justify-center">
+                    <Icons icon={formation.icon} />
+                  </div>
                 </div>
+                <p className=" text-center">2/3</p>
               </div>
-              <p className=" text-center">2/3</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

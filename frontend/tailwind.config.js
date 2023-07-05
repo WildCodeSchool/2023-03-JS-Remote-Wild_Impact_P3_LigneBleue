@@ -10,11 +10,25 @@ export default {
       champagne: "#F9F4EC",
       white: "#FFFFFF",
       purple: "#E384E6",
+      blue_light: "#CBE6F7",
     },
     fontFamily: {
       sans: ["Montserrat"],
     },
-    extend: {},
+    extend: {
+      keyframes: {
+        "rotate-2s": {
+          "0%": { transform: "rotate(0deg)" },
+          "25%": { transform: "rotate(15deg)" },
+          "50%": { transform: "rotate(-15deg)" },
+          "75%": { transform: "rotate(30deg)" },
+          "100%": { transform: "rotate(-30deg)" },
+        },
+      },
+      animation: {
+        "spin-2s": "rotate-2s 7s alternate-reverse",
+      },
+    },
   },
   plugins: [],
 };
