@@ -1,6 +1,6 @@
 const AbstractManager = require("./AbstractManager");
 
-class TutoAdminManager extends AbstractManager {
+class TutoManager extends AbstractManager {
   constructor() {
     super({ table: "tutorials" });
   }
@@ -16,18 +16,10 @@ class TutoAdminManager extends AbstractManager {
 
   find(id) {
     return this.database.query(
-      `select 
-      t.id as tutoid,
-      f.title as ftitle,
-      f.id as fid,
-      t.name as tutoname,
-      t.target,
-      t.explanation,
-      i.src,
-      i.alt,
+      `select f.title as ftitle ,t.id as tutoid, t.name as tutoname, t.target, t.explanation, i.src,i.alt
       from formations as f
       inner join tutorials as t on t.formation_id=f.id 
-      inner join images as i on t.image_id=i.id 
+      inner join images as i on t.image_id=i.id
       where t.id = ?`,
       [id]
     );
@@ -47,4 +39,4 @@ class TutoAdminManager extends AbstractManager {
   //   }
 }
 
-module.exports = TutoAdminManager;
+module.exports = TutoManager;

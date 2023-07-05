@@ -1,17 +1,7 @@
 const models = require("../models");
 
-const browseUser = (req, res) => {
-  models.TutoUser.findAll()
-    .then(([rows]) => {
-      res.send(rows);
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-const browseAdmin = (req, res) => {
-  models.TutoAdmin.findAll()
+const browse = (req, res) => {
+  models.Tuto.findAll()
     .then(([rows]) => {
       res.send(rows);
     })
@@ -21,23 +11,8 @@ const browseAdmin = (req, res) => {
     });
 };
 
-const readUser = (req, res) => {
-  models.TutoAdmin.find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
-        res.sendStatus(404);
-      } else {
-        res.send(rows[0]);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
-
-const readAdmin = (req, res) => {
-  models.TutoAdmin.find(req.params.id)
+const read = (req, res) => {
+  models.Tuto.find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
         res.sendStatus(404);
@@ -103,10 +78,8 @@ const destroy = (req, res) => {
 };
 
 module.exports = {
-  browseUser,
-  browseAdmin,
-  readUser,
-  readAdmin,
+  browse,
+  read,
   edit,
   add,
   destroy,

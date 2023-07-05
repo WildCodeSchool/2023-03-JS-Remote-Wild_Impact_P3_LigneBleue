@@ -4,11 +4,8 @@ const router = express.Router();
 
 const TutoControllers = require("./controllers/TutoControllers");
 
-router.get("/tuto", TutoControllers.browseUser);
-// router.get("/tuto/:id", TutoControllers.readUser);
-
-router.get("/admin/tuto", TutoControllers.browseAdmin);
-router.get("/admin/tuto/:id", TutoControllers.readAdmin);
+router.get("/tuto", TutoControllers.browse);
+router.get("/tuto/:id", TutoControllers.read);
 // router.put("/admin/tuto/:id", TutoControllers.editAdmin);
 // router.post("/admin/tuto", TutoControllers.addAdmin);
 // router.delete("/admin/tuto/:id", TutoControllers.destroyAdmin);
