@@ -6,6 +6,8 @@ import TutoAdmin from "./pages/Admin/TutoAdmin";
 import Footer from "./components/Footer";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Users/Home";
+import Advancement from "./pages/Users/Advancement";
+import TutoAdvancement from "./pages/Users/TutoAdvancement";
 import Header from "./components/Header";
 import Breadcrumbs from "./components/Breadcrumbs";
 import Erreur from "./pages/Erreur";
@@ -24,6 +26,11 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="tutorials/:id" element={<OneTuto />} />
               <Route path="/connexion" element={<Connexion />} />
+              <Route path="/parcours" element={<Advancement />} />
+              <Route
+                path="/parcours/avancement"
+                element={<TutoAdvancement />}
+              />
               <Route path="/*" element={<Erreur />} />
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
