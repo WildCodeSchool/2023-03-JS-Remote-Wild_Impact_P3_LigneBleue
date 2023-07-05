@@ -9,6 +9,7 @@ export default {
       light_blue: "#DADDEB",
       champagne: "#F9F4EC",
       white: "#FFFFFF",
+      purple: "#E384E6",
     },
     fontFamily: {
       sans: ["Montserrat"],
