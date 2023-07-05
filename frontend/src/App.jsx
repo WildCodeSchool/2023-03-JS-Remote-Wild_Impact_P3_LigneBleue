@@ -27,7 +27,6 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="formations/:id" element={<TutorialsList />} />
               <Route path="tutoriel" element={<Tutoriel />} />
-              <Route path="tutorials/:id" element={<OneTuto />} />
               <Route path="/connexion" element={<Connexion />} />
               <Route path="/parcours" element={<Advancement />} />
               <Route
