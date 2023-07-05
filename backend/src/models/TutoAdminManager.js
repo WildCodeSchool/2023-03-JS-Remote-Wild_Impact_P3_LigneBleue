@@ -7,13 +7,28 @@ class TutoAdminManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `select f.title as ftitle ,t.name, t.target, t.explanation, i.src,i.alt, q.title as qtitle, quest.content, a.content from formations as f inner join tutorials as t on t.formation_id=f.id inner join images as i on t.image_id=i.id inner join quizz as q on t.quizz_id=q.id inner join questions as quest on quest.quizz_id=q.id inner join answers as a on a.question_id=quest.id  `
+      `select f.title as ftitle ,t.name as tutoname, t.target, t.explanation, i.src,i.alt
+      from formations as f 
+      inner join tutorials as t on t.formation_id=f.id 
+      inner join images as i on t.image_id=i.id`
     );
   }
 
   find(id) {
     return this.database.query(
-      `select t.id,f.title,t.name, t.target, t.explanation, i.src,i.alt, q.title,  quest.content, a.content from formations as f inner join tutorials as t on t.formation_id=f.id inner join images as i on t.image_id=i.id inner join quizz as q on t.quizz_id=q.id inner join questions as quest on quest.quizz_id=q.id inner join answers as a on a.question_id=quest.id  where t.id = ?`,
+      `select 
+      t.id as tutoid,
+      f.title as ftitle,
+      f.id as fid,
+      t.name as tutoname,
+      t.target,
+      t.explanation,
+      i.src,
+      i.alt,
+      from formations as f
+      inner join tutorials as t on t.formation_id=f.id 
+      inner join images as i on t.image_id=i.id 
+      where t.id = ?`,
       [id]
     );
   }
