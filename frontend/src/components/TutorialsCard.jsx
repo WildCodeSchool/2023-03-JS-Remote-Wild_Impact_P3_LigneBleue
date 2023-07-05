@@ -1,7 +1,7 @@
 import React from "react";
 
-function TutorialsCard() {
-  return <div>TutorialsCard</div>;
+function TutorialsCard({ tutorial }) {
+  return <div>{tutorial.name}</div>;
 }
 
 export default TutorialsCard;
