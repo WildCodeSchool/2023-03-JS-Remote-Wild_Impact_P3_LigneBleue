@@ -18,7 +18,7 @@ function Advancement() {
         Cliquer sur une catégorie pour connaitre le détail de votre avancement{" "}
       </p>
       <div className="flex">
-        <div>
+        <div className="max-[750  px]:hidden">
           <img
             src={Picture}
             alt="crumbs"
