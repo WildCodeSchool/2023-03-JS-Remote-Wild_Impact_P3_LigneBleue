@@ -8,6 +8,13 @@ class formationsManager extends AbstractManager {
   findAll() {
     return this.database.query(`select * from ${this.table}`);
   }
+
+  find(id) {
+    return this.database.query(
+      `select f.title, t.name from formations as f inner join tutorials as t on f.id=t.formation_id where f.id=?`,
+      [id]
+    );
+  }
 }
 
 module.exports = formationsManager;

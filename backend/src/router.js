@@ -13,5 +13,6 @@ router.delete("/tuto/:id", TutoControllers.destroy);
 const formationsControllers = require("./controllers/formationsControllers");
 
 router.get("/formations", formationsControllers.browse);
+router.get("/formations/:id", formationsControllers.read);
 
 module.exports = router;
