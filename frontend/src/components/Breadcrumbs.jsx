@@ -23,7 +23,7 @@ function Breadcrumbs() {
 
   return (
     <div className="flex flex-row mt-1">
-      <img src={logoBreadcrumbs} alt="" className="w-6 h-6 ml-2" />
+      <img src={logoBreadcrumbs} alt="crumbs" className="w-6 h-6 ml-2" />
       {location.pathname === "/" ? (
         <div>Accueil</div>
       ) : (
