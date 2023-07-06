@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import Icons from "../../components/Icons";
 import Picture from "../../assets/picture.png";
+import connexion from "../../services/connexion";
 
 function Advancement() {
-  const [categorie, setCategorie] = useState([]);
+  const [ProgressionCategories, setProgressionCategories] = useState([]);
+
+  const getCategorieProgression = async () => {
+    try {
+      const Categorie = await connexion.get(`/formations`);
+      setProgressionCategories(Categorie);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/formations`)
-      .then((res) => res.json())
-      .then((form) => setCategorie(form))
-      .catch((err) => console.error(err));
+    getCategorieProgression();
   }, []);
 
   return (
@@ -26,7 +34,7 @@ function Advancement() {
           />
         </div>
         <div className="grid grid-cols-5">
-          {categorie.map((formation, index) => (
+          {ProgressionCategories.map((formation, index) => (
             <div
               key={formation.id}
               className={` ${index === 0 ? "col-start-3 col-end-4" : ""} ${

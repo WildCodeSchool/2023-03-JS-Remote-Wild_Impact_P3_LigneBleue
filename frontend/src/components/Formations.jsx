@@ -1,16 +1,23 @@
 import React, { useEffect, useState } from "react";
 import Icons from "./Icons";
 import "./Formations.css";
+import connexion from "../services/connexion";
 
 function Formations() {
   const [formations, setFormations] = useState([]);
+  const getAllFormations = async () => {
+    try {
+      const AllFormations = await connexion.get(`/formations`);
+      setFormations(AllFormations);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/formations`)
-      .then((res) => res.json())
-      .then((form) => setFormations(form))
-      .catch((err) => console.error(err));
+    getAllFormations();
   }, []);
+
   return (
     <section>
       <div className="pt-10 pr-4 pl-4">
