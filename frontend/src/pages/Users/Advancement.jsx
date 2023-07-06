@@ -17,7 +17,9 @@ function Advancement() {
     <section className=" bg-champagne pb-40">
       <div className="  flex">
         <div className=" min-w-[30%]">
-          <h1 className=" text-blue text-[3rem] max-[700px]:text-lg font-bold">Votre Parcours</h1>
+          <h1 className=" text-blue text-[3rem] max-[700px]:text-lg font-bold">
+            Votre Parcours
+          </h1>
           <img
             src={Picture}
             alt="img"
