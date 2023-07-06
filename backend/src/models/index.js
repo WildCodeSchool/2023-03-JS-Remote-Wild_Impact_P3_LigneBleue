@@ -39,6 +39,11 @@ const TutoManager = require("./TutoManager");
 models.Tuto = new TutoManager();
 models.Tuto.setDatabase(pool);
 
+const QuizzManager = require("./QuizzManager");
+
+models.Quizz = new QuizzManager();
+models.Quizz.setDatabase(pool);
+
 const FormationsManager = require("./FormationsManager");
 
 models.Formations = new FormationsManager();

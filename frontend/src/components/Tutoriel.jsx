@@ -14,9 +14,18 @@ function Tutoriel() {
           asperiores! Maxime sit, corrupti necessitatibus sequi laboriosam nemo
           nam illum animi?
         </p>
-        <div className="bg-white rounded-3xl m-8 >">
-          <h2 className="p-12 ">Validez votre tuto</h2>
-          <h3>Question 1</h3>
+        <div className="bg-white rounded-3xl m-8 p-4 flex>">
+          <div>
+            <h2 className="text-center">Validez votre tuto</h2>
+          </div>
+          <h3 className="pt-4">Question 1</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
+            adipisci consectetur dolor ipsa totam perspiciatis at ea. Adipisci,
+            nam eos itaque officia, ipsa vitae dicta tempora eius magni ducimus
+            quo.
+          </p>
+          <h3 className="pt-4">Question 2</h3>
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit
             adipisci consectetur dolor ipsa totam perspiciatis at ea. Adipisci,
