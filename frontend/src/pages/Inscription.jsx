@@ -1,10 +1,10 @@
 import React from "react";
 
-function Connexion() {
+function Signin() {
   return (
     <div className="flex justify-center flex-col p-4">
       <div className="p-4 flex justify-center">
-        <h1>Me connecter pour accéder à mon parcours</h1>
+        <h1>M'inscrire pour accéder à mon parcours</h1>
       </div>
       <div className="flex justify-center">
         <form className=" shadow-md rounded px-8 pt-6 pb-8 mb-4">
@@ -13,13 +13,13 @@ function Connexion() {
               className="block text-gray-700 text-sm font-bold mb-2 flex justify-center"
               htmlFor="username"
             >
-              E-mail ou nom d'utilisateur
+              E-mail
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
               type="text"
-              placeholder="E-mail ou nom d'utilisateur"
+              placeholder="E-mail"
             />
           </div>
           <div className="mb-6">
@@ -43,12 +43,6 @@ function Connexion() {
             >
               Continuer
             </button>
-            <button
-              className=" text-blue text-sm underline underline-offset-1 rounded-full m-2"
-              type="submit"
-            >
-              Mot de passe oublié ?
-            </button>
           </div>
         </form>
       </div>
@@ -56,4 +50,4 @@ function Connexion() {
   );
 }
 
-export default Connexion;
+export default Signin;

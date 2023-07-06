@@ -14,6 +14,7 @@ import Erreur from "./pages/Erreur";
 
 import "./App.css";
 import Tutoriel from "./components/Tutoriel";
+import Signin from "./pages/Inscription";
 
 function App() {
   return (
@@ -27,7 +28,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="formations/:id" element={<TutorialsList />} />
               <Route path="tutoriel" element={<Tutoriel />} />
-              <Route path="/connexion" element={<Connexion />} />
+              <Route path="auth/connexion" element={<Connexion />} />
+              <Route path="auth/inscription" element={<Signin />} />
               <Route path="/parcours" element={<Advancement />} />
               <Route
                 path="/parcours/avancement"
