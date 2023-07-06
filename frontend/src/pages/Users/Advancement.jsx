@@ -15,9 +15,10 @@ function Advancement() {
 
   return (
     <section className=" bg-champagne pb-40">
-      <h1 className=" text-blue text-[3rem] font-bold">Votre Parcours</h1>
-      <div className="flex">
-        <div className="flex-1">
+
+      <div className="  flex">
+        <div className=" min-w-[30%]">
+        <h1 className=" text-blue text-[3rem] font-bold">Votre Parcours</h1>
           <img
             src={Picture}
             alt="img"
@@ -30,10 +31,10 @@ function Advancement() {
           <img
             src={Arrived}
             alt="Ligne_d_arrivee"
-            className=" h-72 ml-16 mt-28 rotate-div animate-spin-2s "
+            className=" h-72 ml-24 mt-24 rotate-div animate-spin-2s "
           />
         </div>
-        <div className="flex pl-8">
+        <div className="flex pl-8 pt-2">
           <div className="pt-6">
             <LineAnimation />
           </div>
