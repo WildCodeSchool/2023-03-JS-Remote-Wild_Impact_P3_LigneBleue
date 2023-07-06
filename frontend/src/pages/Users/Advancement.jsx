@@ -5,7 +5,6 @@ import Picture from "../../assets/picture.png";
 import Arrived from "../../assets/arrived.png";
 import connexion from "../../services/connexion";
 
-
 function Advancement() {
   const [ProgressionCategories, setProgressionCategories] = useState([]);
 
