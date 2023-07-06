@@ -3,14 +3,23 @@ import Icons from "../../components/Icons";
 import LineAnimation from "../../components/LineAnimation";
 import Picture from "../../assets/picture.png";
 import Arrived from "../../assets/arrived.png";
+import connexion from "../../services/connexion";
+
 
 function Advancement() {
-  const [categorie, setCategorie] = useState([]);
+  const [ProgressionCategories, setProgressionCategories] = useState([]);
+
+  const getCategorieProgression = async () => {
+    try {
+      const Categorie = await connexion.get(`/formations`);
+      setProgressionCategories(Categorie);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/formations`)
-      .then((res) => res.json())
-      .then((form) => setCategorie(form))
-      .catch((err) => console.error(err));
+    getCategorieProgression();
   }, []);
 
   return (
@@ -40,7 +49,7 @@ function Advancement() {
             <LineAnimation />
           </div>
           <div className="absolute grid grid-cols-6 ">
-            {categorie.map((formation, index) => (
+            {ProgressionCategories.map((formation, index) => (
               <div
                 key={formation.id}
                 className={` ${

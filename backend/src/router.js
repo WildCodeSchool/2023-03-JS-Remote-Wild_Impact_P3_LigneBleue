@@ -4,15 +4,23 @@ const router = express.Router();
 
 const TutoControllers = require("./controllers/TutoControllers");
 
-router.get("/tuto", TutoControllers.browse);
-router.get("/tuto/:id", TutoControllers.read);
-router.put("/tuto/:id", TutoControllers.edit);
-router.post("/tuto", TutoControllers.add);
-router.delete("/tuto/:id", TutoControllers.destroy);
+router.get("/tuto", TutoControllers.browseUser);
+router.get("/tuto/:id", TutoControllers.readUser);
+
+router.get("/admin/tuto", TutoControllers.browseAdmin);
+router.get("/admin/tuto/:id", TutoControllers.readAdmin);
+// router.put("/admin/tuto/:id", TutoControllers.editAdmin);
+// router.post("/admin/tuto", TutoControllers.addAdmin);
+// router.delete("/admin/tuto/:id", TutoControllers.destroyAdmin);
 
 const formationsControllers = require("./controllers/formationsControllers");
 
 router.get("/formations", formationsControllers.browse);
 router.get("/formations/:id", formationsControllers.read);
+
+const quizzControllers = require("./controllers/quizzControllers");
+
+router.get("/quizz", quizzControllers.browse);
+router.get("/quizz/:id", quizzControllers.read);
 
 module.exports = router;
