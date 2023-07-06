@@ -20,7 +20,12 @@ import { IoLogoGameControllerB } from "react-icons/io";
 
 import { TbMap2 } from "react-icons/tb";
 
-import { FaInternetExplorer, FaSms, FaPhotoVideo } from "react-icons/fa";
+import {
+  FaInternetExplorer,
+  FaSms,
+  FaPhotoVideo,
+  FaBook,
+} from "react-icons/fa";
 
 import { ImQrcode } from "react-icons/im";
 
@@ -28,7 +33,7 @@ import { MdTouchApp } from "react-icons/md";
 
 import { BiSolidPhoneCall, BiSolidContact } from "react-icons/bi";
 
-import { BsFacebook, BsInstagram, BsTiktok } from "react-icons/bs";
+import { BsFacebook, BsInstagram, BsTiktok, BsShareFill } from "react-icons/bs";
 
 function Icons({ icon }) {
   const iconMapping = {
@@ -57,6 +62,8 @@ function Icons({ icon }) {
     facebook: BsFacebook,
     instagram: BsInstagram,
     tiktok: BsTiktok,
+    lexicologie: FaBook,
+    partager: BsShareFill,
   };
 
   const IconComponent = iconMapping[icon] || null;
