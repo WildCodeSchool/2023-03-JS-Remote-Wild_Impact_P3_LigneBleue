@@ -22,7 +22,6 @@ function TutorialsList() {
 
 
   return (
-    <>
       <section>
         <div className="pt-10 pr-4 pl-4">
           {" "}
