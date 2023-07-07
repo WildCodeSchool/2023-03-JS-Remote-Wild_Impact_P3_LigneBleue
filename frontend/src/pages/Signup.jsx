@@ -14,8 +14,7 @@ function Signup() {
   const login = async (event) => {
     event.preventDefault();
     try {
-      const log = await connexion.post("/signup", user);
-      console.info(log);
+      await connexion.post("/signup", user);
     } catch (error) {
       console.error(error);
     }
