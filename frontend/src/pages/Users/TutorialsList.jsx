@@ -21,13 +21,13 @@ function TutorialsList() {
 
   return (
     <section>
-      <div className="pt-10 pr-4 pl-4">
+      <div className="py-5 pr-4 pl-4 mb-1">
         {" "}
-        <div className="bg-champagne grid grid-cols-3 rounded-tr-3xl rounded-tl-3xl">
+        <div className="bg-champagne grid grid-cols-3 max-sm:grid max-sm:grid-cols-2 place-items-center rounded-3xl">
           {list.map((tutorial) => (
             <div
               key={tutorial.id}
-              className="formations bg-light_blue px-3 py-3 my-10 mx-10"
+              className="formations flex flex-col justify-center items-center bg-brown_light px-3 py-3 my-10 mx-10 w-52 h-40"
             >
               <h3 className="text-2xl text-center pt-2">{tutorial.name}</h3>
               <div className="flex justify-center">
