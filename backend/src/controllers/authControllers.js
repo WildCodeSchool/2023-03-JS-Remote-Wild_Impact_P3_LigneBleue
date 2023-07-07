@@ -6,6 +6,8 @@ const user = {
   password: "test",
 };
 
+console.info(user);
+
 const hashing = (password) => {
   return argon2.hash(password, {
     type: argon2.argon2id,
