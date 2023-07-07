@@ -13,6 +13,7 @@ import Erreur from "./pages/Erreur";
 
 import "./App.css";
 import Tutoriel from "./components/Tutoriel";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -27,12 +28,10 @@ function App() {
               <Route path="formations/:id" element={<TutorialsList />} />
               <Route path="tutoriel" element={<Tutoriel />} />
               <Route path="connexion" element={<Connexion />} />
+              <Route path="inscription" element={<Signup />} />
               <Route path="parcours" element={<Advancement />} />
-              <Route
-                path="/parcours/avancement"
-                element={<TutoAdvancement />}
-              />
-              <Route path="/*" element={<Erreur />} />
+              <Route path="parcours/avancement" element={<TutoAdvancement />} />
+              <Route path="*" element={<Erreur />} />
             </Route>
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="tuto" element={<TutoAdmin />} />
