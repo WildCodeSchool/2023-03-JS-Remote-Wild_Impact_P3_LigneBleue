@@ -17,7 +17,6 @@ import Tutoriel from "./components/Tutoriel";
 function App() {
   return (
     <div className="min-h-screen flex flex-col justify-between">
-      <Header />
       <BrowserRouter>
         <Header />
         <Breadcrumbs />
