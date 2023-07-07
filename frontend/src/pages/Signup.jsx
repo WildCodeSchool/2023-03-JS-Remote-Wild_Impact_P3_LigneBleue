@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import connexion from "../services/connexion";
 
-function Signin() {
+function Signup() {
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -14,7 +14,7 @@ function Signin() {
   const login = async (event) => {
     event.preventDefault();
     try {
-      const log = await connexion.post("/signin", user);
+      const log = await connexion.post("/signup", user);
       console.info(log);
     } catch (error) {
       console.error(error);
@@ -82,4 +82,4 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;

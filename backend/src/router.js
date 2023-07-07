@@ -17,4 +17,8 @@ const quizzControllers = require("./controllers/quizzControllers");
 router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
 
+const authControllers = require("./controllers/authControllers");
+
+router.post("/signup", authControllers.signup);
+
 module.exports = router;
