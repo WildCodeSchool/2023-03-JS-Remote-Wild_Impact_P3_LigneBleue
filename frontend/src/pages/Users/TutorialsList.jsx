@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Icons from "../../components/Icons";
 import connexion from "../../services/connexion";
 
 function TutorialsList() {
-  const [List, SetList] = useState([]);
+  const [list, SetList] = useState([]);
   const { id } = useParams();
   const getTutorialsList = async () => {
     try {
@@ -21,14 +22,17 @@ function TutorialsList() {
   return (
     <section>
       <div className="py-5 pr-4 pl-4 mb-1">
+        {" "}
         <div className="bg-champagne grid grid-cols-3 max-sm:grid max-sm:grid-cols-2 place-items-center rounded-3xl">
-          {List.map((tutorial) => (
+          {list.map((tutorial) => (
             <div
-              key={tutorial.name}
+              key={tutorial.id}
               className="formations flex flex-col justify-center items-center bg-brown_light px-3 py-3 my-10 mx-10 w-52 h-40"
             >
-              <h3 className="text-xl text-center pt-2">{tutorial.name}</h3>
-              <div className="flex justify-center" />
+              <h3 className="text-2xl text-center pt-2">{tutorial.name}</h3>
+              <div className="flex justify-center">
+                <Icons icon={tutorial.icon} />
+              </div>
             </div>
           ))}
         </div>
