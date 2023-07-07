@@ -13,9 +13,14 @@ export default withMT({
       white: "#FFFFFF",
       purple: "#E384E6",
       blue_light: "#CBE6F7",
+      brown_light: "#E6B99C",
     },
     fontFamily: {
       sans: ["Montserrat"],
+    },
+    screens: {
+      sm: "640px",
+      // rest of the breakpoints
     },
     extend: {
       keyframes: {
