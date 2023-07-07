@@ -2,8 +2,8 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.Quizz.findAll()
-    .then(([rows]) => {
-      res.status(200).json(rows);
+    .then(([quizz]) => {
+      res.status(200).json(quizz);
     })
     .catch((err) => {
       console.error(err);

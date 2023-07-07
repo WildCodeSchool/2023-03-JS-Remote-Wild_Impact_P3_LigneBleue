@@ -3,7 +3,6 @@ import UserLayout from "./pages/Layout/UserLayout";
 import TutorialsList from "./pages/Users/TutorialsList";
 import AdminLayout from "./pages/Layout/AdminLayout";
 import TutoAdmin from "./pages/Admin/TutoAdmin";
-import Footer from "./components/Footer";
 import Connexion from "./pages/Connexion";
 import Home from "./pages/Users/Home";
 import Advancement from "./pages/Users/Advancement";
@@ -20,15 +19,16 @@ function App() {
     <div className="min-h-screen flex flex-col justify-between">
       <Header />
       <BrowserRouter>
+        <Header />
         <Breadcrumbs />
         <div className="App">
           <Routes>
             <Route path="/" element={<UserLayout />}>
-              <Route path="/" element={<Home />} />
+              <Route path="" element={<Home />} />
               <Route path="formations/:id" element={<TutorialsList />} />
               <Route path="tutoriel" element={<Tutoriel />} />
-              <Route path="/connexion" element={<Connexion />} />
-              <Route path="/parcours" element={<Advancement />} />
+              <Route path="connexion" element={<Connexion />} />
+              <Route path="parcours" element={<Advancement />} />
               <Route
                 path="/parcours/avancement"
                 element={<TutoAdvancement />}
@@ -41,7 +41,6 @@ function App() {
           </Routes>
         </div>
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }
