@@ -4,8 +4,8 @@ const router = express.Router();
 
 const TutoControllers = require("./controllers/TutoControllers");
 
-router.get("/tuto", TutoControllers.browse);
-router.get("/tuto/:id", TutoControllers.read);
+router.get("/tutos", TutoControllers.browse);
+router.get("/tutos/:id", TutoControllers.read);
 
 const formationsControllers = require("./controllers/formationsControllers");
 

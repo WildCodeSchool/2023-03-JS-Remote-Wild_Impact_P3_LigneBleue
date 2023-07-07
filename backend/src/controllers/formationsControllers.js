@@ -2,8 +2,8 @@ const models = require("../models");
 
 const browse = (req, res) => {
   models.Formations.findAll()
-    .then(([data]) => {
-      res.send(data);
+    .then(([formations]) => {
+      res.status(200).json(formations);
     })
     .catch((err) => {
       console.error(err);
@@ -13,11 +13,11 @@ const browse = (req, res) => {
 
 const read = (req, res) => {
   models.Formations.find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
+    .then(([formation]) => {
+      if (formation[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(rows);
+        res.status(200).json(formation);
       }
     })
     .catch((err) => {
