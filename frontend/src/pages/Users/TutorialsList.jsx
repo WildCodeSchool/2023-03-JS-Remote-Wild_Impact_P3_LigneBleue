@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Icons from "../../components/Icons";
-// import TutorialsCard from "../../components/TutorialsCard";
+import connexion from "../../services/connexion";
+
 
 function TutorialsList() {
   const [list, SetList] = useState([]);
   const { id } = useParams();
+  const getTutorialsList = async () => {
+    try {
+      const TutoList = await connexion.get(`/formations/${id}`);
+      SetList(TutoList);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/formations/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
-        SetList(data);
-      })
-      .catch((err) => console.error(err));
+      getTutorialsList();
   }, []);
+
 
   return (
     <>
-      {/* <div>{List}</div> */}
       <section>
         <div className="pt-10 pr-4 pl-4">
           {" "}
@@ -35,8 +40,7 @@ function TutorialsList() {
             ))}
           </div>
         </div>
-      </section>
-    </>
+    </section>
   );
 }
 
