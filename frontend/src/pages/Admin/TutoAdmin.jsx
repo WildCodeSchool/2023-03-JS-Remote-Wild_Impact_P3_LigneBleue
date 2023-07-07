@@ -25,7 +25,7 @@ function TutoAdmin() {
     <>
       <div>TutoAdmin</div>
       <AdminTabs color="purple" />
-      <div className="flex flex-col items-center w-72 gap-6">
+      <div className="flex flex-col items-center w-80 gap-6">
         <Select size="md" label="Choisissez une formation">
           {formations.map((formation) => (
             <Option key={formation.id} value={formation.id}>
