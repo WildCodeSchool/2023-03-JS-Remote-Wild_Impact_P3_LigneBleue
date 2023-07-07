@@ -15,7 +15,7 @@ function TutoAdmin() {
   }, []);
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_BACKEND_URL}/tuto`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/tutos`)
       .then((res) => res.json())
       .then((data) => setTutos(data))
       .catch((err) => console.error(err));
