@@ -1,9 +1,9 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.TutoAdmin.findAll()
-    .then(([rows]) => {
-      res.send(rows);
+  models.Tuto.findAll()
+    .then(([tutos]) => {
+      res.status(200).json(tutos);
     })
     .catch((err) => {
       console.error(err);
@@ -12,12 +12,12 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.TutoAdmin.find(req.params.id)
-    .then(([rows]) => {
-      if (rows[0] == null) {
+  models.Tuto.find(req.params.id)
+    .then(([tuto]) => {
+      if (tuto[0] == null) {
         res.sendStatus(404);
       } else {
-        res.send(rows[0]);
+        res.status(200).json(tuto[0]);
       }
     })
     .catch((err) => {

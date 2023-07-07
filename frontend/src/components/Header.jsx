@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo_lb.png";
 
 function Header() {
@@ -6,7 +7,9 @@ function Header() {
     <div className=" bg-yellow h-28 pt-2">
       <div className="flex  flex-row items-center justify-between bg-yellow pb-2 ">
         <div className="w-16 h-26 ml-3  min-[600px]:w-20 min-[600px]:h-30 min-[600px]:pt-2">
-          <img src={logo} alt="Logo_la ligne Bleue" />
+          <Link to="/">
+            <img src={logo} alt="Logo_la ligne Bleue" />
+          </Link>
         </div>
         <div>
           <h1 className=" text-2xl font-bold mt-6 pl-4 text-blue">

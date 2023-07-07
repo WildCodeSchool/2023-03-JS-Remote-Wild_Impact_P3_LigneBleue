@@ -1,6 +1,4 @@
 -- SQLBook: Code
-
-
 CREATE TABLE users (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name varchar(100) NOT NULL,
@@ -30,6 +28,7 @@ CREATE TABLE images (
 CREATE TABLE tutorials (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name varchar(255) NOT NULL,
+  icon varchar(255) NOT NULL,
   target varchar(255) NOT NULL,
   explanation longtext NOT NULL,
   published TINYINT NOT NULL,
@@ -102,14 +101,39 @@ INSERT INTO images(src, alt) VALUES ('Src4','alt4');
 INSERT INTO images(src, alt) VALUES ('Src5','alt5');
 INSERT INTO images(src, alt) VALUES ('Src6','alt6');
 
-INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Tuto 1','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',1,1,1);
-INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 2','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',2,2,2);
-INSERT INTO tutorials(name,target,explanation,published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 3','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
-INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Tuto 4','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',4,1,1);
-INSERT INTO tutorials(name,target,explanation, published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 5','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',5,2,2);
-INSERT INTO tutorials(name,target,explanation,published,creation_date,image_id, quizz_id,formation_id) VALUES ('Tuto 6','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',6,3,3);
+INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Arrêter/démarrer le téléphone','telephone','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',1,1,2);
+INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Utiliser un QR code','qrcode','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Manipuler écran tactile','tactile','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Téléphoner','telephoner','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Différence entre SMS, mail, message','messagerie','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Envoyer et recevoir SMS','sms','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Gestion des contacts','contact','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Lexicologie Android','lexicologie','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Faire une photo ou une vidéo','media','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Partager une photo ou vidéo','partager','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Ecouter de la musique','musique','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Regarder des vidéos','videos','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Jouer','jouer','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Facebook','facebook','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Instagram','instagram','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
+VALUES ('Tiktok','tiktok','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+
 
 
 INSERT INTO validated_by_user(user_id,tutorial_id) VALUES (1,2);
