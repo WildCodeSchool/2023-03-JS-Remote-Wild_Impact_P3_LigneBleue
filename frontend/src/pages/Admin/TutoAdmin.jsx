@@ -1,6 +1,10 @@
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 import React, { useState, useEffect } from "react";
+
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Select, Option } from "@material-tailwind/react";
 import AdminTabs from "../../components/AdminTabs";
 
 function TutoAdmin() {
@@ -26,20 +30,28 @@ function TutoAdmin() {
       <div>TutoAdmin</div>
       <AdminTabs color="purple" />
       <div className="flex flex-col items-center w-80 gap-6">
-        <Select size="md" label="Choisissez une formation">
-          {formations.map((formation) => (
-            <Option key={formation.id} value={formation.id}>
-              {formation.title}
-            </Option>
-          ))}
-        </Select>
-        <Select size="md" label="Choisissez un tutoriel">
-          {tutos.map((tuto) => (
-            <Option key={tuto.id} value={tuto.id}>
-              {tuto.name}
-            </Option>
-          ))}
-        </Select>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">
+            Choissisez une formation
+          </InputLabel>
+          <Select size="md" label="Choisissez une formation">
+            {formations.map((formation) => (
+              <MenuItem key={formation.id} value={formation.id}>
+                {formation.title}
+              </MenuItem>
+            ))}
+          </Select>
+          <InputLabel id="demo-simple-select-label">
+            Choissisez un tutoriel
+          </InputLabel>
+          <Select size="md" label="Choisissez un tutoriel">
+            {tutos.map((tuto) => (
+              <MenuItem key={tuto.id} value={tuto.id}>
+                {tuto.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </div>
     </>
   );

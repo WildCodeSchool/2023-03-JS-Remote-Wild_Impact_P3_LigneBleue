@@ -40,9 +40,9 @@ function Formations() {
             {formations.slice(0, 9).map((formation) => (
               <div
                 key={formation.id}
-                className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 w-52 h-40"
+                className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 max-sm:w-36 max-sm:h-30 w-52 h-40"
               >
-                <h3 className="titleformation text-xl text-center">
+                <h3 className="titleformation text-xl max-sm:text-sm text-center">
                   {formation.title}
                 </h3>
                 <div className="icons flex justify-center">
