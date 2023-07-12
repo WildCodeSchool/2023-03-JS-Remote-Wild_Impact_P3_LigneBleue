@@ -23,34 +23,36 @@ function TutoAdmin() {
   return (
     <>
       <div>TutoAdmin</div>
-      <AdminTabs color="purple" />
-      <div className="flex flex-col items-center w-80 gap-6">
-        <label htmlFor="underline_select" className="sr-only">
-          Choisissez une formation
-        </label>
-        <select
-          id="underline_select"
-          className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-        >
-          <option selected>Choisissez une formation</option>
-          {formations.map((formation) => (
-            <option value="US">{formation.title}</option>
-          ))}
-        </select>
-      </div>
-      <div className="flex flex-col items-center w-80 gap-6">
-        <label htmlFor="underline_select" className="sr-only">
-          Choisissez une formation
-        </label>
-        <select
-          id="underline_select"
-          className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-        >
-          <option selected>Choisissez un tuto</option>
-          {tutos.map((tuto) => (
-            <option value="US">{tuto.title}</option>
-          ))}
-        </select>
+      <AdminTabs />
+      <div className="flex flex-row justify-around">
+        <div className="flex flex-col items-center w-80 gap-6">
+          <label htmlFor="underline_select" className="sr-only">
+            Choisissez une formation
+          </label>
+          <select
+            id="underline_select"
+            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
+            <option selected>Choisissez une formation</option>
+            {formations.map((formation) => (
+              <option value={formation.id}>{formation.title}</option>
+            ))}
+          </select>
+        </div>
+        <div className="flex flex-col items-center w-80 gap-6">
+          <label htmlFor="underline_select" className="sr-only">
+            Choisissez une formation
+          </label>
+          <select
+            id="underline_select"
+            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+          >
+            <option selected>Choisissez un tuto</option>
+            {tutos.map((tuto) => (
+              <option value={tuto.id}>{tuto.title}</option>
+            ))}
+          </select>
+        </div>
       </div>
     </>
   );

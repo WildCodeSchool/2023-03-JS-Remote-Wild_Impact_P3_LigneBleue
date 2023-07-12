@@ -1,6 +1,6 @@
 import React from "react";
 
-function AdminTabs({ color }) {
+function AdminTabs() {
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <div className="flex flex-wrap">
@@ -13,8 +13,8 @@ function AdminTabs({ color }) {
             <a
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 1
-                  ? `text-white bg-${color}`
-                  : `text-${color} bg-white`
+                  ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
+                  : `text-gray-500 bg-white`
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -31,8 +31,8 @@ function AdminTabs({ color }) {
             <a
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 2
-                  ? `text-white bg-${color}`
-                  : `text-${color} bg-white`
+                  ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
+                  : `text-gray-500 bg-white`
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -49,8 +49,8 @@ function AdminTabs({ color }) {
             <a
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 3
-                  ? `text-white bg-${color}`
-                  : `text-${color} bg-white`
+                  ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
+                  : `text-gray-500 bg-white`
               }`}
               onClick={(e) => {
                 e.preventDefault();
