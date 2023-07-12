@@ -19,6 +19,10 @@ export default {
       yellowbutton: {
         200: "#fef08a",
       },
+      gray: {
+        200: "#e2e8f0",
+        500: "#64748b",
+      },
     },
     fontFamily: {
       sans: ["Montserrat"],
