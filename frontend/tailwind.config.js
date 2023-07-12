@@ -12,6 +12,13 @@ export default {
       purple: "#E384E6",
       blue_light: "#CBE6F7",
       brown_light: "#E6B99C",
+      red: {
+        200: "#fecaca",
+        300: "#fca5a5",
+      },
+      yellowbutton: {
+        200: "#fef08a",
+      },
     },
     fontFamily: {
       sans: ["Montserrat"],

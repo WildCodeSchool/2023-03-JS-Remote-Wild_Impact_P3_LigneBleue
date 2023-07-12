@@ -22,31 +22,28 @@ function Formations() {
   return (
     <section>
       <div className="py-5 pr-4 pl-4 mb-1">
-        <div className="bg-champagne grid grid-cols-3 place-items-center rounded-tr-3xl rounded-tl-3xl">
+        <div className="bg-champagne grid grid-cols-3 place-items-center rounded-tr-3xl rounded-tl-3xl pt-4">
           <Link to="/info">
             <button
               type="button"
-              className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
+              className="w-56 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:ring-4 focus:outline-none focus:ring-red-200"
             >
-              <div className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                <h3 className="text-xl text-center pt-2">
-                  Plus d'informations
-                </h3>
+              <div className="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                <h3 className="text-center">Plus d'informations</h3>
               </div>
             </button>
           </Link>
-          <div className="bg-champagne grid grid-cols-3 place-items-center rounded-tr-3xl rounded-tl-3xl">
-            <Link to="/aide">
-              <button
-                type="button"
-                className="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-red-200 via-red-300 to-yellow-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 dark:text-white dark:hover:text-gray-900 focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400"
-              >
-                <div className="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
-                  <h3 className="text-xl text-center pt-2">Se faire aider</h3>
-                </div>
-              </button>
-            </Link>
-          </div>
+
+          <Link to="/aide">
+            <button
+              type="button"
+              className="w-56 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellow-200 focus:ring-4 focus:outline-none focus:ring-red-200"
+            >
+              <div className="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                <h3 className="text-center">Se faire aider</h3>
+              </div>
+            </button>
+          </Link>
         </div>
 
         <div>
