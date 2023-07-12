@@ -7,6 +7,8 @@ import Connexion from "./pages/Connexion";
 import Home from "./pages/Users/Home";
 import Advancement from "./pages/Users/Advancement";
 import TutoAdvancement from "./pages/Users/TutoAdvancement";
+import Aide from "./pages/Users/Aide";
+import Info from "./pages/Users/Info";
 import Header from "./components/Header";
 import Breadcrumbs from "./components/Breadcrumbs";
 import Erreur from "./pages/Erreur";
@@ -25,6 +27,8 @@ function App() {
           <Routes>
             <Route path="/" element={<UserLayout />}>
               <Route path="" element={<Home />} />
+              <Route path="aide" element={<Aide />} />
+              <Route path="info" element={<Info />} />
               <Route path="formations/:id" element={<TutorialsList />} />
               <Route path="tutoriel" element={<Tutoriel />} />
               <Route path="connexion" element={<Connexion />} />

@@ -85,9 +85,6 @@ INSERT INTO formations(title,icon) VALUES ('Mes emails','email');
 INSERT INTO formations(title,icon) VALUES ('Communiquer','communiquer');
 INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone en sécurité','securite');
 INSERT INTO formations(title,icon) VALUES ('Se déplacer','deplacer');
-INSERT INTO formations(title,icon) VALUES ('Se faire aider','aider');
-INSERT INTO formations(title,icon) VALUES ('Rechercher un tuto','rechercher');
-INSERT INTO formations(title,icon) VALUES ('Pour aller plus loin','plusloin');
 
 
 INSERT INTO quizz(title) VALUES ('Quizz 1 - Vérifiez vos connaissances sur WhatsApp');

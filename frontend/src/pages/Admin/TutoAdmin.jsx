@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { Select, Option } from "@material-tailwind/react";
 import AdminTabs from "../../components/AdminTabs";
 
 function TutoAdmin() {
@@ -26,20 +25,32 @@ function TutoAdmin() {
       <div>TutoAdmin</div>
       <AdminTabs color="purple" />
       <div className="flex flex-col items-center w-80 gap-6">
-        <Select size="md" label="Choisissez une formation">
+        <label htmlFor="underline_select" className="sr-only">
+          Choisissez une formation
+        </label>
+        <select
+          id="underline_select"
+          className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+        >
+          <option selected>Choisissez une formation</option>
           {formations.map((formation) => (
-            <Option key={formation.id} value={formation.id}>
-              {formation.title}
-            </Option>
+            <option value="US">{formation.title}</option>
           ))}
-        </Select>
-        <Select size="md" label="Choisissez un tutoriel">
+        </select>
+      </div>
+      <div className="flex flex-col items-center w-80 gap-6">
+        <label htmlFor="underline_select" className="sr-only">
+          Choisissez une formation
+        </label>
+        <select
+          id="underline_select"
+          className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+        >
+          <option selected>Choisissez un tuto</option>
           {tutos.map((tuto) => (
-            <Option key={tuto.id} value={tuto.id}>
-              {tuto.name}
-            </Option>
+            <option value="US">{tuto.title}</option>
           ))}
-        </Select>
+        </select>
       </div>
     </>
   );
