@@ -18,6 +18,27 @@ const signup = async (req, res) => {
     .catch(() => res.status(500).json({ msg: "Invalide user" }));
 };
 
+const login = (req, res) => {
+  // 1 = a partir de l'email récup l'user oui /non ? (find)
+  models.users
+    .find(req.body.email)
+    .then(([user]) => {
+      if (user[0]) {
+        res.status(200).json(user[0]);
+      } else {
+        res.status(404).json({ msg: "Invalid credantial" });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+  // 2 = si oui, comparer les mdp avec argon2
+  // 3 = si mdp identique, création d'unn token JWT
+  // 4 = répsonse au client avec le token en cooki
+};
+
 module.exports = {
   signup,
+  login,
 };
