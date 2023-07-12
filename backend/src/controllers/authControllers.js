@@ -1,5 +1,5 @@
-// const models = require("../models");
 const argon2 = require("argon2");
+const models = require("../models");
 
 const hashing = (password) => {
   return argon2.hash(password, {
@@ -10,8 +10,12 @@ const hashing = (password) => {
 };
 
 const signup = async (req, res) => {
-  await hashing(req.body.password);
-  res.status(200).json({ msg: "Connected" });
+  const hash = await hashing(req.body.password);
+
+  models.users
+    .insert(req.body.email, hash)
+    .then(() => res.status(200).json({ msg: "User created" }))
+    .catch(() => res.status(500).json({ msg: "Invalide user" }));
 };
 
 module.exports = {
