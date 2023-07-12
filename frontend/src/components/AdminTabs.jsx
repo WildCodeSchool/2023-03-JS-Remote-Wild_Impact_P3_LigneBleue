@@ -1,4 +1,7 @@
 import React from "react";
+import TutoTab from "./TutoTab";
+import QuizzTab from "./QuizzTab";
+import RessourcesTab from "./RessourcesTab";
 
 function AdminTabs() {
   const [openTab, setOpenTab] = React.useState(1);
@@ -68,25 +71,16 @@ function AdminTabs() {
           <div className="px-4 py-5 flex-auto">
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                <p>
-                  Collaboratively administrate empowered markets via
-                  plug-and-play networks. Dynamically procrastinate B2C users
-                  after installed base benefits.
-                </p>
+                <p>coucou</p>
+                <TutoTab />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <p>
-                  Completely synergize resource taxing relationships via premier
-                  niche markets. Professionally cultivate one-to-one customer
-                  service with robust ideas.
-                </p>
+                <p>Coucou</p>
+                <QuizzTab />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <p>
-                  Efficiently unleash cross-media information without
-                  cross-media value. Quickly maximize timely deliverables for
-                  real-time schemas.
-                </p>
+                <p>coucou</p>
+                <RessourcesTab />
               </div>
             </div>
           </div>
