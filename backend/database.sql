@@ -1,11 +1,11 @@
 -- SQLBook: Code
 CREATE TABLE users (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name varchar(100) NOT NULL,
+  name varchar(100),
   mail varchar(100) NOT NULL,
   password varchar(100) NOT NULL,
-  admin TINYINT NOT NULL,
-  creation_date date NOT NULL
+  admin TINYINT NOT NULL DEFAULT 0,
+  creation_date DATETIME NOT NULL DEFAULT NOW()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE formations (
