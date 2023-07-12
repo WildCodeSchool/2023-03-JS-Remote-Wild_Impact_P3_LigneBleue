@@ -36,9 +36,10 @@ function TutorialsList() {
               <div className="flex justify-center">
                 <Icons icon={tutorial.icon} />
               </div>
-            ))}
-          </div>
+            </div>
+            ))}          
         </div>
+      </div>
       </section>
       <Footerbis />
     </>
