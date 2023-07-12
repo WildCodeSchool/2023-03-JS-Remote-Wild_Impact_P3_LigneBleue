@@ -62,7 +62,7 @@ function TutoTab() {
           >
             <option selected>Choisissez un tuto</option>
             {tutos.map((tuto) => (
-              <option value={tuto.id}>{tuto.title}</option>
+              <option value={tuto.id}>{tuto.name}</option>
             ))}
           </select>
         </div>
