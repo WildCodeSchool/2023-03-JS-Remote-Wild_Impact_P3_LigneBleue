@@ -26,9 +26,18 @@ const login = (req, res) => {
       if (user[0]) {
         try {
           if (await argon2.verify(user[0].password, req.body.password)) {
-            res.status(200).json(user[0]);
             const token = createJwt({ email: req.body.email });
-            console.info(token);
+            res
+              .status(200)
+              .cookie("ligne_bleue_token", token, {
+                httpOnly: true,
+                expires: new Date(Date.now() + 900000),
+              })
+              .json({
+                email: user[0].mail,
+                role: user[0].admin,
+                msg: "Connected",
+              });
           } else {
             res.status(404).json({ msg: "Invalid credantial" });
           }
@@ -44,8 +53,6 @@ const login = (req, res) => {
       console.error(err);
       res.sendStatus(500);
     });
-  // 3 = si mdp identique, création d'unn token JWT
-  // 4 = répsonse au client avec le token en cookie
 };
 
 module.exports = {
