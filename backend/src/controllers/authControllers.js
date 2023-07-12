@@ -1,5 +1,6 @@
 const argon2 = require("argon2");
 const models = require("../models");
+const { createJwt } = require("../services/jwt");
 
 const hashing = (password) => {
   return argon2.hash(password, {
@@ -19,12 +20,22 @@ const signup = async (req, res) => {
 };
 
 const login = (req, res) => {
-  // 1 = a partir de l'email récup l'user oui /non ? (find)
   models.users
     .find(req.body.email)
-    .then(([user]) => {
+    .then(async ([user]) => {
       if (user[0]) {
-        res.status(200).json(user[0]);
+        try {
+          if (await argon2.verify(user[0].password, req.body.password)) {
+            res.status(200).json(user[0]);
+            const token = createJwt({ email: req.body.email });
+            console.info(token);
+          } else {
+            res.status(404).json({ msg: "Invalid credantial" });
+          }
+        } catch (err) {
+          console.error(err);
+          res.sendStatus(500);
+        }
       } else {
         res.status(404).json({ msg: "Invalid credantial" });
       }
@@ -33,9 +44,8 @@ const login = (req, res) => {
       console.error(err);
       res.sendStatus(500);
     });
-  // 2 = si oui, comparer les mdp avec argon2
   // 3 = si mdp identique, création d'unn token JWT
-  // 4 = répsonse au client avec le token en cooki
+  // 4 = répsonse au client avec le token en cookie
 };
 
 module.exports = {
