@@ -30,7 +30,10 @@ function App() {
               <Route path="aide" element={<Help />} />
               <Route path="info" element={<Info />} />
               <Route path="formations/:id" element={<Formation />} />
-              <Route path="tutoriel/:id" element={<Tutoriel />} />
+              <Route
+                path="formations/:fid/tutoriel/:tid"
+                element={<Tutoriel />}
+              />
               <Route path="connexion" element={<Login />} />
               <Route path="inscription" element={<Signup />} />
               <Route path="parcours" element={<Progress />} />

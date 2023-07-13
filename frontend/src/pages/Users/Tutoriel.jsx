@@ -7,11 +7,11 @@ function Tutoriel() {
   const [open, setOpen] = useState(false);
   const [quizz, setQuizz] = useState([]);
   const [title, setTitle] = useState([]);
-  const { id } = useParams();
+  const { tid } = useParams();
 
   const getQuizz = async () => {
     try {
-      const QuizzList = await connexion.get(`/quizz/${id}`);
+      const QuizzList = await connexion.get(`/quizz/${tid}`);
       setTitle(QuizzList.title);
       setQuizz(QuizzList.questions);
     } catch (error) {
