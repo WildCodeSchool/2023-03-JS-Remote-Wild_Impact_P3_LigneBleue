@@ -21,6 +21,5 @@ router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
 
 router.use(checkUser);
-// route à protéger
 
 module.exports = router;
