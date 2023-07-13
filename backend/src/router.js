@@ -10,6 +10,9 @@ const authControllers = require("./controllers/authControllers");
 const { checkUserData } = require("./services/user");
 const { checkUser } = require("./services/jwt");
 
+router.post("/signup", checkUserData, authControllers.signup);
+router.post("/connexion", checkUserData, authControllers.login);
+
 router.get("/tutos", TutoControllers.browse);
 router.get("/tutos/:id", TutoControllers.read);
 router.get("/formations", formationsControllers.browse);
@@ -18,7 +21,6 @@ router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
 
 router.use(checkUser);
-router.post("/signup", checkUserData, authControllers.signup);
-router.post("/connexion", checkUserData, authControllers.login);
+// route à protéger
 
 module.exports = router;
