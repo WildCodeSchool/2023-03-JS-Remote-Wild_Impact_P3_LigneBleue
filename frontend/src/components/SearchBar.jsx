@@ -10,7 +10,7 @@ function SearchBar() {
 
   const getTuto = async () => {
     try {
-      const Tutos = await connexion.get(`/tutos?name=${search}`);
+      const Tutos = await connexion.get(`/tutorials?name=${search}`);
       setTutos(Tutos);
     } catch (err) {
       console.error(err);

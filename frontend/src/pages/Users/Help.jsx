@@ -1,7 +1,7 @@
 import React from "react";
 
-function Aide() {
+function Help() {
   return <div>Aide</div>;
 }
 
-export default Aide;
+export default Help;

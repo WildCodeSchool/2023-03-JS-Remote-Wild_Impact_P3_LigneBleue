@@ -5,12 +5,12 @@ import "./Formations.css";
 import connexion from "../services/connexion";
 import SearchBar from "./SearchBar";
 
-function Formations() {
+function AllFormations() {
   const [formations, setFormations] = useState([]);
   const getAllFormations = async () => {
     try {
-      const AllFormations = await connexion.get(`/formations`);
-      setFormations(AllFormations);
+      const Formations = await connexion.get(`/formations`);
+      setFormations(Formations);
     } catch (error) {
       console.error(error);
     }
@@ -69,4 +69,4 @@ function Formations() {
   );
 }
 
-export default Formations;
+export default AllFormations;
