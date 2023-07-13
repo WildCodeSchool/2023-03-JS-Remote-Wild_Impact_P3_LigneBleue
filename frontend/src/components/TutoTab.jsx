@@ -5,7 +5,6 @@ function TutoTab() {
   const [formations, setFormations] = useState([]);
   const [tutorials, setTutorials] = useState([]);
   const [formationId, setFormationId] = useState();
-  // const [oneTutorial, setOneTutorial] = useState();
 
   const getAllFormations = async () => {
     try {
