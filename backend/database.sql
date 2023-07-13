@@ -146,15 +146,15 @@ INSERT INTO resources(name,content,tutorial_id) VALUES ('Ressource 2','Duis just
 INSERT INTO resources(name,content,tutorial_id) VALUES ('Ressource 3','Curabitur bibendum finibus pellentesque. Nunc sollicitudin vitae neque ullamcorper finibus. Nullam rutrum sed ante sed fringilla. Pellentesque sagittis fermentum aliquet. Maecenas pulvinar ipsum risus, a consectetur mauris ornare vel. Curabitur eget iaculis elit. Maecenas cursus justo at lobortis eleifend. Fusce vitae lorem venenatis, varius nunc eu, tincidunt justo. Curabitur a lectus laoreet, posuere nulla eu, malesuada mauris. Curabitur at mi tortor.',1);
 
 
-INSERT INTO questions(content,quizz_id) VALUES ('Question 1',2);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 2',1);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 3',3);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 4',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 1 Quizz 1',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 2 Quizz 1',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 3 Quizz 1',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 4 Quizz 1',1);
 
-INSERT INTO questions(content,quizz_id) VALUES ('Question 5',2);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 6',1);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 7',3);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 8',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 1 Quizz 2',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 2 Quizz 2',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 3 Quizz 2',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Question 4 Quizz 2',2);
 
 INSERT INTO answers(content,question_id) VALUES ('Reponse 1',1);
 INSERT INTO answers(content,question_id) VALUES ('Reponse 2',2);

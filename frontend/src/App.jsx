@@ -12,7 +12,7 @@ import Breadcrumbs from "./components/Breadcrumbs";
 import Erreur from "./pages/Erreur";
 
 import "./App.css";
-import Tutoriel from "./components/Tutoriel";
+import Tutoriel from "./pages/Users/Tutoriel";
 import Signup from "./pages/Signup";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
             <Route path="/" element={<UserLayout />}>
               <Route path="" element={<Home />} />
               <Route path="formations/:id" element={<TutorialsList />} />
-              <Route path="tutoriel" element={<Tutoriel />} />
+              <Route path="tutoriel/:id" element={<Tutoriel />} />
               <Route path="connexion" element={<Connexion />} />
               <Route path="inscription" element={<Signup />} />
               <Route path="parcours" element={<Advancement />} />
