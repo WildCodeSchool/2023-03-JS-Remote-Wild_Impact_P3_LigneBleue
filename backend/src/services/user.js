@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const checkUser = (req, res, next) => {
+const checkUserData = (req, res, next) => {
   const { error } = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required().min(8),
@@ -16,5 +16,5 @@ const checkUser = (req, res, next) => {
 };
 
 module.exports = {
-  checkUser,
+  checkUserData,
 };
