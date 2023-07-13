@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import connexion from "../services/connexion";
 
-function Signup() {
-  const [user, setUser] = useState({
+function Login() {
+  const [auth, setAuth] = useState({
     email: "",
     password: "",
   });
 
-  const handleUser = (event) => {
-    setUser({ ...user, [event.target.name]: event.target.value });
+  const handleAuth = (event) => {
+    setAuth({ ...auth, [event.target.name]: event.target.value });
   };
 
   const login = async (event) => {
     event.preventDefault();
     try {
-      await connexion.post("/signup", user);
+      await connexion.post("/connexion", auth);
     } catch (error) {
       console.error(error);
     }
@@ -23,7 +23,7 @@ function Signup() {
   return (
     <div className="flex justify-center flex-col p-4">
       <div className="p-4 flex justify-center">
-        <h1>M'inscrire pour accéder à mon parcours</h1>
+        <h1>Me connecter pour accéder à mon parcours</h1>
       </div>
       <div className="flex justify-center">
         <form
@@ -35,18 +35,18 @@ function Signup() {
               className="block text-gray-700 text-sm font-bold mb-2 flex justify-center"
               htmlFor="username"
             >
-              E-mail
+              E-mail ou nom d'utilisateur
             </label>
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-              id="email"
-              value={user.email}
+              id="username"
+              value={auth.email}
               type="email"
               name="email"
-              placeholder="E-mail"
               required
+              placeholder="E-mail ou nom d'utilisateur"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-              onChange={(event) => handleUser(event)}
+              onChange={(event) => handleAuth(event)}
             />
           </div>
           <div className="mb-6">
@@ -61,8 +61,8 @@ function Signup() {
               id="password"
               type="password"
               name="password"
-              value={user.password}
-              onChange={(event) => handleUser(event)}
+              value={auth.password}
+              onChange={(event) => handleAuth(event)}
               placeholder="******************"
               required
             />
@@ -74,6 +74,12 @@ function Signup() {
             >
               Continuer
             </button>
+            <button
+              className=" text-blue text-sm underline underline-offset-1 rounded-full m-2"
+              type="submit"
+            >
+              Mot de passe oublié ?
+            </button>
           </div>
         </form>
       </div>
@@ -81,4 +87,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;

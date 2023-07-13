@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Erreur() {
+function Error() {
   return (
     <div className="text-center text-secondary font-sans text-6xl">
       Erreur 404 Cette page est introuvable...
@@ -20,4 +20,4 @@ function Erreur() {
   );
 }
 
-export default Erreur;
+export default Error;

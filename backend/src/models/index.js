@@ -34,10 +34,10 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
-const TutoManager = require("./TutoManager");
+const TutorialsManager = require("./TutorialsManager");
 
-models.Tuto = new TutoManager();
-models.Tuto.setDatabase(pool);
+models.tutorials = new TutorialsManager();
+models.tutorials.setDatabase(pool);
 
 const QuizzManager = require("./QuizzManager");
 

@@ -1,12 +1,12 @@
 import React from "react";
-import Formations from "../../components/Formations";
+import AllFormations from "../../components/AllFormations";
 import Footer from "../../components/Footer";
 
 function Home() {
   return (
     <section>
       <div>
-        <Formations />
+        <AllFormations />
         <Footer />
       </div>
     </section>
