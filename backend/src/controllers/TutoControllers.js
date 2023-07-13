@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.Tuto.findAll()
+  models.Tuto.findAll(req.query.name)
     .then(([tutos]) => {
       res.status(200).json(tutos);
     })

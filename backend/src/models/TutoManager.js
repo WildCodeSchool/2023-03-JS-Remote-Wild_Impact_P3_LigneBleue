@@ -5,13 +5,14 @@ class TutoManager extends AbstractManager {
     super({ table: "tutorials" });
   }
 
-  findAll() {
-    return this.database.query(
-      `select f.title as ftitle ,t.name as tutoname, t.target, t.explanation, i.src,i.alt
-      from formations as f 
-      inner join tutorials as t on t.formation_id=f.id 
-      inner join images as i on t.image_id=i.id`
-    );
+  findAll(name) {
+    let url = `select  * from ${this.table}`;
+    const value = [];
+    if (name) {
+      url += ` where name like ? `;
+      value.push(`%${name}%`);
+    }
+    return this.database.query(url, value);
   }
 
   find(id) {

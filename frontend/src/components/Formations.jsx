@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Icons from "./Icons";
 import "./Formations.css";
 import connexion from "../services/connexion";
+import SearchBar from "./SearchBar";
 
 function Formations() {
   const [formations, setFormations] = useState([]);
@@ -33,7 +34,7 @@ function Formations() {
               </div>
             </button>
           </Link>
-
+          <SearchBar />
           <Link to="/aide">
             <button
               type="button"

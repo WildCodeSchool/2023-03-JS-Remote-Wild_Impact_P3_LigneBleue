@@ -19,7 +19,7 @@ import Signup from "./pages/Signup";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="flex flex-col ">
       <BrowserRouter>
         <Header />
         <Breadcrumbs />
