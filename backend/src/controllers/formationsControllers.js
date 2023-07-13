@@ -26,7 +26,19 @@ const read = (req, res) => {
     });
 };
 
+const browseTutorials = (req, res) => {
+  models.Tuto.findByFormations(req.params.id)
+    .then(([formations]) => {
+      res.status(200).json(formations);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   browse,
   read,
+  browseTutorials,
 };

@@ -6,7 +6,7 @@ import Arrived from "../../assets/arrived.png";
 import connexion from "../../services/connexion";
 import Footerbis from "../../components/Footerbis";
 
-function Advancement() {
+function Progress() {
   const [ProgressionCategories, setProgressionCategories] = useState([]);
 
   const getCategorieProgression = async () => {
@@ -80,4 +80,4 @@ function Advancement() {
   );
 }
 
-export default Advancement;
+export default Progress;

@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
-
-export default withMT({
+export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     colors: {
@@ -14,13 +12,23 @@ export default withMT({
       purple: "#E384E6",
       blue_light: "#CBE6F7",
       brown_light: "#E6B99C",
+      red: {
+        200: "#fecaca",
+        300: "#fca5a5",
+      },
+      yellowbutton: {
+        200: "#fef08a",
+      },
+      gray: {
+        200: "#e2e8f0",
+        500: "#64748b",
+      },
     },
     fontFamily: {
       sans: ["Montserrat"],
     },
-    screens: {
-      sm: "640px",
-      // rest of the breakpoints
+    variants: {
+      resp: ["responsive"],
     },
     extend: {
       keyframes: {
@@ -38,4 +46,4 @@ export default withMT({
     },
   },
   plugins: [],
-});
+};

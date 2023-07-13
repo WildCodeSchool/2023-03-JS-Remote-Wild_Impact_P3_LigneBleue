@@ -1,6 +1,9 @@
 import React from "react";
+import TutoTab from "./TutoTab";
+import QuizzTab from "./QuizzTab";
+import RessourcesTab from "./RessourcesTab";
 
-function AdminTabs({ color }) {
+function AdminTabs() {
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <div className="flex flex-wrap">
@@ -13,8 +16,8 @@ function AdminTabs({ color }) {
             <a
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 1
-                  ? `text-white bg-${color}`
-                  : `text-${color} bg-white`
+                  ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
+                  : `text-gray-500 bg-white`
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -31,8 +34,8 @@ function AdminTabs({ color }) {
             <a
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 2
-                  ? `text-white bg-${color}`
-                  : `text-${color} bg-white`
+                  ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
+                  : `text-gray-500 bg-white`
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -49,8 +52,8 @@ function AdminTabs({ color }) {
             <a
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 3
-                  ? `text-white bg-${color}`
-                  : `text-${color} bg-white`
+                  ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
+                  : `text-gray-500 bg-white`
               }`}
               onClick={(e) => {
                 e.preventDefault();
@@ -68,25 +71,16 @@ function AdminTabs({ color }) {
           <div className="px-4 py-5 flex-auto">
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                <p>
-                  Collaboratively administrate empowered markets via
-                  plug-and-play networks. Dynamically procrastinate B2C users
-                  after installed base benefits.
-                </p>
+                <p>coucou</p>
+                <TutoTab />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <p>
-                  Completely synergize resource taxing relationships via premier
-                  niche markets. Professionally cultivate one-to-one customer
-                  service with robust ideas.
-                </p>
+                <p>Coucou</p>
+                <QuizzTab />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <p>
-                  Efficiently unleash cross-media information without
-                  cross-media value. Quickly maximize timely deliverables for
-                  real-time schemas.
-                </p>
+                <p>coucou</p>
+                <RessourcesTab />
               </div>
             </div>
           </div>

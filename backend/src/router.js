@@ -2,24 +2,26 @@ const express = require("express");
 
 const router = express.Router();
 
-const TutoControllers = require("./controllers/TutoControllers");
-
-router.get("/tutos", TutoControllers.browse);
-router.get("/tutos/:id", TutoControllers.read);
-
+const tutorialsControllers = require("./controllers/tutorialsControllers");
 const formationsControllers = require("./controllers/formationsControllers");
+const quizzControllers = require("./controllers/quizzControllers");
+const authControllers = require("./controllers/authControllers");
 
+const { checkUserData } = require("./services/user");
+const { checkUser } = require("./services/jwt");
+
+router.post("/signup", checkUserData, authControllers.signup);
+router.post("/connexion", checkUserData, authControllers.login);
+
+router.get("/tutorials", tutorialsControllers.browse);
+router.get("/tutorials/:id", tutorialsControllers.read);
 router.get("/formations", formationsControllers.browse);
 router.get("/formations/:id", formationsControllers.read);
-
-const quizzControllers = require("./controllers/quizzControllers");
+router.get("/formations/:id/tutorials", formationsControllers.browseTutorials);
 
 router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
 
-const { checkUser } = require("./services/user");
-const authControllers = require("./controllers/authControllers");
-
-router.post("/signup", checkUser, authControllers.signup);
+router.use(checkUser);
 
 module.exports = router;

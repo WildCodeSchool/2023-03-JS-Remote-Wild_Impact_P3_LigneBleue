@@ -1,9 +1,13 @@
 const Joi = require("joi");
 
-const checkUser = (req, res, next) => {
+const checkUserData = (req, res, next) => {
   const { error } = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().required().min(8),
+    password: Joi.string()
+      .min(6)
+      .max(30)
+      .pattern(/^[a-zA-Z0-9]+$/)
+      .required(),
   }).validate(req.body, {
     abortEarly: false,
   });
@@ -16,5 +20,5 @@ const checkUser = (req, res, next) => {
 };
 
 module.exports = {
-  checkUser,
+  checkUserData,
 };

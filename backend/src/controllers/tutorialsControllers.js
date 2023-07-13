@@ -1,7 +1,8 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.Tuto.findAll()
+  models.tutorials
+    .findAll(req.query.name)
     .then(([tutos]) => {
       res.status(200).json(tutos);
     })
@@ -12,7 +13,8 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.Tuto.find(req.params.id)
+  models.tutorials
+    .find(req.params.id)
     .then(([tuto]) => {
       if (tuto[0] == null) {
         res.sendStatus(404);
@@ -33,7 +35,8 @@ const edit = (req, res) => {
 
   Tuto.id = parseInt(req.params.id, 10);
 
-  models.Tuto.update(Tuto)
+  models.tutorials
+    .update(Tuto)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
@@ -52,7 +55,8 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.Tuto.insert(Tuto)
+  models.tutorials
+    .insert(Tuto)
     .then(([result]) => {
       res.location(`/tuto/${result.insertId}`).sendStatus(201);
     })
@@ -63,7 +67,8 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.Tuto.delete(req.params.id)
+  models.tutorials
+    .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);

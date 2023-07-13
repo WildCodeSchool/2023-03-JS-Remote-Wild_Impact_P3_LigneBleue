@@ -1,5 +1,6 @@
-// const models = require("../models");
 const argon2 = require("argon2");
+const models = require("../models");
+const { createJwt } = require("../services/jwt");
 
 const hashing = (password) => {
   return argon2.hash(password, {
@@ -10,10 +11,51 @@ const hashing = (password) => {
 };
 
 const signup = async (req, res) => {
-  await hashing(req.body.password);
-  res.status(200).json({ msg: "Connected" });
+  const hash = await hashing(req.body.password);
+
+  models.users
+    .insert(req.body.email, hash)
+    .then(() => res.status(200).json({ msg: "User created" }))
+    .catch(() => res.status(500).json({ msg: "Invalide user" }));
+};
+
+const login = (req, res) => {
+  models.users
+    .find(req.body.email)
+    .then(async ([user]) => {
+      if (user[0]) {
+        try {
+          if (await argon2.verify(user[0].password, req.body.password)) {
+            const token = createJwt({ email: req.body.email });
+            res
+              .status(200)
+              .cookie("ligne_bleue_token", token, {
+                httpOnly: true,
+                expires: new Date(Date.now() + 900000),
+              })
+              .json({
+                email: user[0].mail,
+                role: user[0].admin,
+                msg: "Connected",
+              });
+          } else {
+            res.status(404).json({ msg: "Invalid credantial" });
+          }
+        } catch (err) {
+          console.error(err);
+          res.sendStatus(500);
+        }
+      } else {
+        res.status(404).json({ msg: "Invalid credantial" });
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
 };
 
 module.exports = {
   signup,
+  login,
 };

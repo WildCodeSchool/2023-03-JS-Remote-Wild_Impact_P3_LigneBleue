@@ -34,10 +34,10 @@ const ItemManager = require("./ItemManager");
 models.item = new ItemManager();
 models.item.setDatabase(pool);
 
-const TutoManager = require("./TutoManager");
+const TutorialsManager = require("./TutorialsManager");
 
-models.Tuto = new TutoManager();
-models.Tuto.setDatabase(pool);
+models.tutorials = new TutorialsManager();
+models.tutorials.setDatabase(pool);
 
 const QuizzManager = require("./QuizzManager");
 
@@ -48,6 +48,11 @@ const FormationsManager = require("./FormationsManager");
 
 models.Formations = new FormationsManager();
 models.Formations.setDatabase(pool);
+
+const UserManager = require("./UserManager");
+
+models.users = new UserManager();
+models.users.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
