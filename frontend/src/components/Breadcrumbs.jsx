@@ -9,12 +9,13 @@ function Breadcrumbs() {
   const crumbs = location.pathname
     .split("/")
     .filter((crumb) => crumb !== "")
-    .map((crumb) => {
+    .map((crumb, index) => {
       currentLink = +`/${crumb}`;
       return (
         <div
           className=" after:content-['>'] after:mx-2 last:after:hidden"
-          key={crumb}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${crumb}_${index}`}
         >
           <Link to={currentLink}>{crumb}</Link>
         </div>
