@@ -17,6 +17,8 @@ router.get("/tutos", TutoControllers.browse);
 router.get("/tutos/:id", TutoControllers.read);
 router.get("/formations", formationsControllers.browse);
 router.get("/formations/:id", formationsControllers.read);
+router.get("/formations/:id/tutorials", formationsControllers.browseTutorials);
+
 router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
 

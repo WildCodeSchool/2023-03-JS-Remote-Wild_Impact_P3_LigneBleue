@@ -14,6 +14,13 @@ class TutoManager extends AbstractManager {
     );
   }
 
+  findByFormations(id) {
+    return this.database.query(
+      `select * from ${this.table} where formation_id = ?`,
+      [id]
+    );
+  }
+
   find(id) {
     return this.database.query(
       `select f.title as ftitle ,t.id as tutoid, t.name as tutoname, t.target, t.explanation, i.src,i.alt
