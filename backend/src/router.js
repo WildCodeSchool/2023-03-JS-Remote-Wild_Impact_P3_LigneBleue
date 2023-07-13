@@ -19,8 +19,6 @@ router.get("/formations", formationsControllers.browse);
 router.get("/formations/:id", formationsControllers.read);
 router.get("/formations/:id/tutorials", formationsControllers.browseTutorials);
 
-const quizzControllers = require("./controllers/quizzControllers");
-
 router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
 
