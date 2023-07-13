@@ -2,7 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
-const TutoControllers = require("./controllers/TutoControllers");
+const tutorialsControllers = require("./controllers/tutorialsControllers");
 const formationsControllers = require("./controllers/formationsControllers");
 const quizzControllers = require("./controllers/quizzControllers");
 const authControllers = require("./controllers/authControllers");
@@ -13,8 +13,8 @@ const { checkUser } = require("./services/jwt");
 router.post("/signup", checkUserData, authControllers.signup);
 router.post("/connexion", checkUserData, authControllers.login);
 
-router.get("/tutos", TutoControllers.browse);
-router.get("/tutos/:id", TutoControllers.read);
+router.get("/tutorials", tutorialsControllers.browse);
+router.get("/tutorials/:id", tutorialsControllers.read);
 router.get("/formations", formationsControllers.browse);
 router.get("/formations/:id", formationsControllers.read);
 router.get("/formations/:id/tutorials", formationsControllers.browseTutorials);
