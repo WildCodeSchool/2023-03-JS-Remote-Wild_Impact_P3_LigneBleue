@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import connexion from "../services/connexion";
 
 function SearchBar() {
   const [search, setSearch] = useState("");
-  const [tuto, setTuto] = useState("");
+  const [tutos, setTutos] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const getTuto = async () => {
     try {
-      const Tuto = await connexion.get(`/tutos?name=${search}`);
-      setTuto(Tuto);
+      const Tutos = await connexion.get(`/tutos?name=${search}`);
+      setTutos(Tutos);
     } catch (err) {
       console.error(err);
     }
@@ -33,6 +33,14 @@ function SearchBar() {
         value={search}
         onChange={(e) => handleChange(e.target.value)}
       />
+      <select id="">
+        {tutos.map((tuto) => (
+          <option key={tuto.id}>
+            <Link to="/tutoriel" />
+          </option>
+        ))}
+      </select>
+
       <button type="submit" onClick={UpdateParams}>
         <FaSearch id="search-icon" />
       </button>
