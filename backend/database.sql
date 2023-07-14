@@ -113,45 +113,55 @@ INSERT INTO quizz(title) VALUES ('Quizz - TikTok');
 
 
 
-INSERT INTO images(src, alt) VALUES ('Src1','alt1');
-INSERT INTO images(src, alt) VALUES ('Src2','alt2');
-INSERT INTO images(src, alt) VALUES ('Src3','alt3');
-INSERT INTO images(src, alt) VALUES ('Src4','alt4');
-INSERT INTO images(src, alt) VALUES ('Src5','alt5');
-INSERT INTO images(src, alt) VALUES ('Src6','alt6');
+INSERT INTO images(src, alt) VALUES ('Arreter/Démarrer téléphone','Arreter/Démarrer téléphone');
+INSERT INTO images(src, alt) VALUES ('/assets/images/QRCode.png','Utiliser QR code');
+INSERT INTO images(src, alt) VALUES ('/assets/images/EcranTactile.png','Manipuler écran tactile');
+INSERT INTO images(src, alt) VALUES ('/assets/images/Téléphoner.png','Téléphoner');
+INSERT INTO images(src, alt) VALUES ('Src5','Différence entre SMS, mail, message');
+INSERT INTO images(src, alt) VALUES ('/assets/images/SMS.png','Envoyer et recevoir SMS');
+INSERT INTO images(src, alt) VALUES ('Src6','Gestion des contacts');
+INSERT INTO images(src, alt) VALUES ('Src6','Lexicologie Android');
+INSERT INTO images(src, alt) VALUES ('Faire une photo ou une video','Faire une photo ou une video');
+INSERT INTO images(src, alt) VALUES ('partager une photo ou une video','partager une photo ou une video');
+INSERT INTO images(src, alt) VALUES ('Ecouter de la musique','Ecouter de la musique');
+INSERT INTO images(src, alt) VALUES ('Regarder des videos','Regarder des videos');
+INSERT INTO images(src, alt) VALUES ('Jouer','Jouer');
+INSERT INTO images(src, alt) VALUES ('Facebook','Facebook');
+INSERT INTO images(src, alt) VALUES ('Instagram','Instagram');
+INSERT INTO images(src, alt) VALUES ('Tiktok','Tiktok');
 
 INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
 VALUES ('Arrêter/démarrer le téléphone','telephone','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',1,1,2);
 INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
 VALUES ('Utiliser un QR code','qrcode','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',2,2,2);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Manipuler écran tactile','tactile','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+VALUES ('Manipuler écran tactile','tactile','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,2,2);
 INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Téléphoner','telephoner','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',2,2,2);
+VALUES ('Téléphoner','telephoner','Aenean vitae mauris magna. Pellentesque ultrices nisl orci, eget viverra tellus pharetra vulputate. Quisque dictum.','Explanation1',true,'2023/04/14',4,2,2);
 INSERT INTO tutorials(name,icon,target,explanation, published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Différence entre SMS, mail, message','messagerie','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',2,2,2);
+VALUES ('Différence entre SMS, mail, message','messagerie','Ut dignissim at nulla vel rhoncus. Sed vitae felis sit amet quam consectetur congue. Morbi','Explanation2',true,'2023/04/05',5,2,2);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Envoyer et recevoir SMS','sms','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+VALUES ('Envoyer et recevoir SMS','sms','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',6,2,2);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Gestion des contacts','contact','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+VALUES ('Gestion des contacts','contact','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',7,2,2);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Lexicologie Android','lexicologie','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',2,2,2);
+VALUES ('Lexicologie Android','lexicologie','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',8,2,2);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Faire une photo ou une vidéo','media','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Faire une photo ou une vidéo','media','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',9,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Partager une photo ou vidéo','partager','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Partager une photo ou vidéo','partager','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',10,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Ecouter de la musique','musique','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Ecouter de la musique','musique','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',11,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Regarder des vidéos','videos','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Regarder des vidéos','videos','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',12,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Jouer','jouer','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Jouer','jouer','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',13,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Facebook','facebook','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Facebook','facebook','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',14,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Instagram','instagram','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Instagram','instagram','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',15,3,3);
 INSERT INTO tutorials(name,icon,target,explanation,published,creation_date,image_id, quizz_id,formation_id) 
-VALUES ('Tiktok','tiktok','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',3,3,3);
+VALUES ('Tiktok','tiktok','Etiam ut sapien quam. Proin lacus leo, elementum in volutpat at, pulvinar sit amet urna.','Explanation3',false,'2022/06/17',16,3,3);
 
 
 

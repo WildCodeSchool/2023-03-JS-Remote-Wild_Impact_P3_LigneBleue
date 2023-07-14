@@ -41,11 +41,7 @@ function Tutoriel() {
           <h1 className="p-4 flex justify-center">{tuto.name}</h1>
           <div className="flex flex-col items-center bg-champagne rounded-3xl m-4">
             <h2 className="p-4">{tuto.target}</h2>
-            <img
-              className="rounded-3xl p-4 h-300 w-96"
-              src={tuto.image_id}
-              alt=""
-            />
+            <img className="rounded-3xl p-4 h-300 w-96" src={tuto.src} alt="" />
             <p className="p-8 text-center">{tuto.explanation}</p>
           </div>
         </div>
