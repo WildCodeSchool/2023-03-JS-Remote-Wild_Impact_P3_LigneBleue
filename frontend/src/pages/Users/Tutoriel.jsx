@@ -10,20 +10,19 @@ function Tutoriel() {
   const { tid } = useParams();
   const { fid } = useParams();
 
+  const getTutorials = async () => {
+    try {
+      const Tutos = await connexion.get(`/formations/${fid}`);
+      setTuto(Tutos[tid - 1]);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const getQuizz = async () => {
     try {
       const QuizzList = await connexion.get(`/quizz/${tid}`);
       setTitle(QuizzList.title);
       setQuizz(QuizzList.questions);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const getTutorials = async () => {
-    try {
-      const Tutos = await connexion.get(`/formations/${fid}`);
-      setTuto(Tutos[tid - 1]);
     } catch (error) {
       console.error(error);
     }
@@ -62,8 +61,9 @@ function Tutoriel() {
                   <div>
                     {quizz.map((el) => (
                       <div key={el.content}>
-                        <input type="radio" name="" value="" />
-                        <label htmlFor="">{el.content}</label>
+                        <h2>{el.content}</h2>
+                        {/* <input type="radio" name="" value="" />
+                        <label htmlFor="">{el.content}</label> */}
                       </div>
                     ))}
                   </div>
