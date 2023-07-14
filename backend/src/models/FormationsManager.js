@@ -11,7 +11,10 @@ class formationsManager extends AbstractManager {
 
   find(id) {
     return this.database.query(
-      `select f.title, t.name, t.icon from formations as f inner join tutorials as t on f.id=t.formation_id where f.id=?`,
+      `select * from formations as f 
+      inner join tutorials as t on f.id=t.formation_id 
+      inner join images as i on t.image_id=i.id
+      where f.id=?`,
       [id]
     );
   }
