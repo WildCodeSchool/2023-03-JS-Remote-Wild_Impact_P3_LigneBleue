@@ -87,9 +87,31 @@ INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone en sécurit
 INSERT INTO formations(title,icon) VALUES ('Se déplacer','deplacer');
 
 
-INSERT INTO quizz(title) VALUES ('Quizz 1 - Vérifiez vos connaissances sur WhatsApp');
-INSERT INTO quizz(title) VALUES ('Quizz 2 - Vérifiez vos connaissances sur l''utilisation de votre téléphone');
-INSERT INTO quizz(title) VALUES ('Quizz 3 - Vérifiez vos connaissances sur le visionnage d''une vidéo');
+INSERT INTO quizz(title) VALUES ('Quizz - Arrêter/démarrer le téléphone');
+INSERT INTO quizz(title) VALUES ('Quizz - Utiliser un QR code');
+INSERT INTO quizz(title) VALUES ('Quizz - Manipuler écran tactile');
+
+INSERT INTO quizz(title) VALUES ('Quizz - Téléphoner');
+INSERT INTO quizz(title) VALUES ('Quizz - Différence entre SMS, mail, message');
+
+INSERT INTO quizz(title) VALUES ('Quizz - Envoyer et recevoir SMS');
+
+INSERT INTO quizz(title) VALUES ('Quizz -Gestion des contacts');
+INSERT INTO quizz(title) VALUES ('Quizz - Lexicologie Android');
+
+INSERT INTO quizz(title) VALUES ('quizz -Faire une photo ou une vidéo');
+INSERT INTO quizz(title) VALUES ('Quizz - Partager une photo ou une video');
+INSERT INTO quizz(title) VALUES ('Quizz - Ecouter de la musique');
+
+INSERT INTO quizz(title) VALUES ('Quizz - Regarder des videos');
+INSERT INTO quizz(title) VALUES ('Quizz - Jouer');
+
+INSERT INTO quizz(title) VALUES ('Quizz - Facebook');
+
+INSERT INTO quizz(title) VALUES ('Quizz -Instagram');
+INSERT INTO quizz(title) VALUES ('Quizz - TikTok');
+
+
 
 INSERT INTO images(src, alt) VALUES ('Src1','alt1');
 INSERT INTO images(src, alt) VALUES ('Src2','alt2');
@@ -143,21 +165,75 @@ INSERT INTO resources(name,content,tutorial_id) VALUES ('Ressource 2','Duis just
 INSERT INTO resources(name,content,tutorial_id) VALUES ('Ressource 3','Curabitur bibendum finibus pellentesque. Nunc sollicitudin vitae neque ullamcorper finibus. Nullam rutrum sed ante sed fringilla. Pellentesque sagittis fermentum aliquet. Maecenas pulvinar ipsum risus, a consectetur mauris ornare vel. Curabitur eget iaculis elit. Maecenas cursus justo at lobortis eleifend. Fusce vitae lorem venenatis, varius nunc eu, tincidunt justo. Curabitur a lectus laoreet, posuere nulla eu, malesuada mauris. Curabitur at mi tortor.',1);
 
 
-INSERT INTO questions(content,quizz_id) VALUES ('Question 1 Quizz 1',1);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 2 Quizz 1',1);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 3 Quizz 1',1);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 4 Quizz 1',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question1',1);
 
-INSERT INTO questions(content,quizz_id) VALUES ('Question 1 Quizz 2',2);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 2 Quizz 2',2);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 3 Quizz 2',2);
-INSERT INTO questions(content,quizz_id) VALUES ('Question 4 Quizz 2',2);
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question1-Reponse 1',1);
 
-INSERT INTO answers(content,question_id) VALUES ('Reponse 1',1);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 2',2);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 3',3);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 4',4);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 5',5);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 6',6);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 7',7);
-INSERT INTO answers(content,question_id) VALUES ('Reponse 8',8);
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question1-Reponse 2',1);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question1-Reponse 3',1);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question1-Reponse 4',1);
+
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question2',1);
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question2-Reponse 1',2);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question2-Reponse 2',2);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question2-Reponse 3',2);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question2-Reponse 4',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question3',1);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question3-Reponse 1',3);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question3-Reponse 2',3);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question3-Reponse 3',3);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question"-Reponse 4',3);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question4',1);
+
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question4-Reponse 1',4);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question4-Reponse 2',4);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question4-Reponse 3',4);
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Arrêter-démarrer mon téléphone/Quizz-Question4-Reponse 4',4);
+
+
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question1',2);
+
+
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question1-Reponse 1',2);
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question1-Reponse 2',2);
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question1-Reponse 3',2);
+INSERT INTO answers(content,question_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question1-Reponse 4',2);
+
+
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question2',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question3',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Utiliser un QR Code/Quizz-Question4',2);
+
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Manipuler un écran tactile/Quizz-Question1',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Manipuler un écran tactile/Quizz-Question2',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Manipuler un écran tactile/Quizz-Question3',2);
+INSERT INTO questions(content,quizz_id) VALUES ('Utiliser mon téléphone/Manipuler un écran tactile/Quizz-Question4',2);
+
+INSERT INTO questions(content,quizz_id) VALUES ('Formation2/Tuto1/Question1',9);
+
+INSERT INTO answers(content,question_id) VALUES ('Reponse 2',1);
+INSERT INTO questions(content,quizz_id) VALUES ('Formation2/Tuto2/Question2',9);
+INSERT INTO questions(content,quizz_id) VALUES ('Formation2/Tuto3/Question3',9);
+INSERT INTO questions(content,quizz_id) VALUES ('Formation2/Tuto2/Question4',9);
+
+
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 2',2);
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 3',3);
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 4',4);
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 5',5);
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 6',6);
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 7',7);
+-- INSERT INTO answers(content,question_id) VALUES ('Reponse 8',8);
