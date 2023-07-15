@@ -90,7 +90,6 @@ INSERT INTO formations(title,icon) VALUES ('Se déplacer','deplacer');
 INSERT INTO quizz(title) VALUES ('Quizz - Arrêter/démarrer le téléphone');
 INSERT INTO quizz(title) VALUES ('Quizz - Utiliser un QR code');
 INSERT INTO quizz(title) VALUES ('Quizz - Manipuler écran tactile');
-
 INSERT INTO quizz(title) VALUES ('Quizz - Téléphoner');
 INSERT INTO quizz(title) VALUES ('Quizz - Différence entre SMS, mail, message');
 
