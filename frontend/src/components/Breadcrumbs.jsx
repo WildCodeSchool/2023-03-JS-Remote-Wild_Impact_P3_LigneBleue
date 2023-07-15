@@ -10,7 +10,7 @@ function Breadcrumbs() {
     .split("/")
     .filter((crumb) => crumb !== "")
     .map((crumb, index) => {
-      currentLink = +`/${crumb}`;
+      currentLink = `/${crumb}`;
       return (
         <div
           className=" after:content-['>'] after:mx-2 last:after:hidden"
@@ -21,7 +21,6 @@ function Breadcrumbs() {
         </div>
       );
     });
-
   return (
     <div className="flex flex-row mt-1">
       <img src={logoBreadcrumbs} alt="crumbs" className="w-6 h-6 ml-2" />

@@ -31,6 +31,7 @@ function App() {
                 <Route path="" element={<Home />} />
                 <Route path="aide" element={<Help />} />
                 <Route path="info" element={<Info />} />
+                <Route path="formations" element={<Home />} />
                 <Route path="formations/:fid" element={<Formation />} />
                 <Route
                   path="formations/:fid/tutoriel/:tid"
