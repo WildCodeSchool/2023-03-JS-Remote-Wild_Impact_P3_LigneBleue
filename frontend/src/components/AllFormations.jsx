@@ -54,12 +54,14 @@ function AllFormations() {
                 key={formation.id}
                 className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 max-sm:w-36 max-sm:h-30 w-52 h-40"
               >
-                <h3 className="titleformation text-xl max-sm:text-sm text-center">
-                  {formation.title}
-                </h3>
-                <div className="icons flex justify-center">
-                  <Icons icon={formation.icon} />
-                </div>
+                <Link to={`/formations/${formation.id}`}>
+                  <h3 className="titleformation text-xl max-sm:text-sm text-center">
+                    {formation.title}
+                  </h3>
+                  <div className="icons flex justify-center">
+                    <Icons icon={formation.icon} />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
