@@ -19,31 +19,34 @@ import Signup from "./pages/Signup";
 
 function App() {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col bg-white h-screen">
       <BrowserRouter>
-        <Header />
-        <Breadcrumbs />
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<UserLayout />}>
-              <Route path="" element={<Home />} />
-              <Route path="aide" element={<Help />} />
-              <Route path="info" element={<Info />} />
-              <Route path="formations/:id" element={<Formation />} />
-              <Route
-                path="formations/:fid/tutoriel/:tid"
-                element={<Tutoriel />}
-              />
-              <Route path="connexion" element={<Login />} />
-              <Route path="inscription" element={<Signup />} />
-              <Route path="parcours" element={<Progress />} />
-              <Route path="parcours/progression" element={<TutoProgress />} />
-              <Route path="*" element={<Error />} />
-            </Route>
-            <Route path="/admin" element={<AdminLayout />}>
-              <Route path="tuto" element={<TutoAdmin />} />
-            </Route>
-          </Routes>
+        <div className="bg-yellow h-2/3">
+          <Header />
+          <Breadcrumbs />
+
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<UserLayout />}>
+                <Route path="" element={<Home />} />
+                <Route path="aide" element={<Help />} />
+                <Route path="info" element={<Info />} />
+                <Route path="formations/:id" element={<Formation />} />
+                <Route
+                  path="formations/:fid/tutoriel/:tid"
+                  element={<Tutoriel />}
+                />
+                <Route path="connexion" element={<Login />} />
+                <Route path="inscription" element={<Signup />} />
+                <Route path="parcours" element={<Progress />} />
+                <Route path="parcours/progression" element={<TutoProgress />} />
+                <Route path="*" element={<Error />} />
+              </Route>
+              <Route path="/admin" element={<AdminLayout />}>
+                <Route path="tuto" element={<TutoAdmin />} />
+              </Route>
+            </Routes>
+          </div>
         </div>
       </BrowserRouter>
     </div>

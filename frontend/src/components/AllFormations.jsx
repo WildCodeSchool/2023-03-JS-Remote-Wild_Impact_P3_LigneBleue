@@ -50,17 +50,21 @@ function AllFormations() {
         <div>
           <div className="bg-champagne grid grid-cols-3 max-sm:grid max-sm:grid-cols-2 place-items-center rounded-br-3xl rounded-bl-3xl">
             {formations.slice(0, 9).map((formation) => (
-              <div
-                key={formation.id}
-                className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 max-sm:w-36 max-sm:h-30 w-52 h-40"
-              >
-                <h3 className="titleformation text-xl max-sm:text-sm text-center">
-                  {formation.title}
-                </h3>
-                <div className="icons flex justify-center">
-                  <Icons icon={formation.icon} />
-                </div>
-              </div>
+              <button type="button">
+                <Link to={`/formations/${formation.id}`}>
+                  <div
+                    key={formation.id}
+                    className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 max-sm:w-36 max-sm:h-30 w-52 h-40"
+                  >
+                    <h3 className="titleformation text-xl max-sm:text-sm text-center">
+                      {formation.title}
+                    </h3>
+                    <div className="icons flex justify-center">
+                      <Icons icon={formation.icon} />
+                    </div>
+                  </div>
+                </Link>
+              </button>
             ))}
           </div>
         </div>
