@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import Icons from "../../components/Icons";
 import connexion from "../../services/connexion";
 import Footerbis from "../../components/Footerbis";
 
 function TutorialsList() {
   const [list, SetList] = useState([]);
-  const { id } = useParams();
+  const { fid } = useParams();
+
   const getTutorialsList = async () => {
     try {
-      const TutoList = await connexion.get(`/formations/${id}`);
+      const TutoList = await connexion.get(`/formations/${fid}`);
       SetList(TutoList);
     } catch (error) {
       console.error(error);
@@ -30,12 +31,14 @@ function TutorialsList() {
                 key={tutorial.id}
                 className="formations flex flex-col justify-center items-center bg-brown_light px-3 py-3 my-10 mx-10 w-52 h-40 max-sm:w-36 max-sm:h-30"
               >
-                <h3 className="text-2xl text-center max-sm:text-sm pt-2">
-                  {tutorial.name}
-                </h3>
-                <div className="flex justify-center">
-                  <Icons icon={tutorial.icon} />
-                </div>
+                <Link to={`/formations/${fid}/tutoriel/${tutorial.id}`}>
+                  <h3 className="text-2xl text-center max-sm:text-sm pt-2">
+                    {tutorial.name}
+                  </h3>
+                  <div className="flex justify-center">
+                    <Icons icon={tutorial.icon} />
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
