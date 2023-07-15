@@ -27,23 +27,27 @@ function SearchBar() {
   };
 
   return (
-    <div>
-      <input
-        placeholder="Cherchez votre tuto"
-        value={search}
-        onChange={(e) => handleChange(e.target.value)}
-      />
-      <select id="">
+    <div className="max-sm:order-3 max-sm:m-2 w-66 flex flex-col items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:ring-4 focus:outline-none focus:ring-red-200 ">
+      <div className="flex">
+        <input
+          placeholder="Recherchez un tuto"
+          value={search}
+          onChange={(e) => handleChange(e.target.value)}
+          className="w-full relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0"
+        />
+        <button type="submit" onClick={UpdateParams} className="p-4">
+          <FaSearch id="search-icon" />
+        </button>
+      </div>
+      <ul className="">
         {tutos.map((tuto) => (
-          <option key={tuto.id}>
-            <Link to="/tutoriel" />
-          </option>
+          <li key={tuto.id}>
+            <Link to={`/formations/${tuto.formation_id}/tutoriel/${tuto.id}`}>
+              {tuto.name}
+            </Link>
+          </li>
         ))}
-      </select>
-
-      <button type="submit" onClick={UpdateParams}>
-        <FaSearch id="search-icon" />
-      </button>
+      </ul>
     </div>
   );
 }
