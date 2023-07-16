@@ -70,7 +70,6 @@ function TutoTab() {
     }
   };
 
-
   return (
     <div>
       <div className="flex flex-row justify-around mb-10">
