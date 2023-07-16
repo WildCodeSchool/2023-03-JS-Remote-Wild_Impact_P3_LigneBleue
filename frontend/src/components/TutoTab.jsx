@@ -47,12 +47,18 @@ function TutoTab() {
 
   const getTutos = async () => {
     try {
-      const mytutos = await connexion.get(`/tutorials`);
+      const mytutos = await connexion.get(
+        `/formations/${formationId.id}/tutorials`
+      );
       setTutorials(mytutos);
     } catch (error) {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    getTutos();
+  }, [formationId]);
 
   const updateTutorialState = (id) => {
     if (id === "") {
@@ -61,10 +67,6 @@ function TutoTab() {
       setTutorialsId(tutorials.find((art) => art.id === +id));
     }
   };
-
-  useEffect(() => {
-    getTutos();
-  }, []);
 
   return (
     <div>
@@ -79,8 +81,8 @@ function TutoTab() {
             onChange={(event) =>
               handleFormation(event.target.name, event.target.value)
             }
-            name="title"
-            value={formationId.title}
+            name="id"
+            value={formationId.id}
           >
             <option>Choisissez une formation</option>
             {formations.map((formation) => (
