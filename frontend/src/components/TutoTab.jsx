@@ -70,6 +70,7 @@ function TutoTab() {
     }
   };
 
+
   return (
     <div>
       <div className="flex flex-row justify-around mb-10">
@@ -178,7 +179,7 @@ function TutoTab() {
               className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
               placeholder="Ecrivez les objectifs"
               value={tutorialsId.explanation}
-              name="target"
+              name="explanation"
               onChange={(event) =>
                 handleTutorial(event.target.name, event.target.value)
               }
