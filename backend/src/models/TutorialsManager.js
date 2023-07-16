@@ -27,7 +27,8 @@ class TutorialsManager extends AbstractManager {
 
   findByFormations(id) {
     return this.database.query(
-      `select * from ${this.table} where formation_id = ?`,
+      `select main.id, main.name, main.icon, main.target, main.explanation, picture.src, picture.alt, main.image_id, main.quizz_id, main.formation_id from ${this.table} as main
+      inner join images as picture on picture.id = main.image_id where formation_id = ?`,
       [id]
     );
   }

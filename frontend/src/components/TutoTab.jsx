@@ -13,6 +13,8 @@ const tutorialModel = {
   icon: "",
   target: "",
   explanation: "",
+  src: "",
+  alt: "",
   creation_date: null,
   image_id: null,
   quizz_id: null,
@@ -184,30 +186,36 @@ function TutoTab() {
             />
           </div>
           <div className="relative z-0 w-full mb-6 group pb-4">
-            <input
-              type="url"
-              className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-              placeholder="Lien de l'image"
-              required
-            />
+            <div className="flex">
+              <input
+                type="url"
+                className="mr-4 block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
+                placeholder="Nom de l'image"
+                value={tutorialsId.alt}
+                name="alt"
+                onChange={(event) =>
+                  handleTutorial(event.target.name, event.target.value)
+                }
+                required
+              />
+              <input
+                type="url"
+                className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
+                placeholder="Lien de l'image"
+                value={tutorialsId.src}
+                name="src"
+                onChange={(event) =>
+                  handleTutorial(event.target.name, event.target.value)
+                }
+                required
+              />
+            </div>
+
             <label
               htmlFor="floating_email"
               className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
             >
-              Image 1
-            </label>
-          </div>
-          <div className="relative z-0 w-full mb-6 group">
-            <input
-              type="url"
-              className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-              placeholder="Lien de l'image"
-            />
-            <label
-              htmlFor="floating_email"
-              className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-1 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-            >
-              Image 2
+              Image
             </label>
           </div>
           <button
