@@ -78,9 +78,9 @@ INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Heather Simmm
 
 INSERT INTO formations(title,icon) VALUES ('Utiliser Ligne bleue','lignebleue');
 INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone','utiliser');
+INSERT INTO formations(title,icon) VALUES ('Me divertir','divertir');
 INSERT INTO formations(title,icon) VALUES ('Aller sur internet','internet');
 INSERT INTO formations(title,icon) VALUES ('Vie courante','vie');
-INSERT INTO formations(title,icon) VALUES ('Me divertir','divertir');
 INSERT INTO formations(title,icon) VALUES ('Mes emails','email');
 INSERT INTO formations(title,icon) VALUES ('Communiquer','communiquer');
 INSERT INTO formations(title,icon) VALUES ('Utiliser mon téléphone en sécurité','securite');
@@ -90,7 +90,6 @@ INSERT INTO formations(title,icon) VALUES ('Se déplacer','deplacer');
 INSERT INTO quizz(title) VALUES ('Quizz - Arrêter/démarrer le téléphone');
 INSERT INTO quizz(title) VALUES ('Quizz - Utiliser un QR code');
 INSERT INTO quizz(title) VALUES ('Quizz - Manipuler écran tactile');
-
 INSERT INTO quizz(title) VALUES ('Quizz - Téléphoner');
 INSERT INTO quizz(title) VALUES ('Quizz - Différence entre SMS, mail, message');
 
