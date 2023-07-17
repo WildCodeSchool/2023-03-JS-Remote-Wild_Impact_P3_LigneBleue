@@ -20,11 +20,26 @@ const tutorialModel = {
 
 const quizzModel = {
   id: null,
-  questions: "",
-  response_1: "",
-  response_2: "",
-  response_3: "",
-  response_4: "",
+  questions_1: "",
+  response_1_1: "",
+  response_1_2: "",
+  response_1_3: "",
+  response_1_4: "",
+  questions_2: "",
+  response_2_1: "",
+  response_2_2: "",
+  response_2_3: "",
+  response_2_4: "",
+  questions_3: "",
+  response_3_1: "",
+  response_3_2: "",
+  response_3_3: "",
+  response_3_4: "",
+  questions_4: "",
+  response_4_1: "",
+  response_4_2: "",
+  response_4_3: "",
+  response_4_4: "",
 };
 function AdminTabs() {
   const [openTab, setOpenTab] = useState(1);
@@ -188,9 +203,7 @@ function AdminTabs() {
                 />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                {selectedTutorial.id && (
-                  <QuizzTab tutorialId={selectedTutorial.id} />
-                )}
+                <QuizzTab tutorialId={selectedTutorial.id} />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                 <RessourcesTab />

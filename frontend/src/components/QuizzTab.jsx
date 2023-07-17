@@ -1,20 +1,30 @@
 import React, { useEffect, useState } from "react";
 import connexion from "../services/connexion";
+import quizzModel from "../models/QuizzModel";
 
 function QuizzTab({ tutorialId }) {
-  const [quizz, setQuizz] = useState();
+  const [quizz, setQuizz] = useState(quizzModel);
 
-  const handleQuizz = (name, value) => {
-    setQuizz({ ...quizz, [name]: value });
+  const handleQuizz = (event, questIndex, answerIndex) => {
+    if (event.target.name === "title") {
+      setQuizz((prevState) => ({
+        ...prevState,
+        [event.target.name]: event.target.value,
+      }));
+    }
+
+    if (event.target.name.includes("questions")) {
+      const prevState = { ...quizz };
+      prevState.questions[questIndex].content = event.target.value;
+      setQuizz(prevState);
+    }
+
+    if (event.target.name.includes("answers")) {
+      const prevState = { ...quizz };
+      prevState.questions[questIndex].answers[answerIndex] = event.target.value;
+      setQuizz(prevState);
+    }
   };
-
-  // const updateQuizzState = (id) => {
-  //   if (id === "") {
-  //     setQuizzId(quizzModel);
-  //   } else {
-  //     setQuizzId(quizz.find((art) => art.id === +id));
-  //   }
-  // };
 
   const getQuizz = async () => {
     try {
@@ -26,14 +36,42 @@ function QuizzTab({ tutorialId }) {
   };
 
   useEffect(() => {
-    getQuizz();
+    if (tutorialId) {
+      getQuizz();
+    }
   }, []);
+
+  const checkAnswersValidity = () => {
+    return quizz.questions.every((quest) => {
+      return quest.answers.every((answer) => answer.answers !== "");
+    });
+  };
+
+  const manageQuizz = (event) => {
+    event.preventDefault();
+    if (checkAnswersValidity()) {
+      // Faire le post ou update
+    } else {
+      // Ajoute un message Users
+    }
+  };
 
   return (
     <div>
       {quizz && (
-        <>
-          <h3>{quizz.title}</h3>
+        <form onSubmit={manageQuizz}>
+          <label className="text-lg text-gray-500 ">
+            Titre du quizz
+            <input
+              type="text"
+              className="mr-4 py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
+              placeholder="Titre du quizz"
+              value={quizz.title}
+              name="title"
+              onChange={(event) => handleQuizz(event)}
+              required
+            />
+          </label>
           {quizz.questions.length > 0 &&
             quizz.questions.map((quest, index) => (
               <details className="w-full mb-6 pb-4 mt-4">
@@ -45,10 +83,8 @@ function QuizzTab({ tutorialId }) {
                       className="mr-4 py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
                       placeholder="Nom de la Question"
                       value={quest.content}
-                      name="questions"
-                      onChange={(event) =>
-                        handleQuizz(event.target.name, event.target.value)
-                      }
+                      name={`questions_${index}`}
+                      onChange={(event) => handleQuizz(event, index)}
                       required
                     />
                   </label>
@@ -61,8 +97,11 @@ function QuizzTab({ tutorialId }) {
                         <input
                           type="text"
                           className="mr-4 block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
-                          required
+                          name={`answers_${index}_${jindex}`}
                           value={answer.answers}
+                          onChange={(event) =>
+                            handleQuizz(event, index, jindex)
+                          }
                         />
                       </label>
                     ))}
@@ -70,7 +109,12 @@ function QuizzTab({ tutorialId }) {
                 </div>
               </details>
             ))}
-        </>
+          {quizz.id ? (
+            <button type="submit">Modifier</button>
+          ) : (
+            <button type="submit">Ajouter</button>
+          )}
+        </form>
       )}
     </div>
   );
