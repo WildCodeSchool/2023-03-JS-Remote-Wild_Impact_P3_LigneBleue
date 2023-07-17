@@ -199,5 +199,4 @@ function AdminTabs() {
     </div>
   );
 }
-
 export default AdminTabs;
