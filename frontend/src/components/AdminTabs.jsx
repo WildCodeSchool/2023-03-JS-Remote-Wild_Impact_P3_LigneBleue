@@ -1,10 +1,10 @@
-import React from "react";
+import { useState } from "react";
 import TutoTab from "./TutoTab";
 import QuizzTab from "./QuizzTab";
 import RessourcesTab from "./RessourcesTab";
 
 function AdminTabs() {
-  const [openTab, setOpenTab] = React.useState(1);
+  const [openTab, setOpenTab] = useState(1);
   return (
     <div className="flex flex-wrap">
       <div className="w-full">
@@ -71,15 +71,12 @@ function AdminTabs() {
           <div className="px-4 py-5 flex-auto">
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                <p>coucou</p>
                 <TutoTab />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <p>Coucou</p>
                 <QuizzTab />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <p>coucou</p>
                 <RessourcesTab />
               </div>
             </div>
