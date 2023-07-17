@@ -14,11 +14,7 @@ const browse = (req, res) => {
 const read = (req, res) => {
   models.Formations.find(req.params.id)
     .then(([formation]) => {
-      if (formation[0] == null) {
-        res.sendStatus(404);
-      } else {
-        res.status(200).json(formation);
-      }
+      res.status(200).json(formation);
     })
     .catch((err) => {
       console.error(err);
