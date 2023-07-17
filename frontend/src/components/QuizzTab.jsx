@@ -1,16 +1,4 @@
-import React, { useState, useEffect } from "react";
-import connexion from "../services/connexion";
-
-const quizzModel = {
-  id: null,
-  title: "",
-  question: "",
-  response: "",
-};
 function QuizzTab() {
-  // const [quizz, setQuizz] = useState([]);
-  // const [quizzId, setQuizzId] = useState(quizzModel);
-
   return (
     <div>
       <div className="relative z-0 w-full mb-6 group pb-4 mt-4">
