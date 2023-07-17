@@ -28,12 +28,12 @@ function TutorialsList() {
         <div className="py-5 pr-4 pl-4 mb-1">
           <div className="bg-champagne grid grid-cols-3 max-sm:grid max-sm:grid-cols-2 place-items-center rounded-3xl">
             {list.length > 0 &&
-              list.map((tutorial, index) => (
+              list.map((tutorial) => (
                 <div
                   key={tutorial.id}
                   className="formations flex flex-col justify-center items-center bg-brown_light px-3 py-3 my-10 mx-10 w-52 h-40 max-sm:w-36 max-sm:h-30"
                 >
-                  <Link to={`/formations/${fid}/tutoriel/${index + 1}`}>
+                  <Link to={`/formations/${fid}/tutoriel/${tutorial.id}`}>
                     <h3 className="text-2xl text-center max-sm:text-sm pt-2">
                       {tutorial.name}
                     </h3>

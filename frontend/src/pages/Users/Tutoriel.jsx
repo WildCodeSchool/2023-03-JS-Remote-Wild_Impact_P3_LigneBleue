@@ -8,16 +8,17 @@ function Tutoriel() {
   const [title, setTitle] = useState([]);
   const [tuto, setTuto] = useState([]);
   const { tid } = useParams();
-  const { fid } = useParams();
 
+  // Changer pour la route tutoriel
   const getTutorials = async () => {
     try {
-      const Tutos = await connexion.get(`/formations/${fid}`);
-      setTuto(Tutos[tid - 1]);
+      const tutos = await connexion.get(`/tutorials/${tid}`);
+      setTuto(tutos);
     } catch (error) {
       console.error(error);
     }
   };
+
   const getQuizz = async () => {
     try {
       const QuizzList = await connexion.get(`/quizz/${tid}`);
