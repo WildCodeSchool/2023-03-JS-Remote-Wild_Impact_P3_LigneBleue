@@ -35,7 +35,7 @@ function AdminTabs() {
 
   const handlePrevious = () => {
     return openTab > 1 ? setOpenTab(openTab - 1) : setOpenTab(openTab);
-
+  }
   const updateTutorialState = (id) => {
     if (id === "") {
       setTutorialsId(tutorialModel);
@@ -197,7 +197,7 @@ function AdminTabs() {
         </div>
       </div>
     </div>
-  );
-}
+  )
+};
 
 export default AdminTabs;
