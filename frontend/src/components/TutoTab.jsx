@@ -40,6 +40,13 @@ function TutoTab({
     getTutos();
   }, [formationId]);
 
+  const updateTutorialState = (id) => {
+    if (id === "") {
+      setTutorialsId(tutorialModel);
+    } else {
+      setTutorialsId(tutorials.find((art) => art.id === +id));
+    }
+  };
   return (
     <div>
       <div>
