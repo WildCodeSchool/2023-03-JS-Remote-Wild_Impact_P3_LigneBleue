@@ -31,7 +31,6 @@ function RessourceTab({
         `/formations/${formationId.id}/tutorials`
       );
       setTutorials(mytutos);
-      console.log(mytutos);
     } catch (error) {
       console.error(error);
     }
