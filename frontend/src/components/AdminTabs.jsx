@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import TutoTab from "./TutoTab";
 import QuizzTab from "./QuizzTab";
 import RessourcesTab from "./RessourcesTab";
@@ -24,12 +24,18 @@ const tutorialModel = {
 };
 function AdminTabs() {
   const [openTab, setOpenTab] = useState(1);
-
   const [formations, setFormations] = useState([]);
   const [tutorials, setTutorials] = useState([]);
   const [formationId, setFormationId] = useState(formationModel);
   const [tutorialsId, setTutorialsId] = useState(tutorialModel);
 
+  const handleNext = () => {
+    setOpenTab(openTab + 1);
+  };
+
+  const handlePrevious = () => {
+    return openTab > 1 ? setOpenTab(openTab - 1) : setOpenTab(openTab);
+  };
   const updateTutorialState = (id) => {
     if (id === "") {
       setTutorialsId(tutorialModel);
@@ -168,6 +174,26 @@ function AdminTabs() {
               </div>
             </div>
           </div>
+        </div>
+        <div className="flex flex-row justify-center mb-4">
+          <button
+            type="button"
+            className="w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 mr-4 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            onClick={handleNext}
+          >
+            <div className="w-full relative px-5 py-1.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+              <h3 className="text-center">Suivant</h3>
+            </div>
+          </button>
+          <button
+            type="button"
+            className="w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 ml-4 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            onClick={handlePrevious}
+          >
+            <div className="w-full relative px-5 py-1.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+              <h3 className="text-center">Précédent</h3>
+            </div>
+          </button>
         </div>
       </div>
     </div>
