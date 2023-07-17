@@ -1,35 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import connexion from "../services/connexion";
 
-const formationModel = {
-  id: null,
-  title: "",
-  icon: "",
-};
-
-const tutorialModel = {
-  id: null,
-  name: "",
-  icon: "",
-  target: "",
-  explanation: "",
-  src: "",
-  alt: "",
-  creation_date: null,
-  image_id: null,
-  quizz_id: null,
-  formation_id: null,
-};
-function TutoTab() {
-  const [formations, setFormations] = useState([]);
-  const [tutorials, setTutorials] = useState([]);
-  const [formationId, setFormationId] = useState(formationModel);
-  const [tutorialsId, setTutorialsId] = useState(tutorialModel);
-
-  const handleFormation = (name, value) => {
-    setFormationId({ ...formationId, [name]: value });
-  };
-
+function TutoTab({
+  setTutorials,
+  tutorialsId,
+  setTutorialsId,
+  setFormations,
+  formationId,
+}) {
   const handleTutorial = (name, value) => {
     setTutorialsId({ ...tutorialsId, [name]: value });
   };
@@ -62,57 +40,8 @@ function TutoTab() {
     getTutos();
   }, [formationId]);
 
-  const updateTutorialState = (id) => {
-    if (id === "") {
-      setTutorialsId(tutorialModel);
-    } else {
-      setTutorialsId(tutorials.find((art) => art.id === +id));
-    }
-  };
-
   return (
     <div>
-      <div className="flex flex-row justify-around mb-10">
-        <div className="flex flex-col items-center w-80 gap-6">
-          <label htmlFor="underline_select" className="sr-only">
-            Choisissez une formation
-          </label>
-          <select
-            id="underline_select"
-            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-            onChange={(event) =>
-              handleFormation(event.target.name, event.target.value)
-            }
-            name="id"
-            value={formationId.id}
-          >
-            <option>Choisissez une formation</option>
-            {formations.map((formation) => (
-              <option key={formation.id} value={formation.id}>
-                {formation.title}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="flex flex-col items-center w-80 gap-6">
-          <label htmlFor="underline_select" className="sr-only">
-            Choisissez un tuto
-          </label>
-          <select
-            id="underline_select"
-            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-            onChange={(event) => updateTutorialState(event.target.value)}
-            value={tutorialsId.id}
-          >
-            <option>Choisissez un tuto</option>
-            {tutorials.map((tutorial) => (
-              <option key={tutorial.id} value={tutorial.id}>
-                {tutorial.name}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
       <div>
         <form>
           <div className="relative z-0 w-full mb-6 group">
