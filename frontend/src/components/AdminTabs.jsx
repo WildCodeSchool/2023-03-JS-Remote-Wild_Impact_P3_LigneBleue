@@ -18,29 +18,6 @@ const tutorialModel = {
   formation_id: null,
 };
 
-const quizzModel = {
-  id: null,
-  questions_1: "",
-  response_1_1: "",
-  response_1_2: "",
-  response_1_3: "",
-  response_1_4: "",
-  questions_2: "",
-  response_2_1: "",
-  response_2_2: "",
-  response_2_3: "",
-  response_2_4: "",
-  questions_3: "",
-  response_3_1: "",
-  response_3_2: "",
-  response_3_3: "",
-  response_3_4: "",
-  questions_4: "",
-  response_4_1: "",
-  response_4_2: "",
-  response_4_3: "",
-  response_4_4: "",
-};
 function AdminTabs() {
   const [openTab, setOpenTab] = useState(1);
   const [formations, setFormations] = useState([]);
