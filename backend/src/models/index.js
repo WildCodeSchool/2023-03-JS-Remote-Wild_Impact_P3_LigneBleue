@@ -54,6 +54,11 @@ const UserManager = require("./UserManager");
 models.users = new UserManager();
 models.users.setDatabase(pool);
 
+const RessourcesManager = require("./RessourcesManager");
+
+models.ressources = new RessourcesManager();
+models.ressources.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 

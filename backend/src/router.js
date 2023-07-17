@@ -5,6 +5,7 @@ const router = express.Router();
 const tutorialsControllers = require("./controllers/tutorialsControllers");
 const formationsControllers = require("./controllers/formationsControllers");
 const quizzControllers = require("./controllers/quizzControllers");
+const ressourcesControllers = require("./controllers/ressourcesControllers");
 const authControllers = require("./controllers/authControllers");
 
 const { checkUserData } = require("./services/user");
@@ -21,6 +22,9 @@ router.get("/formations/:id/tutorials", formationsControllers.browseTutorials);
 
 router.get("/quizz", quizzControllers.browse);
 router.get("/quizz/:id", quizzControllers.read);
+
+router.get("/ressources", ressourcesControllers.browse);
+router.get("/tutorials/:id/ressources", tutorialsControllers.browseRessources);
 
 router.use(checkUser);
 
