@@ -27,7 +27,7 @@ CREATE TABLE images (
 
 CREATE TABLE tutorials (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  name varchar(255) NOT NULL,
+  name  varchar(255) NOT NULL,
   icon varchar(255) NOT NULL,
   target varchar(255) NOT NULL,
   explanation longtext NOT NULL,
