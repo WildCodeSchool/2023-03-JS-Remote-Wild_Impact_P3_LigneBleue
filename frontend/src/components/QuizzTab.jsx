@@ -1,58 +1,121 @@
-function QuizzTab() {
+import React, { useEffect, useState } from "react";
+import connexion from "../services/connexion";
+import quizzModel from "../models/QuizzModel";
+
+function QuizzTab({ tutorialId }) {
+  const [quizz, setQuizz] = useState(quizzModel);
+
+  const handleQuizz = (event, questIndex, answerIndex) => {
+    if (event.target.name === "title") {
+      setQuizz((prevState) => ({
+        ...prevState,
+        [event.target.name]: event.target.value,
+      }));
+    }
+
+    if (event.target.name.includes("questions")) {
+      const prevState = { ...quizz };
+      prevState.questions[questIndex].content = event.target.value;
+      setQuizz(prevState);
+    }
+
+    if (event.target.name.includes("answers")) {
+      const prevState = { ...quizz };
+      prevState.questions[questIndex].answers[answerIndex] = event.target.value;
+      setQuizz(prevState);
+    }
+  };
+
+  const getQuizz = async () => {
+    try {
+      const oneQuizz = await connexion.get(`/quizz/${tutorialId}`);
+      setQuizz(oneQuizz);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    if (tutorialId) {
+      getQuizz();
+    }
+  }, []);
+
+  const checkAnswersValidity = () => {
+    return quizz.questions.every((quest) => {
+      return quest.answers.every((answer) => answer.answers !== "");
+    });
+  };
+
+  const manageQuizz = (event) => {
+    event.preventDefault();
+    if (checkAnswersValidity()) {
+      // Faire le post ou update
+    } else {
+      // Ajoute un message Users
+    }
+  };
+
   return (
     <div>
-      <div className="relative z-0 w-full mb-6 group pb-4 mt-4">
-        <div className="flex">
-          <input
-            type="url"
-            className="mr-4 block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-            placeholder="Nom de la Question"
-            required
-          />
-        </div>
-
-        <label
-          htmlFor="floating_email"
-          className="peer-focus:font-medium absolute  text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75  top-0.5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >
-          Question
-        </label>
-      </div>
-      <div className="relative z-0 w-full mb-6 group pb-4 mt-4">
-        <div className="flex flex-col">
-          <input
-            type="url"
-            className="mr-4 block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-            placeholder="1er choix de réponse"
-            required
-          />
-          <input
-            type="url"
-            className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-            placeholder="2ème choix de réponse"
-            required
-          />
-          <input
-            type="url"
-            className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-            placeholder="3ème choix de réponse"
-            required
-          />
-          <input
-            type="url"
-            className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
-            placeholder="4ème choix de réponse"
-            required
-          />
-        </div>
-
-        <label
-          htmlFor="floating_email"
-          className="peer-focus:font-medium absolute  text-lg text-gray-500 duration-300 transform -translate-y-6 scale-75  top-0.5 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
-        >
-          Réponses
-        </label>
-      </div>
+      {quizz && (
+        <form onSubmit={manageQuizz}>
+          <label className="text-lg text-gray-500 ">
+            Titre du quizz
+            <input
+              type="text"
+              className="mr-4 py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
+              placeholder="Titre du quizz"
+              value={quizz.title}
+              name="title"
+              onChange={(event) => handleQuizz(event)}
+              required
+            />
+          </label>
+          {quizz.questions.length > 0 &&
+            quizz.questions.map((quest, index) => (
+              <details className="w-full mb-6 pb-4 mt-4">
+                <summary className="flex">
+                  <label className="text-lg text-gray-500 ">
+                    Question {index + 1}
+                    <input
+                      type="text"
+                      className="mr-4 py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
+                      placeholder="Nom de la Question"
+                      value={quest.content}
+                      name={`questions_${index}`}
+                      onChange={(event) => handleQuizz(event, index)}
+                      required
+                    />
+                  </label>
+                </summary>
+                <div className="w-full mb-6 pb-4 mt-4">
+                  <div className="flex flex-col">
+                    {quest.answers.map((answer, jindex) => (
+                      <label className="text-lg text-gray-500">
+                        Réponses {jindex + 1}
+                        <input
+                          type="text"
+                          className="mr-4 block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
+                          name={`answers_${index}_${jindex}`}
+                          value={answer.answers}
+                          onChange={(event) =>
+                            handleQuizz(event, index, jindex)
+                          }
+                        />
+                      </label>
+                    ))}
+                  </div>
+                </div>
+              </details>
+            ))}
+          {quizz.id ? (
+            <button type="submit">Modifier</button>
+          ) : (
+            <button type="submit">Ajouter</button>
+          )}
+        </form>
+      )}
     </div>
   );
 }

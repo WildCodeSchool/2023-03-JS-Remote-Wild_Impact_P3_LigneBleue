@@ -1,45 +1,6 @@
-import React, { useEffect } from "react";
-import connexion from "../services/connexion";
+import React from "react";
 
-function TutoTab({
-  setTutorials,
-  tutorialsId,
-  setTutorialsId,
-  setFormations,
-  formationId,
-}) {
-  const handleTutorial = (name, value) => {
-    setTutorialsId({ ...tutorialsId, [name]: value });
-  };
-
-  const getAllFormations = async () => {
-    try {
-      const AllFormations = await connexion.get(`/formations`);
-      setFormations(AllFormations);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    getAllFormations();
-  }, []);
-
-  const getTutos = async () => {
-    try {
-      const mytutos = await connexion.get(
-        `/formations/${formationId.id}/tutorials`
-      );
-      setTutorials(mytutos);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    getTutos();
-  }, [formationId]);
-
+function TutoTab({ selectedTutorial, handleTutorial }) {
   return (
     <div>
       <div>
@@ -49,7 +10,7 @@ function TutoTab({
               type="text"
               className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
               placeholder="Nom du tutoriel"
-              value={tutorialsId.name}
+              value={selectedTutorial.name}
               name="name"
               onChange={(event) =>
                 handleTutorial(event.target.name, event.target.value)
@@ -86,7 +47,7 @@ function TutoTab({
               rows="4"
               className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
               placeholder="Ecrivez les objectifs"
-              value={tutorialsId.target}
+              value={selectedTutorial.target}
               name="target"
               onChange={(event) =>
                 handleTutorial(event.target.name, event.target.value)
@@ -106,7 +67,7 @@ function TutoTab({
               rows="4"
               className="w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"
               placeholder="Ecrivez les objectifs"
-              value={tutorialsId.explanation}
+              value={selectedTutorial.explanation}
               name="explanation"
               onChange={(event) =>
                 handleTutorial(event.target.name, event.target.value)
@@ -120,7 +81,7 @@ function TutoTab({
                 type="url"
                 className="mr-4 block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
                 placeholder="Nom de l'image"
-                value={tutorialsId.alt}
+                value={selectedTutorial.alt}
                 name="alt"
                 onChange={(event) =>
                   handleTutorial(event.target.name, event.target.value)
@@ -131,7 +92,7 @@ function TutoTab({
                 type="url"
                 className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
                 placeholder="Lien de l'image"
-                value={tutorialsId.src}
+                value={selectedTutorial.src}
                 name="src"
                 onChange={(event) =>
                   handleTutorial(event.target.name, event.target.value)

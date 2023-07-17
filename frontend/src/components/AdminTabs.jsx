@@ -1,13 +1,8 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import TutoTab from "./TutoTab";
 import QuizzTab from "./QuizzTab";
 import RessourcesTab from "./RessourcesTab";
-
-const formationModel = {
-  id: null,
-  title: "",
-  icon: "",
-};
+import connexion from "../services/connexion";
 
 const tutorialModel = {
   id: null,
@@ -22,12 +17,13 @@ const tutorialModel = {
   quizz_id: null,
   formation_id: null,
 };
+
 function AdminTabs() {
   const [openTab, setOpenTab] = useState(1);
   const [formations, setFormations] = useState([]);
   const [tutorials, setTutorials] = useState([]);
-  const [formationId, setFormationId] = useState(formationModel);
-  const [tutorialsId, setTutorialsId] = useState(tutorialModel);
+  const [formationId, setFormationId] = useState();
+  const [selectedTutorial, setSelectedTutorial] = useState(tutorialModel);
 
   const handleNext = () => {
     setOpenTab(openTab + 1);
@@ -36,17 +32,50 @@ function AdminTabs() {
   const handlePrevious = () => {
     return openTab > 1 ? setOpenTab(openTab - 1) : setOpenTab(openTab);
   };
-  const updateTutorialState = (id) => {
+
+  const selectOneTutorials = (id) => {
     if (id === "") {
-      setTutorialsId(tutorialModel);
+      setSelectedTutorial(tutorialModel);
     } else {
-      setTutorialsId(tutorials.find((art) => art.id === +id));
+      setSelectedTutorial(tutorials.find((art) => art.id === +id));
     }
   };
 
-  const handleFormation = (name, value) => {
-    setFormationId({ ...formationId, [name]: value });
+  const getAllFormations = async () => {
+    try {
+      const AllFormations = await connexion.get(`/formations`);
+      setFormations(AllFormations);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  useEffect(() => {
+    getAllFormations();
+  }, []);
+
+  const handleTutorial = (name, value) => {
+    setSelectedTutorial({ ...selectedTutorial, [name]: value });
+  };
+
+  const getTutos = async () => {
+    if (formationId !== "") {
+      try {
+        const mytutos = await connexion.get(
+          `/formations/${formationId}/tutorials`
+        );
+        setTutorials(mytutos);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      setTutorials([]);
+    }
+  };
+
+  useEffect(() => {
+    getTutos();
+  }, [formationId]);
 
   return (
     <div className="flex flex-wrap">
@@ -58,13 +87,11 @@ function AdminTabs() {
           <select
             id="underline_select"
             className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-            onChange={(event) =>
-              handleFormation(event.target.name, event.target.value)
-            }
+            onChange={(event) => setFormationId(event.target.value)}
             name="id"
-            value={formationId.id}
+            value={formationId}
           >
-            <option>Choisissez une formation</option>
+            <option value="">Choisissez une formation</option>
             {formations.map((formation) => (
               <option key={formation.id} value={formation.id}>
                 {formation.title}
@@ -79,8 +106,8 @@ function AdminTabs() {
           <select
             id="underline_select"
             className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-            onChange={(event) => updateTutorialState(event.target.value)}
-            value={tutorialsId.id}
+            onChange={(event) => selectOneTutorials(event.target.value)}
+            value={selectedTutorial.id}
           >
             <option>Choisissez un tuto</option>
             {tutorials.map((tutorial) => (
@@ -156,18 +183,12 @@ function AdminTabs() {
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                 <TutoTab
-                  formations={formations}
-                  setFormations={setFormations}
-                  formationId={formationId}
-                  setFormationId={setFormationId}
-                  tutorials={tutorials}
-                  setTutorials={setTutorials}
-                  tutorialsId={tutorialsId}
-                  setTutorialsId={setTutorialsId}
+                  selectedTutorial={selectedTutorial}
+                  handleTutorial={handleTutorial}
                 />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <QuizzTab />
+                <QuizzTab tutorialId={selectedTutorial.id} />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                 <RessourcesTab />
