@@ -25,14 +25,14 @@ function AdminTabs() {
   const [formationId, setFormationId] = useState();
   const [selectedTutorial, setSelectedTutorial] = useState(tutorialModel);
 
-   const handleNext = () => {
+  const handleNext = () => {
     setOpenTab(openTab + 1);
   };
 
   const handlePrevious = () => {
     return openTab > 1 ? setOpenTab(openTab - 1) : setOpenTab(openTab);
   };
-  
+
   const selectOneTutorials = (id) => {
     if (id === "") {
       setSelectedTutorial(tutorialModel);
