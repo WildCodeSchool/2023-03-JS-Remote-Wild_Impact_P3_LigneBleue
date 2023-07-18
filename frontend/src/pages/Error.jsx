@@ -4,7 +4,7 @@ import error from "../assets/error.gif";
 
 function Error() {
   return (
-    <div className="relative z-20 flex flex-col justify-center py-5 pr-4 mb-1 mx-4 rounded-3xl text-center text-secondary font-sans bg-champagne">
+    <div className="relative z-20 flex flex-col justify-center py-5 px-4 mb-1 mx-4 rounded-3xl text-center text-secondary font-sans bg-champagne">
       <p className="text-6xl">Erreur 404</p>
       <p className="text-5xl mb-5">Cette page est introuvable...</p>
       <img src={error} alt="Error 404" className="mx-auto" />
