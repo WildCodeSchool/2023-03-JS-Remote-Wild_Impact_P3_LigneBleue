@@ -78,15 +78,15 @@ function AdminTabs() {
   }, [formationId]);
 
   return (
-    <div className="flex flex-wrap">
-      <div className="flex flex-row justify-around mb-10">
-        <div className="flex flex-col items-center w-80 gap-6">
+    <div className="flex flex-wrap justify-center pt-4 bg-white">
+      <div className="flex flex-row mb-10">
+        <div className="flex flex-col w-80">
           <label htmlFor="underline_select" className="sr-only">
             Choisissez une formation
           </label>
           <select
             id="underline_select"
-            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            className="flex justify-center py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
             onChange={(event) => setFormationId(event.target.value)}
             name="id"
             value={formationId}
@@ -99,13 +99,13 @@ function AdminTabs() {
             ))}
           </select>
         </div>
-        <div className="flex flex-col items-center w-80 gap-6">
+        <div className="flex flex-col items-center w-80">
           <label htmlFor="underline_select" className="sr-only">
             Choisissez un tuto
           </label>
           <select
             id="underline_select"
-            className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            className="flex justify-center py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer"
             onChange={(event) => selectOneTutorials(event.target.value)}
             value={selectedTutorial.id}
           >
@@ -120,7 +120,7 @@ function AdminTabs() {
       </div>
       <div className="w-full">
         <ul
-          className="flex mb-0 list-none flex-wrap pt-3 pb-4 flex-row"
+          className="flex mb-0 list-none flex-wrap pt-3 pb-4 px-4 flex-row"
           role="tablist"
         >
           <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -178,7 +178,7 @@ function AdminTabs() {
             </a>
           </li>
         </ul>
-        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
           <div className="px-4 py-5 flex-auto">
             <div className="tab-content tab-space">
               <div className={openTab === 1 ? "block" : "hidden"} id="link1">
@@ -200,19 +200,19 @@ function AdminTabs() {
           <button
             type="button"
             className="w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 mr-4 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
-            onClick={handleNext}
-          >
-            <div className="w-full relative px-5 py-1.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-              <h3 className="text-center">Suivant</h3>
-            </div>
-          </button>
-          <button
-            type="button"
-            className="w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ring-2 ml-4 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
             onClick={handlePrevious}
           >
             <div className="w-full relative px-5 py-1.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
               <h3 className="text-center">Précédent</h3>
+            </div>
+          </button>
+          <button
+            type="button"
+            className="w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ml-4 ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            onClick={handleNext}
+          >
+            <div className="w-full relative px-5 py-1.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+              <h3 className="text-center">Suivant</h3>
             </div>
           </button>
         </div>
