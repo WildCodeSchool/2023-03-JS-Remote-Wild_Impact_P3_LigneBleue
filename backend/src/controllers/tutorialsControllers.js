@@ -28,6 +28,18 @@ const read = (req, res) => {
     });
 };
 
+const browseRessources = (req, res) => {
+  models.ressources
+    .findByTutorials(req.params.id)
+    .then(([ressources]) => {
+      res.status(200).json(ressources);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 const edit = (req, res) => {
   const Tuto = req.body;
 
@@ -85,6 +97,7 @@ const destroy = (req, res) => {
 module.exports = {
   browse,
   read,
+  browseRessources,
   edit,
   add,
   destroy,
