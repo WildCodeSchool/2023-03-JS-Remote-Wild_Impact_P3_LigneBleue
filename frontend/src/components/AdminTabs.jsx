@@ -5,17 +5,12 @@ import RessourcesTab from "./RessourcesTab";
 import connexion from "../services/connexion";
 
 const tutorialModel = {
-  id: null,
   name: "",
   icon: "",
   target: "",
   explanation: "",
   src: "",
   alt: "",
-  creation_date: null,
-  image_id: null,
-  quizz_id: null,
-  formation_id: null,
 };
 
 function AdminTabs() {
