@@ -83,7 +83,8 @@ function AdminTabs() {
           ...selectedTutorial,
           formation_id: formationId,
         });
-        console.info(newtutos);
+        getTutos();
+        setSelectedTutorial(newtutos);
       } catch (error) {
         console.error(error);
       }
@@ -214,7 +215,10 @@ function AdminTabs() {
                 />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <QuizzTab tutorialId={selectedTutorial.id} />
+                <QuizzTab
+                  quizzId={selectedTutorial.quizz_id}
+                  tutorialId={selectedTutorial.id}
+                />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                 <RessourcesTab />

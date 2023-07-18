@@ -66,6 +66,7 @@ CREATE TABLE questions (
 CREATE TABLE answers (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   content longtext NOT NULL,
+  status TINYINT NOT NULL DEFAULT(0),
   question_id INT NOT NULL,
     CONSTRAINT fk_question_id FOREIGN KEY (question_id) REFERENCES questions(id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import connexion from "../services/connexion";
 import quizzModel from "../models/QuizzModel";
 
-function QuizzTab({ tutorialId }) {
+function QuizzTab({ quizzId, tutorialId }) {
   const [quizz, setQuizz] = useState(quizzModel);
 
   const handleQuizz = (event, questIndex, answerIndex) => {
@@ -21,14 +21,18 @@ function QuizzTab({ tutorialId }) {
 
     if (event.target.name.includes("answers")) {
       const prevState = { ...quizz };
-      prevState.questions[questIndex].answers[answerIndex] = event.target.value;
+      prevState.questions[questIndex].answers[answerIndex].answers =
+        event.target.value;
+      if (answerIndex === 0) {
+        prevState.questions[questIndex].answers[answerIndex].status = 1;
+      }
       setQuizz(prevState);
     }
   };
 
   const getQuizz = async () => {
     try {
-      const oneQuizz = await connexion.get(`/quizz/${tutorialId}`);
+      const oneQuizz = await connexion.get(`/quizz/${quizzId}`);
       setQuizz(oneQuizz);
     } catch (error) {
       console.error(error);
@@ -36,15 +40,29 @@ function QuizzTab({ tutorialId }) {
   };
 
   useEffect(() => {
-    if (tutorialId) {
+    if (quizzId) {
       getQuizz();
+    } else {
+      setQuizz(quizzModel);
     }
-  }, [tutorialId]);
+  }, [quizzId]);
 
   const checkAnswersValidity = () => {
     return quizz.questions.every((quest) => {
       return quest.answers.every((answer) => answer.answers !== "");
     });
+  };
+
+  const postQuizz = async () => {
+    try {
+      const newQuizz = await connexion.post(`/quizz`, {
+        ...quizz,
+        tutorialId,
+      });
+      console.info(newQuizz);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const manageQuizz = (event) => {
@@ -53,6 +71,7 @@ function QuizzTab({ tutorialId }) {
       if (quizz.id) {
         console.info("Should update the quizz");
       } else {
+        postQuizz();
         console.info("Should insert a quizz");
       }
     } else {
@@ -97,7 +116,7 @@ function QuizzTab({ tutorialId }) {
                   <div className="flex flex-col">
                     {quest.answers.map((answer, jindex) => (
                       <label className="text-lg text-gray-500">
-                        Réponses {jindex + 1}
+                        Réponse {jindex + 1} {jindex === 0 && "correcte"}
                         <input
                           type="text"
                           className="mr-4 block py-2.5 px-0 w-full text-sm text-black border-0 border-b-2 border-gray-200"
