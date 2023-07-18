@@ -41,8 +41,8 @@ models.tutorials.setDatabase(pool);
 
 const QuizzManager = require("./QuizzManager");
 
-models.Quizz = new QuizzManager();
-models.Quizz.setDatabase(pool);
+models.quizz = new QuizzManager();
+models.quizz.setDatabase(pool);
 
 const FormationsManager = require("./FormationsManager");
 
@@ -63,6 +63,16 @@ const ImagesManager = require("./ImagesManager");
 
 models.images = new ImagesManager();
 models.images.setDatabase(pool);
+
+const QuestionsManager = require("./QuestionsManager");
+
+models.questions = new QuestionsManager();
+models.questions.setDatabase(pool);
+
+const AnswersManager = require("./AnswersManager");
+
+models.answers = new AnswersManager();
+models.answers.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

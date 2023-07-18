@@ -29,6 +29,7 @@ router.get("/ressources", ressourcesControllers.browse);
 router.get("/tutorials/:id/ressources", tutorialsControllers.browseRessources);
 
 router.post("/tutorials", checkTutorialData, tutorialsControllers.add);
+router.post("/quizz", quizzControllers.add);
 router.use(checkUser);
 
 module.exports = router;

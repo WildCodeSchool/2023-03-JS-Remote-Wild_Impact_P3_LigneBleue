@@ -30,9 +30,9 @@ function QuizzTab({ quizzId, tutorialId }) {
     }
   };
 
-  const getQuizz = async () => {
+  const getQuizz = async (id) => {
     try {
-      const oneQuizz = await connexion.get(`/quizz/${quizzId}`);
+      const oneQuizz = await connexion.get(`/quizz/${id || quizzId}`);
       setQuizz(oneQuizz);
     } catch (error) {
       console.error(error);
@@ -59,7 +59,7 @@ function QuizzTab({ quizzId, tutorialId }) {
         ...quizz,
         tutorialId,
       });
-      console.info(newQuizz);
+      getQuizz(newQuizz.id);
     } catch (error) {
       console.error(error);
     }
