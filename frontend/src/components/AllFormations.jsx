@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Icons from "./Icons";
-import "./Formations.css";
+import "./AllFormations.css";
 import connexion from "../services/connexion";
 import SearchBar from "./SearchBar";
 
@@ -52,7 +52,7 @@ function AllFormations() {
             {formations.slice(0, 9).map((formation) => (
               <div
                 key={formation.id}
-                className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 max-sm:w-36 max-sm:h-30 w-52 h-40"
+                className="formations flex flex-col justify-center items-center bg-light_blue px-3 py-3 my-10 mx-10 max-sm:w-36 max-sm:h-30 w-52 h-40 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300"
               >
                 <Link to={`/formations/${formation.id}`}>
                   <h3 className="titleformation text-xl max-sm:text-sm text-center">
