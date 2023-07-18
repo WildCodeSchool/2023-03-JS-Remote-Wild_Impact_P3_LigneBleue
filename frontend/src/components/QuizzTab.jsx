@@ -39,7 +39,7 @@ function QuizzTab({ tutorialId }) {
     if (tutorialId) {
       getQuizz();
     }
-  }, []);
+  }, [tutorialId]);
 
   const checkAnswersValidity = () => {
     return quizz.questions.every((quest) => {
@@ -50,7 +50,11 @@ function QuizzTab({ tutorialId }) {
   const manageQuizz = (event) => {
     event.preventDefault();
     if (checkAnswersValidity()) {
-      // Faire le post ou update
+      if (quizz.id) {
+        console.info("Should update the quizz");
+      } else {
+        console.info("Should insert a quizz");
+      }
     } else {
       // Ajoute un message Users
     }
