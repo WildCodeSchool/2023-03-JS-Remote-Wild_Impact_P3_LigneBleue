@@ -28,14 +28,14 @@ CREATE TABLE images (
 CREATE TABLE tutorials (
   id int(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
   name  varchar(255) NOT NULL,
-  icon varchar(255) NOT NULL,
+  icon varchar(255),
   target varchar(255) NOT NULL,
   explanation longtext NOT NULL,
   published TINYINT NOT NULL,
   creation_date date NOT NULL,
   image_id INT NOT NULL,
   CONSTRAINT fk_image_id FOREIGN KEY (image_id) REFERENCES images(id) ON DELETE CASCADE,
-  quizz_id INT NOT NULL,
+  quizz_id INT,
     CONSTRAINT fk_quizz_id FOREIGN KEY (quizz_id) REFERENCES quizz(id) ON DELETE CASCADE,
   formation_id INT NOT NULL,
     CONSTRAINT fk_formation_id FOREIGN KEY (formation_id) REFERENCES formations(id) ON DELETE CASCADE

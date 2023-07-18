@@ -62,23 +62,21 @@ const edit = (req, res) => {
     });
 };
 
-const add = (req, res) => {
+const add = async (req, res) => {
   const tutorial = req.body;
-
-  // TODO validations (length, format...)
-
-  models.tutorials
-    .insert(tutorial)
-    .then(([result]) => {
-      res
-        .location(`/tuto/${result.insertId}`)
-        .status(201)
-        .json({ ...req.body, id: result.insertId });
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
+  try {
+    const image = await models.images.insert(req.body);
+    const tuto = await models.tutorials.insert({
+      ...tutorial,
+      image_id: image[0].insertId,
     });
+    res
+      .status(201)
+      .json({ ...tutorial, image_id: image[0].insertId, id: tuto[0].insertId });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 };
 
 const destroy = (req, res) => {

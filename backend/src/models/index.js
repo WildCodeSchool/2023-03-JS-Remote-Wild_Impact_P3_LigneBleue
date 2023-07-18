@@ -59,6 +59,11 @@ const RessourcesManager = require("./RessourcesManager");
 models.ressources = new RessourcesManager();
 models.ressources.setDatabase(pool);
 
+const ImagesManager = require("./ImagesManager");
+
+models.images = new ImagesManager();
+models.images.setDatabase(pool);
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
