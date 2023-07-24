@@ -37,6 +37,12 @@ class QuizzManager extends AbstractManager {
     return this.database.query(`delete from ${this.table} where id = ?`, [id]);
   }
 
+  insert(title) {
+    return this.database.query(`insert into ${this.table} (title) values (?)`, [
+      title,
+    ]);
+  }
+
   setDatabase(database) {
     this.database = database;
   }

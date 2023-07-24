@@ -5,17 +5,12 @@ import RessourcesTab from "./RessourcesTab";
 import connexion from "../services/connexion";
 
 const tutorialModel = {
-  id: null,
   name: "",
   icon: "",
   target: "",
   explanation: "",
   src: "",
   alt: "",
-  creation_date: null,
-  image_id: null,
-  quizz_id: null,
-  formation_id: null,
 };
 
 function AdminTabs() {
@@ -31,6 +26,14 @@ function AdminTabs() {
 
   const handlePrevious = () => {
     return openTab > 1 ? setOpenTab(openTab - 1) : setOpenTab(openTab);
+  };
+
+  const handleTab = (index) => {
+    if (selectedTutorial.id) {
+      setOpenTab(index);
+    } else {
+      console.info("Message user, should have an identified tuto");
+    }
   };
 
   const selectOneTutorials = (id) => {
@@ -70,6 +73,32 @@ function AdminTabs() {
       }
     } else {
       setTutorials([]);
+    }
+  };
+
+  const postTutorial = async () => {
+    if (formationId) {
+      try {
+        const newtutos = await connexion.post(`/tutorials`, {
+          ...selectedTutorial,
+          formation_id: formationId,
+        });
+        getTutos();
+        setSelectedTutorial(newtutos);
+      } catch (error) {
+        console.error(error);
+      }
+    } else {
+      console.info("Vous devez choisir une catégorie de formation");
+    }
+  };
+
+  const manageTutorial = (event) => {
+    event.preventDefault();
+    if (selectedTutorial.id) {
+      console.info("Should update the tuto");
+    } else {
+      postTutorial();
     }
   };
 
@@ -124,58 +153,55 @@ function AdminTabs() {
           role="tablist"
         >
           <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-            <a
+            <button
+              type="button"
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 1
                   ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
                   : `text-gray-500 bg-white`
               }`}
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenTab(1);
+              onClick={() => {
+                handleTab(1);
               }}
               data-toggle="tab"
-              href="#link1"
               role="tablist"
             >
               Tutoriels
-            </a>
+            </button>
           </li>
           <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-            <a
+            <button
+              type="button"
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 2
                   ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
                   : `text-gray-500 bg-white`
               }`}
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenTab(2);
+              onClick={() => {
+                handleTab(2);
               }}
               data-toggle="tab"
-              href="#link2"
               role="tablist"
             >
               Quizz
-            </a>
+            </button>
           </li>
           <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
-            <a
+            <button
+              type="button"
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 3
                   ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
                   : `text-gray-500 bg-white`
               }`}
-              onClick={(e) => {
-                e.preventDefault();
-                setOpenTab(3);
+              onClick={() => {
+                handleTab(3);
               }}
               data-toggle="tab"
-              href="#link3"
               role="tablist"
             >
               Ressources
-            </a>
+            </button>
           </li>
         </ul>
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
@@ -185,10 +211,14 @@ function AdminTabs() {
                 <TutoTab
                   selectedTutorial={selectedTutorial}
                   handleTutorial={handleTutorial}
+                  manageTutorial={manageTutorial}
                 />
               </div>
               <div className={openTab === 2 ? "block" : "hidden"} id="link2">
-                <QuizzTab tutorialId={selectedTutorial.id} />
+                <QuizzTab
+                  quizzId={selectedTutorial.quizz_id}
+                  tutorialId={selectedTutorial.id}
+                />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
                 <RessourcesTab />

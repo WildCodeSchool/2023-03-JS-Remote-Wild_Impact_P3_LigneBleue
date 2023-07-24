@@ -1,44 +1,38 @@
-import React, { useEffect } from "react";
+// import React, { useEffect } from "react";
 import connexion from "../services/connexion";
 
-function RessourceTab({
-  setTutorials,
-  tutorialsId,
-  setTutorialsId,
-  setFormations,
-  formationId,
-}) {
-  const handleTutorial = (name, value) => {
-    setTutorialsId({ ...tutorialsId, [name]: value });
-  };
+function RessourceTab() {
+  // const handleTutorial = (name, value) => {
+  //   setTutorialsId({ ...tutorialsId, [name]: value });
+  // };
 
-  const getAllFormations = async () => {
-    try {
-      const AllFormations = await connexion.get(`/formations`);
-      setFormations(AllFormations);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getAllFormations = async () => {
+  //   try {
+  //     const AllFormations = await connexion.get(`/formations`);
+  //     setFormations(AllFormations);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getAllFormations();
-  }, []);
+  // useEffect(() => {
+  //   getAllFormations();
+  // }, []);
 
-  const getTutos = async () => {
-    try {
-      const mytutos = await connexion.get(
-        `/formations/${formationId.id}/tutorials`
-      );
-      setTutorials(mytutos);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getTutos = async () => {
+  //   try {
+  //     const mytutos = await connexion.get(
+  //       `/formations/${formationId.id}/tutorials`
+  //     );
+  //     setTutorials(mytutos);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getTutos();
-  }, [formationId]);
+  // useEffect(() => {
+  //   getTutos();
+  // }, [formationId]);
 
   return (
     <div>

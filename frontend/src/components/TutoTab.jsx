@@ -1,10 +1,10 @@
 import React from "react";
 
-function TutoTab({ selectedTutorial, handleTutorial }) {
+function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
   return (
     <div>
       <div>
-        <form>
+        <form onSubmit={manageTutorial}>
           <div className="relative z-0 w-full mb-6 group">
             <input
               type="text"
@@ -108,6 +108,11 @@ function TutoTab({ selectedTutorial, handleTutorial }) {
               Image
             </label>
           </div>
+          {selectedTutorial.id ? (
+            <button type="submit">Modifier</button>
+          ) : (
+            <button type="submit">Ajouter</button>
+          )}
         </form>
       </div>
     </div>
