@@ -24,10 +24,10 @@ function Progress() {
 
   return (
     <>
-      <section className=" bg-champagne pb-40">
+      <section className=" bg-champagne pb-40 mx-4 mb-6 rounded-3xl">
         <div className="  flex">
-          <div className=" min-w-[30%]">
-            <h1 className=" text-blue text-[3rem] max-[700px]:text-lg font-bold">
+          <div className="min-w-[30%]">
+            <h1 className=" text-blue text-[3rem] max-[700px]:text-lg font-bold pl-6">
               Votre Parcours
             </h1>
             <img
@@ -35,7 +35,7 @@ function Progress() {
               alt="img"
               className=" w-28 h-30 pt-8 pl-8 opacity-80 max-[700px]:hidden"
             />
-            <p className="pl-8 pb-4 text-xl font-bold opacity-25 ">
+            <p className="pl-8 pb-4 text-xl font-bold opacity-25">
               Cliquer sur une catégorie pour connaitre le détail de votre
               avancement.
             </p>
