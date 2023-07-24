@@ -30,6 +30,14 @@ router.get("/tutorials/:id/ressources", tutorialsControllers.browseRessources);
 
 router.post("/tutorials", checkTutorialData, tutorialsControllers.add);
 router.post("/quizz", quizzControllers.add);
+
+router.put(
+  "/tutorials/:id",
+  checkTutorialData,
+  tutorialsControllers.editTutorial
+);
+// router.put("/quizz", quizzControllers.edit);
+
 router.use(checkUser);
 
 module.exports = router;
