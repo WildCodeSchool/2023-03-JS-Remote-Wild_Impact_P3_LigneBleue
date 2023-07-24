@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import error from "../assets/error.gif";
 
 function Error() {
   return (
-    <div className="relative z-20 flex flex-col justify-center py-5 pr-4 mb-1 mx-4 rounded-3xl text-center text-secondary font-sans bg-champagne">
+    <div className="relative z-20 flex flex-col justify-center py-5 px-4 mb-1 mx-4 rounded-3xl text-center text-secondary font-sans bg-champagne">
       <p className="text-6xl">Erreur 404</p>
       <p className="text-5xl mb-5">Cette page est introuvable...</p>
-      <img
-        src="https://media.discordapp.net/attachments/1081687214460780575/1126793717735489607/77620-404-website-error-animation.gif?width=572&height=572"
-        alt="Error 404"
-        className="mx-auto"
-      />
+      <img src={error} alt="Error 404" className="mx-auto" />
       <div className="flex justify-center">
         <Link to="/">
           <button
