@@ -107,7 +107,7 @@ function AdminTabs() {
   }, [formationId]);
 
   return (
-    <div className="flex flex-wrap justify-center pt-4 bg-white">
+    <div className="flex flex-wrap justify-center pt-4 bg-white rounded-xl">
       <div className="flex flex-row mb-10">
         <div className="flex flex-col w-80">
           <label htmlFor="underline_select" className="sr-only">
