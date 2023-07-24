@@ -191,7 +191,7 @@ function AdminTabs() {
                 <QuizzTab tutorialId={selectedTutorial.id} />
               </div>
               <div className={openTab === 3 ? "block" : "hidden"} id="link3">
-                <RessourcesTab />
+                <RessourcesTab tutorialId={selectedTutorial.id} />
               </div>
             </div>
           </div>

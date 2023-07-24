@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Icons from "./Icons";
 import "./AllFormations.css";
 import connexion from "../services/connexion";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 
 function AllFormations() {
   const [formations, setFormations] = useState([]);
@@ -34,7 +34,7 @@ function AllFormations() {
               </div>
             </button>
           </Link>
-          <SearchBar />
+          {/* <SearchBar /> */}
           <Link to="/aide">
             <button
               type="button"
