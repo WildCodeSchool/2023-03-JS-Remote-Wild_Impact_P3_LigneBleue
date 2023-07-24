@@ -4,10 +4,9 @@ import AdminTabs from "../../components/AdminTabs";
 
 function TutoAdmin() {
   return (
-    <>
-      <div>TutoAdmin</div>
+    <div className="m-8">
       <AdminTabs />
-    </>
+    </div>
   );
 }
 

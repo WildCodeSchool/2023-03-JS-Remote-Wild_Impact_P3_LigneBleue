@@ -12,6 +12,7 @@ import Info from "./pages/Users/Info";
 import Header from "./components/Header";
 import Breadcrumbs from "./components/Breadcrumbs";
 import Error from "./pages/Error";
+import AccueilAdmin from "./components/AccueilAdmin";
 
 import "./App.css";
 import Tutoriel from "./pages/Users/Tutoriel";
@@ -44,6 +45,7 @@ function App() {
                 <Route path="*" element={<Error />} />
               </Route>
               <Route path="/admin" element={<AdminLayout />}>
+                <Route path="" element={<AccueilAdmin />} />
                 <Route path="tuto" element={<TutoAdmin />} />
               </Route>
             </Routes>
