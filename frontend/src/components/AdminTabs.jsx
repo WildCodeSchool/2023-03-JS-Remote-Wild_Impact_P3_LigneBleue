@@ -93,10 +93,23 @@ function AdminTabs() {
     }
   };
 
+  const updateTutorial = async () => {
+    try {
+      const tutoUpdate = await connexion.put(
+        `/tutorials/${selectedTutorial.id}`,
+        selectedTutorial
+      );
+      getTutos();
+      setSelectedTutorial(tutoUpdate);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const manageTutorial = (event) => {
     event.preventDefault();
     if (selectedTutorial.id) {
-      console.info("Should update the tuto");
+      updateTutorial();
     } else {
       postTutorial();
     }
