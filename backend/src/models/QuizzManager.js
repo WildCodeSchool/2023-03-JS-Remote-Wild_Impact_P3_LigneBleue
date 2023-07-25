@@ -43,6 +43,13 @@ class QuizzManager extends AbstractManager {
     ]);
   }
 
+  update(quizz) {
+    return this.database.query(
+      `update ${this.table} set title = ? where id = ?`,
+      [quizz.title, quizz.id]
+    );
+  }
+
   setDatabase(database) {
     this.database = database;
   }

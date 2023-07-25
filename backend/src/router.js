@@ -32,7 +32,9 @@ router.post("/tutorials", checkTutorialData, tutorialsControllers.add);
 router.post("/quizz", quizzControllers.add);
 
 router.put("/tutorials/:id", tutorialsControllers.editTutorial);
-// router.put("/quizz", quizzControllers.edit);
+
+router.delete("/quizz/:id", quizzControllers.destroy);
+router.delete("/tutorials/:id", tutorialsControllers.destroy);
 
 router.use(checkUser);
 

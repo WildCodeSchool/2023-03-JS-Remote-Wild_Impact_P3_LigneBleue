@@ -65,10 +65,21 @@ function QuizzTab({ quizzId, tutorialId }) {
     }
   };
 
+  const updateQuizz = async () => {
+    try {
+      const upQuizz = await connexion.put(`/quizz/${quizz.id}`, quizz);
+      getQuizz(upQuizz.id);
+      console.info("All Good");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const manageQuizz = (event) => {
     event.preventDefault();
     if (checkAnswersValidity()) {
       if (quizz.id) {
+        updateQuizz();
         console.info("Should update the quizz");
       } else {
         postQuizz();

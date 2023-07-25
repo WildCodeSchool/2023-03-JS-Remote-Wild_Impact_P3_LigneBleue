@@ -83,7 +83,7 @@ const destroy = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(201).json({ msg: "tutoriel Supprimé" });
       }
     })
     .catch((err) => {
