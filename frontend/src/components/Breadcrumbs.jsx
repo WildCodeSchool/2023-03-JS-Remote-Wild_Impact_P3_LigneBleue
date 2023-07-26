@@ -22,7 +22,7 @@ function Breadcrumbs() {
       );
     });
   return (
-    <div className="flex flex-row mt-8">
+    <div className="flex flex-row mt-10 max-sm:mt-12">
       <img src={logoBreadcrumbs} alt="crumbs" className="w-6 h-6 ml-2" />
       {location.pathname === "/" ? (
         <div>Accueil</div>
