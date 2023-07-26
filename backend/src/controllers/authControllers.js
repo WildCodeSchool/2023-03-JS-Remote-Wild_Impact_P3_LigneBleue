@@ -21,20 +21,20 @@ const signup = async (req, res) => {
 
 const login = (req, res) => {
   models.users
-    .find(req.body.email)
+    .find(req.body.mail)
     .then(async ([user]) => {
       if (user[0]) {
         try {
           if (await argon2.verify(user[0].password, req.body.password)) {
-            const token = createJwt({ email: req.body.email });
+            const token = createJwt({ mail: req.body.mail });
             res
               .status(200)
-              .cookie("ligne_bleue_token", token, {
+              .cookie("super_token", token, {
                 httpOnly: true,
                 expires: new Date(Date.now() + 900000),
               })
               .json({
-                email: user[0].mail,
+                mail: user[0].mail,
                 role: user[0].admin,
                 msg: "Connected",
               });

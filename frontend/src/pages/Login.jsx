@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import connexion from "../services/connexion";
 
 function Login() {
@@ -7,6 +8,7 @@ function Login() {
     password: "",
   });
 
+  const navigate = useNavigate();
   const handleAuth = (event) => {
     setAuth({ ...auth, [event.target.name]: event.target.value });
   };
@@ -15,6 +17,7 @@ function Login() {
     event.preventDefault();
     try {
       await connexion.post("/connexion", auth);
+      navigate("/parcours");
     } catch (error) {
       console.error(error);
     }
