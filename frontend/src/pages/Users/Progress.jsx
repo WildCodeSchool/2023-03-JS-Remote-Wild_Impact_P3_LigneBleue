@@ -52,7 +52,7 @@ function Progress() {
             </div>
             <div className="absolute grid grid-cols-6 ">
               {ProgressionCategories.map((formation, index) => (
-                <Link to={`/formation/${formation.id}`}>
+                <Link to={`/parcours/progression/${formation.id}`}>
                   <div
                     key={formation.id}
                     className={` ${
