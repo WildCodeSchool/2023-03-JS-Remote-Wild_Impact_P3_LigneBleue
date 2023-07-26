@@ -4,7 +4,7 @@ import logo from "../assets/logo_lb.png";
 
 function Header() {
   return (
-    <div className=" h-1/2 bg-yellow pt-2">
+    <div className="pt-2">
       <div className="flex  flex-row items-center justify-between pb-2 ">
         <div className="w-16 h-26 ml-3  min-[600px]:w-20 min-[600px]:h-30 min-[600px]:pt-2">
           <Link to="/">
@@ -20,7 +20,7 @@ function Header() {
           </h6>
         </div>
       </div>
-      <hr className="border-t-2 border-blue mr-6 ml-6  min-[600px]:hidden" />
+      <hr className="border-t-2 border-blue mr-6 ml-6  max-[600px]:hidden" />
     </div>
   );
 }

@@ -9,20 +9,20 @@ function Breadcrumbs() {
   const crumbs = location.pathname
     .split("/")
     .filter((crumb) => crumb !== "")
-    .map((crumb) => {
-      currentLink = +`/${crumb}`;
+    .map((crumb, index) => {
+      currentLink = `/${crumb}`;
       return (
         <div
           className=" after:content-['>'] after:mx-2 last:after:hidden"
-          key={crumb}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`${crumb}_${index}`}
         >
           <Link to={currentLink}>{crumb}</Link>
         </div>
       );
     });
-
   return (
-    <div className="flex flex-row mt-1">
+    <div className="flex flex-row mt-8">
       <img src={logoBreadcrumbs} alt="crumbs" className="w-6 h-6 ml-2" />
       {location.pathname === "/" ? (
         <div>Accueil</div>

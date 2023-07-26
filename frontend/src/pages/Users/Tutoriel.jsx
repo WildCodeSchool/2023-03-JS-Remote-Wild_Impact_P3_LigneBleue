@@ -1,19 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import connexion from "../../services/connexion";
-import img from "../../assets/Tutoriel.jpg";
+import quizzModel from "../../models/QuizzModel";
+import ressourceModel from "../../models/RessourceModel";
 
 function Tutoriel() {
-  const [open, setOpen] = useState(false);
-  const [quizz, setQuizz] = useState([]);
-  const [title, setTitle] = useState([]);
-  const { id } = useParams();
+  const [openQuizz, setOpenQuizz] = useState(false);
+  const [openRessource, setOpenRessource] = useState(true);
+  const [quizz, setQuizz] = useState(quizzModel);
+  const [tuto, setTuto] = useState([]);
+  const [ressources, setRessources] = useState(ressourceModel);
+  const { tid } = useParams();
+
+  const getTutorials = async () => {
+    try {
+      const tutos = await connexion.get(`/tutorials/${tid}`);
+      setTuto(tutos);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const getQuizz = async () => {
     try {
-      const QuizzList = await connexion.get(`/quizz/${id}`);
-      setTitle(QuizzList.title);
-      setQuizz(QuizzList.questions);
+      const QuizzList = await connexion.get(`/quizz/${tid}`);
+      setQuizz(QuizzList);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getRessources = async () => {
+    try {
+      const ressourcesList = await connexion.get(
+        `/tutorials/${tid}/ressources`
+      );
+      setRessources(ressourcesList);
     } catch (error) {
       console.error(error);
     }
@@ -21,50 +43,86 @@ function Tutoriel() {
 
   useEffect(() => {
     getQuizz();
+    getTutorials();
+    getRessources();
   }, []);
 
   return (
     <>
       <section>
         <div className="">
-          <h1 className="p-4 flex justify-center">Nom du tutoriel</h1>
+          <h1 className="p-4 flex justify-center text-4xl text-blue">
+            {tuto.name}
+          </h1>
           <div className="flex flex-col items-center bg-champagne rounded-3xl m-4">
-            <h2 className="p-4">Objectif du tutoriel</h2>
-            <img className="rounded-3xl p-4 h-300 w-96" src={img} alt="" />
-            <p className="p-8 text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-              possimus molestiae nostrum ullam aut laboriosam corrupti maiores
-              nemo eius asperiores! Maxime sit, corrupti necessitatibus sequi
-              laboriosam nemo nam illum animi?
-            </p>
+            <h2 className="p-4">{tuto.target}</h2>
+            <img className="rounded-3xl p-4 h-300 w-96" src={tuto.src} alt="" />
+            <p className="p-8 text-center">{tuto.explanation}</p>
           </div>
         </div>
       </section>
       <section>
-        <div className={open ? "open" : null}>
-          <button
-            type="button"
-            className="questions"
-            onClick={() => setOpen(!open)}
-          >
-            <h2>{title}</h2>
-          </button>
-          {open && (
-            <div className="answers" id="reponses">
-              <section>
-                <fieldset>
-                  <div>
-                    {quizz.map((el) => (
-                      <div key={el.content}>
-                        <input type="radio" name="" value="" />
-                        <label htmlFor="">{el.content}</label>
+        <div className={openQuizz ? "open" : null}>
+          <div className="text-center mb-4">
+            <button
+              type="button"
+              className="text-center"
+              onClick={() => setOpenQuizz(!openQuizz)}
+            >
+              <h2 className="text-center text-2xl text-blue font-bold mt-10">
+                {quizz.title}
+              </h2>
+              <p className="text-center text-xl text-blue m-4">
+                (Une seule réponse valide par question)
+              </p>
+            </button>
+            {openQuizz &&
+              quizz.questions.length > 0 &&
+              quizz.questions.map((quest) => (
+                <details className="mt-10 cursor-cell">
+                  <summary className="flex">
+                    <p className="text-lg ">{quest.content}</p>
+                  </summary>
+                  <div className="mt-4">
+                    {quest.answers.map((answer) => (
+                      <div className="w-full flex flex-row justify-between">
+                        <label className=" text-gray-500">
+                          {answer.answers}
+                          <input
+                            type="checkbox"
+                            className=""
+                            value={answer.answers}
+                          />
+                        </label>
                       </div>
                     ))}
                   </div>
-                </fieldset>
-              </section>
-            </div>
-          )}
+                </details>
+              ))}
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className={openRessource ? "open" : null}>
+          <div className="text-center mb-4">
+            <button
+              type="button"
+              className="text-center"
+              onClick={() => setOpenRessource(!openRessource)}
+            >
+              <h2 className="text-center text-2xl text-blue font-bold my-10">
+                Ressources
+              </h2>
+            </button>
+            {openRessource &&
+              ressources.length > 0 &&
+              ressources.map((ress) => (
+                <div key={ress.id}>
+                  <h2>{ress.name}</h2>
+                  <p>{ress.content}</p>
+                </div>
+              ))}
+          </div>
         </div>
       </section>
     </>

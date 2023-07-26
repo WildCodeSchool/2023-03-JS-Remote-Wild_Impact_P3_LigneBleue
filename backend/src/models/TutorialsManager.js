@@ -15,36 +15,61 @@ class TutorialsManager extends AbstractManager {
     return this.database.query(url, value);
   }
 
-  findByFormations(id) {
-    return this.database.query(
-      `select * from ${this.table} where formation_id = ?`,
-      [id]
-    );
-  }
-
   find(id) {
     return this.database.query(
-      `select f.title as ftitle ,t.id as tutoid, t.name as tutoname, t.target, t.explanation, i.src,i.alt
-      from formations as f
-      inner join tutorials as t on t.formation_id=f.id 
+      `select * from ${this.table} as t
+      inner join formations as f on t.formation_id=f.id
       inner join images as i on t.image_id=i.id
       where t.id = ?`,
       [id]
     );
   }
 
-  //   insert(item) {
-  //     return this.database.query(`insert into ${this.table} (title) values (?)`, [
-  //       items.title,
-  //     ]);
-  //   }
+  findByFormations(id) {
+    return this.database.query(
+      `select main.id, main.name, main.icon, main.target, main.explanation, picture.src, picture.alt, main.image_id, main.quizz_id, main.formation_id from ${this.table} as main
+      inner join images as picture on picture.id = main.image_id where formation_id = ?`,
+      [id]
+    );
+  }
 
-  //   update(item) {
-  //     return this.database.query(
-  //       `update ${this.table} set title = ? where id = ?`,
-  //       [items.title, items.id]
-  //     );
-  //   }
+  insert(tutorial) {
+    return this.database.query(
+      `insert into ${this.table} (name, target, explanation, published, creation_date, image_id, formation_id) values (?, ?, ?, ?, ?, ?, ?)`,
+      [
+        tutorial.name,
+        tutorial.target,
+        tutorial.explanation,
+        0,
+        new Date(),
+        tutorial.image_id,
+        tutorial.formation_id,
+      ]
+    );
+  }
+
+  updateOnQuizzInsertion(quizzId, tutorialId) {
+    return this.database.query(
+      `update ${this.table} set quizz_id = ?, published = 1 where id = ?`,
+      [quizzId, tutorialId]
+    );
+  }
+
+  updateTutorial(tutorial) {
+    return this.database.query(
+      `update ${this.table} set name = ?, target = ?, explanation = ?, published = ?, creation_date = ?, image_id = ?, formation_id = ?  where id = ?`,
+      [
+        tutorial.name,
+        tutorial.target,
+        tutorial.explanation,
+        0,
+        new Date(),
+        tutorial.image_id,
+        tutorial.formation_id,
+        tutorial.id,
+      ]
+    );
+  }
 }
 
 module.exports = TutorialsManager;
