@@ -14,7 +14,7 @@ const signup = async (req, res) => {
   const hash = await hashing(req.body.password);
 
   models.users
-    .insert(req.body.email, hash)
+    .insert(req.body.mail, hash)
     .then(() => res.status(200).json({ msg: "User created" }))
     .catch(() => res.status(500).json({ msg: "Invalide user" }));
 };

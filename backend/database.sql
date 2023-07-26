@@ -75,6 +75,8 @@ CREATE TABLE answers (
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Nina Robinson','nina.robinson@example.com','bethany',false,'2021/07/01');
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Don Bishop','don.bishop@example.com','abraham',false,'2021/02/03');
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Heather Simmmons','heather.simmmons@example.com','575757',true,'2021/03/04');
+INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('user','User1234@example.com','$argon2i$v=19$m=16,t=2,p=1$R3lxemFNN2N1RHJPdU5oNQ$njhb5y5dfrYuJMarCRht8w',false,'2021/03/04');
+INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('admin','Admin1234@example.com','$argon2i$v=19$m=16,t=2,p=1$UDNyeTFRcFdEbEdEN21hbg$Mo0tljAXsCKSlroYf2Zs7w',true,'2021/03/04');
 
 
 INSERT INTO formations(title,icon) VALUES ('Utiliser Ligne bleue','lignebleue');
