@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReactPlayer from "react-player";
 import connexion from "../../services/connexion";
 import quizzModel from "../../models/QuizzModel";
 import ressourceModel from "../../models/RessourceModel";
@@ -92,7 +93,7 @@ function Tutoriel() {
                   <div className="mt-4">
                     {quest.answers.map((answer) => (
                       <div className="w-full flex flex-row justify-between">
-                        <label className=" text-gray-500">
+                        <label key={answer.id} className=" text-gray-500">
                           {answer.answers}
                           <input
                             type="checkbox"
@@ -123,9 +124,9 @@ function Tutoriel() {
             {openRessource &&
               ressources.length > 0 &&
               ressources.map((ress) => (
-                <div key={ress.id}>
+                <div key={ress.id} className="flex flex-col items-center">
                   <h2>{ress.name}</h2>
-                  <p>{ress.content}</p>
+                  <ReactPlayer url={ress.content} controls playing muted />
                 </div>
               ))}
           </div>

@@ -6,7 +6,6 @@ import Picture from "../../assets/picture.png";
 import Arrived from "../../assets/arrived.png";
 import connexion from "../../services/connexion";
 import Footerbis from "../../components/Footerbis";
-import check from "../../assets/check.png";
 
 function Progress() {
   const [ProgressionCategories, setProgressionCategories] = useState([]);
