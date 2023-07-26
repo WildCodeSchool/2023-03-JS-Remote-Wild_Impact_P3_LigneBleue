@@ -23,7 +23,7 @@ function AllFormations() {
   return (
     <div className="py-5 mb-1 px-4">
       <div className="bg-champagne rounded-3xl">
-        <div className="font-bold text-blue text-center text-xl p-6 mt-4">
+        <div className="font-bold text-blue text-center text-xl p-6">
           VOTRE ESPACE DE FORMATION AUX OUTILS NUMERIQUES
         </div>
         <section>

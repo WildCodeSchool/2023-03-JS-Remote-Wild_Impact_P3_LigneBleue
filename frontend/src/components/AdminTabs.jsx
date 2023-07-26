@@ -162,10 +162,10 @@ function AdminTabs() {
       </div>
       <div className="w-full">
         <ul
-          className="flex mb-0 list-none flex-wrap pt-3 pb-4 px-4 flex-row"
+          className="flex list-none flex-wrap justify-around pt-3 pb-4 px-4 flex-row"
           role="tablist"
         >
-          <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+          <li className="-mb-px mr-2 last:mr-0 flex justify-center text-center">
             <button
               type="button"
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
@@ -182,7 +182,7 @@ function AdminTabs() {
               Tutoriels
             </button>
           </li>
-          <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+          <li className="-mb-px mr-2 last:mr-0 flex justify-center text-center">
             <button
               type="button"
               className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
@@ -199,10 +199,10 @@ function AdminTabs() {
               Quizz
             </button>
           </li>
-          <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
+          <li className="-mb-px mr-2 last:mr-0 flex justify-center text-center">
             <button
               type="button"
-              className={`text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
+              className={`text-xs max-sm:mt-2 font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal ${
                 openTab === 3
                   ? `text-white bg-gradient-to-br from-red-200 via-red-300 to-yellowbutton-200`
                   : `text-gray-500 bg-white`
