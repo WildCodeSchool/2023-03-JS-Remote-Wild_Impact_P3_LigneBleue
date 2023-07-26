@@ -113,7 +113,7 @@ INSERT INTO quizz(title) VALUES ('Quizz - TikTok');
 
 
 
-INSERT INTO images(src, alt) VALUES ('Arreter/Démarrer téléphone','Arreter/Démarrer téléphone');
+INSERT INTO images(src, alt) VALUES ('/assets/images/SwitchOff.jpg','Arreter/Démarrer téléphone');
 INSERT INTO images(src, alt) VALUES ('/assets/images/QRCode.png','Utiliser QR code');
 INSERT INTO images(src, alt) VALUES ('/assets/images/EcranTactile.png','Manipuler écran tactile');
 INSERT INTO images(src, alt) VALUES ('/assets/images/Téléphoner.png','Téléphoner');
