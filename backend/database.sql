@@ -113,12 +113,12 @@ INSERT INTO quizz(title) VALUES ('Quizz - TikTok');
 
 
 
-INSERT INTO images(src, alt) VALUES ('/assets/images/SwitchOff.jpg','Arreter/Démarrer téléphone');
-INSERT INTO images(src, alt) VALUES ('/assets/images/QRCode.png','Utiliser QR code');
-INSERT INTO images(src, alt) VALUES ('/assets/images/EcranTactile.png','Manipuler écran tactile');
-INSERT INTO images(src, alt) VALUES ('/assets/images/Téléphoner.png','Téléphoner');
+INSERT INTO images(src, alt) VALUES ('SwitchOff.jpg','Arreter/Démarrer téléphone');
+INSERT INTO images(src, alt) VALUES ('QRCode.png','Utiliser QR code');
+INSERT INTO images(src, alt) VALUES ('EcranTactile.png','Manipuler écran tactile');
+INSERT INTO images(src, alt) VALUES ('Téléphoner.png','Téléphoner');
 INSERT INTO images(src, alt) VALUES ('Src5','Différence entre SMS, mail, message');
-INSERT INTO images(src, alt) VALUES ('/assets/images/SMS.png','Envoyer et recevoir SMS');
+INSERT INTO images(src, alt) VALUES ('SMS.png','Envoyer et recevoir SMS');
 INSERT INTO images(src, alt) VALUES ('Src6','Gestion des contacts');
 INSERT INTO images(src, alt) VALUES ('Src6','Lexicologie Android');
 INSERT INTO images(src, alt) VALUES ('Faire une photo ou une video','Faire une photo ou une video');
