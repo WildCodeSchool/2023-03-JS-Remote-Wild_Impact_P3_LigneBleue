@@ -41,7 +41,10 @@ function App() {
                 <Route path="connexion" element={<Login />} />
                 <Route path="inscription" element={<Signup />} />
                 <Route path="parcours" element={<Progress />} />
-                <Route path="parcours/progression" element={<TutoProgress />} />
+                <Route
+                  path="parcours/progression/:fid"
+                  element={<TutoProgress />}
+                />
                 <Route path="*" element={<Error />} />
               </Route>
               <Route path="/admin" element={<AdminLayout />}>

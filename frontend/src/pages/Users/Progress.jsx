@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Icons from "../../components/Icons";
 import LineAnimation from "../../components/LineAnimation";
 import Picture from "../../assets/picture.png";
@@ -51,25 +52,27 @@ function Progress() {
             </div>
             <div className="absolute grid grid-cols-6 ">
               {ProgressionCategories.map((formation, index) => (
-                <div
-                  key={formation.id}
-                  className={` ${
-                    index === 0 || index === 6 ? "col-start-1 col-end-2" : ""
-                  }
+                <Link to={`/parcours/progression/${formation.id}`}>
+                  <div
+                    key={formation.id}
+                    className={` ${
+                      index === 0 || index === 6 ? "col-start-1 col-end-2" : ""
+                    }
                 ${index === 5 || index === 11 ? "col-start-6 col-end-6" : ""}${
-                    index === 1 || index === 7 ? "col-start-3 col-end-4" : ""
-                  } ${index === 2 || index === 8 ? "col-start-5" : ""} ${
-                    index === 3 || index === 9 ? "col-start-2 col-end-3" : ""
-                  } ${index === 4 || index === 10 ? "col-start-4" : ""}`}
-                >
-                  <div className=" max-[700px]:h-8 max-[700px]:w-8 h-36 w-36 px-3 py-3 mx-2 active:col-span-2 bg-white shadow-xl  rounded-lg transition hover:rotate-2 hover:scale-150 focus:outline-none focus:ring hover:bg-blue_light  active:font-bold  ">
-                    <h3 className="text-center pt-2">{formation.title}</h3>
-                    <div className="flex justify-center">
-                      <Icons icon={formation.icon} />
+                      index === 1 || index === 7 ? "col-start-3 col-end-4" : ""
+                    } ${index === 2 || index === 8 ? "col-start-5" : ""} ${
+                      index === 3 || index === 9 ? "col-start-2 col-end-3" : ""
+                    } ${index === 4 || index === 10 ? "col-start-4" : ""}`}
+                  >
+                    <div className=" max-[700px]:h-8 max-[700px]:w-8 h-36 w-36 px-3 py-3 mx-2 active:col-span-2 bg-white shadow-xl  rounded-lg transition hover:rotate-2 hover:scale-150 focus:outline-none focus:ring hover:bg-blue_light  active:font-bold  ">
+                      <h3 className="text-center pt-2">{formation.title}</h3>
+                      <div className="flex justify-center">
+                        <Icons icon={formation.icon} />
+                      </div>
                     </div>
+                    <p className=" text-center">2/3</p>
                   </div>
-                  <p className=" text-center">2/3</p>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
