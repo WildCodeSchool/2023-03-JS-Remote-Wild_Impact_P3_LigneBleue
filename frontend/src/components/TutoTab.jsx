@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import * as Icons from "react-icons/fc";
 
 function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
+  const [selectedIcon, setSelectedIcon] = useState(null);
+
+  const iconNames = Object.keys(Icons);
+
+  const handleIconChange = (event) => {
+    setSelectedIcon(event.target.value);
+  };
   return (
     <div>
       <div>
@@ -25,14 +33,19 @@ function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
             </label>
           </div>
           <div className="flex flex-col items-center w-80 gap-6 pb-4">
+            <p className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer">
+              Choisissez votre icône
+            </p>
             <label htmlFor="underline_select" className="sr-only">
               Icône
             </label>
-            <select
-              id="underline_select"
-              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-            >
-              <option>icone</option>
+            <select id="icon-select" onChange={handleIconChange}>
+              <option value="">Sélectionnez une icône</option>
+              {iconNames.map((iconName) => (
+                <option key={iconName} value={iconName}>
+                  <p>{iconName}</p>
+                </option>
+              ))}
             </select>
           </div>
           <div className="relative z-0 w-full mb-6 group mt-5 pb-4">
