@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import * as Icons from "react-icons/fc";
 
 function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
-  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [icon, setIcon] = useState("");
 
   const iconNames = Object.keys(Icons);
 
-  const handleIconChange = (event) => {
-    setSelectedIcon(event.target.value);
+  const getIcon = (iconName) => {
+    const Icon = Icons[iconName];
+    return <Icon />;
   };
+
   return (
     <div>
       <div>
@@ -33,20 +36,28 @@ function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
             </label>
           </div>
           <div className="flex flex-col items-center w-80 gap-6 pb-4">
-            <p className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer">
-              Choisissez votre icône
-            </p>
-            <label htmlFor="underline_select" className="sr-only">
-              Icône
-            </label>
-            <select id="icon-select" onChange={handleIconChange}>
-              <option value="">Sélectionnez une icône</option>
-              {iconNames.map((iconName) => (
-                <option key={iconName} value={iconName}>
-                  <p>{iconName}</p>
-                </option>
+            <button
+              type="button"
+              onClick={() => setOpen(!open)}
+              className="bg-beige text-center"
+            >
+              <p className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer">
+                Choisissez votre icône
+              </p>
+            </button>
+            {open &&
+              iconNames.map((iconName) => (
+                <button
+                  type="button"
+                  className="flex flex-row"
+                  key={iconName}
+                  value={icon}
+                  onClick={() => setIcon(iconName)}
+                >
+                  {getIcon(iconName)}
+                  {iconName}
+                </button>
               ))}
-            </select>
           </div>
           <div className="relative z-0 w-full mb-6 group mt-5 pb-4">
             <label
