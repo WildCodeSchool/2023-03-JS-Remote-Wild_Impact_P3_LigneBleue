@@ -12,10 +12,10 @@ class AnswersManager extends AbstractManager {
     );
   }
 
-  update(item) {
+  update(answers, questionId) {
     return this.database.query(
-      `update ${this.table} set title = ? where id = ?`,
-      [item.title, item.id]
+      `update ${this.table} set content = ?, status = ?, question_id = ? where id = ?`,
+      [answers.map((ans) => [ans.answers, ans?.status, questionId, ans.id])]
     );
   }
 }

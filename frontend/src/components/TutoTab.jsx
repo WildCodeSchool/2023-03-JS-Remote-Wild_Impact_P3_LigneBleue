@@ -109,9 +109,19 @@ function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
             </label>
           </div>
           {selectedTutorial.id ? (
-            <button type="submit">Modifier</button>
+            <button
+              type="submit"
+              className=" text-white font-semibold w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ml-4 ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            >
+              Modifier
+            </button>
           ) : (
-            <button type="submit">Ajouter</button>
+            <button
+              type="submit"
+              className=" text-white font-semibold w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ml-4 ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            >
+              Ajouter
+            </button>
           )}
         </form>
       </div>

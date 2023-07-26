@@ -40,26 +40,23 @@ const browseRessources = (req, res) => {
     });
 };
 
-const edit = (req, res) => {
-  const Tuto = req.body;
+const editTutorial = async (req, res) => {
+  const tutorial = req.body;
+  tutorial.id = parseInt(req.params.id, 10);
 
-  // TODO validations (length, format...)
-
-  Tuto.id = parseInt(req.params.id, 10);
-
-  models.tutorials
-    .update(Tuto)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
+  try {
+    const image = await models.images.insert(req.body);
+    const tuto = await models.tutorials.insert({
+      ...tutorial,
+      image_id: image[0].insertId,
     });
+    res
+      .status(201)
+      .json({ ...tutorial, image_id: image[0].insertId, id: tuto[0].insertId });
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 };
 
 const add = async (req, res) => {
@@ -86,7 +83,7 @@ const destroy = (req, res) => {
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        res.status(201).json({ msg: "tutoriel Supprimé" });
       }
     })
     .catch((err) => {
@@ -99,7 +96,7 @@ module.exports = {
   browse,
   read,
   browseRessources,
-  edit,
+  editTutorial,
   add,
   destroy,
 };

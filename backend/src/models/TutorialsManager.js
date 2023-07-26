@@ -54,6 +54,22 @@ class TutorialsManager extends AbstractManager {
       [quizzId, tutorialId]
     );
   }
+
+  updateTutorial(tutorial) {
+    return this.database.query(
+      `update ${this.table} set name = ?, target = ?, explanation = ?, published = ?, creation_date = ?, image_id = ?, formation_id = ?  where id = ?`,
+      [
+        tutorial.name,
+        tutorial.target,
+        tutorial.explanation,
+        0,
+        new Date(),
+        tutorial.image_id,
+        tutorial.formation_id,
+        tutorial.id,
+      ]
+    );
+  }
 }
 
 module.exports = TutorialsManager;

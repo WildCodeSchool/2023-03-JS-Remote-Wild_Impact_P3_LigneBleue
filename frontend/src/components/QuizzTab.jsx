@@ -65,17 +65,36 @@ function QuizzTab({ quizzId, tutorialId }) {
     }
   };
 
+  const updateQuizz = async () => {
+    try {
+      const upQuizz = await connexion.put(`/quizz/${quizz.id}`, quizz);
+      getQuizz(upQuizz.id);
+      console.info("All Good");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const deleteQuizz = async () => {
+    try {
+      await connexion.delete(`/quizz/${quizz.id}`);
+      setQuizz(quizzModel);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const manageQuizz = (event) => {
     event.preventDefault();
     if (checkAnswersValidity()) {
       if (quizz.id) {
-        console.info("Should update the quizz");
+        deleteQuizz();
+        console.info("Should delete the quizz");
       } else {
         postQuizz();
         console.info("Should insert a quizz");
       }
     } else {
-      // Ajoute un message Users
+      console.info("Wrong manipulation for manage the quizz");
     }
   };
 
@@ -133,9 +152,19 @@ function QuizzTab({ quizzId, tutorialId }) {
               </details>
             ))}
           {quizz.id ? (
-            <button type="submit">Modifier</button>
+            <button
+              type="submit"
+              className=" text-white font-semibold w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ml-4 ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            >
+              Supprimer
+            </button>
           ) : (
-            <button type="submit">Ajouter</button>
+            <button
+              type="submit"
+              className=" text-white font-semibold w-40 flex items-center justify-center overflow-hidden rounded-lg group bg-gradient-to-br ml-4 ring-2 ring-red-200 from-red-200 via-red-300 to-yellowbutton-200 group-hover:from-red-200 group-hover:via-red-300 group-hover:to-yellowbutton-200 focus:outline-none focus:ring-red-200"
+            >
+              Ajouter
+            </button>
           )}
         </form>
       )}
