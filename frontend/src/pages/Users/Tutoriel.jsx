@@ -3,10 +3,11 @@ import { useParams } from "react-router-dom";
 import connexion from "../../services/connexion";
 import quizzModel from "../../models/QuizzModel";
 import ressourceModel from "../../models/RessourceModel";
+import Footerbis from "../../components/Footerbis";
 
 function Tutoriel() {
   const [openQuizz, setOpenQuizz] = useState(false);
-  const [openRessource, setOpenRessource] = useState(true);
+  const [openRessource, setOpenRessource] = useState(false);
   const [quizz, setQuizz] = useState(quizzModel);
   const [tuto, setTuto] = useState([]);
   const [ressources, setRessources] = useState(ressourceModel);
@@ -69,7 +70,7 @@ function Tutoriel() {
       </section>
       <section>
         <div className={openQuizz ? "open" : null}>
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 bg-champagne mx-4 rounded-3xl">
             <button
               type="button"
               className="text-center"
@@ -82,21 +83,25 @@ function Tutoriel() {
                 (Une seule réponse valide par question)
               </p>
             </button>
+
             {openQuizz &&
               quizz.questions.length > 0 &&
               quizz.questions.map((quest) => (
                 <details className="mt-10 cursor-cell">
                   <summary className="flex">
-                    <p className="text-lg ">{quest.content}</p>
+                    <p className="text-lg ml-10 ">{quest.content}</p>
                   </summary>
-                  <div className="mt-4">
+                  <div className="my-4 ">
                     {quest.answers.map((answer) => (
-                      <div className="w-full flex flex-row justify-between">
-                        <label className=" text-gray-500">
+                      <div className="flex flex-row justify-left gap-4 px-4">
+                        <label
+                          htmlFor="answer"
+                          className="w-full flex flex-row justify-evenly  text-gray-500 mx-10 gap-4"
+                        >
                           {answer.answers}
                           <input
                             type="checkbox"
-                            className=""
+                            className="text-center"
                             value={answer.answers}
                           />
                         </label>
@@ -110,7 +115,7 @@ function Tutoriel() {
       </section>
       <section>
         <div className={openRessource ? "open" : null}>
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 bg-champagne mx-4 rounded-3xl">
             <button
               type="button"
               className="text-center"
@@ -131,6 +136,7 @@ function Tutoriel() {
           </div>
         </div>
       </section>
+      <Footerbis />
     </>
   );
 }
