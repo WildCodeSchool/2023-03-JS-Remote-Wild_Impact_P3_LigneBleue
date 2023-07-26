@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
+import * as Icons from "react-icons/fc";
 
 function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
+  const [open, setOpen] = useState(false);
+  const [icon, setIcon] = useState("");
+
+  const iconNames = Object.keys(Icons);
+
+  const getIcon = (iconName) => {
+    const Icon = Icons[iconName];
+    return <Icon />;
+  };
+
   return (
     <div>
       <div>
@@ -25,15 +36,28 @@ function TutoTab({ selectedTutorial, handleTutorial, manageTutorial }) {
             </label>
           </div>
           <div className="flex flex-col items-center w-80 gap-6 pb-4">
-            <label htmlFor="underline_select" className="sr-only">
-              Icône
-            </label>
-            <select
-              id="underline_select"
-              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-200 peer"
+            <button
+              type="button"
+              onClick={() => setOpen(!open)}
+              className="bg-beige text-center"
             >
-              <option>icone</option>
-            </select>
+              <p className="block py-2.5 px-0 w-full text-sm text-black bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-gray-500 peer">
+                Choisissez votre icône
+              </p>
+            </button>
+            {open &&
+              iconNames.map((iconName) => (
+                <button
+                  type="button"
+                  className="flex flex-row"
+                  key={iconName}
+                  value={icon}
+                  onClick={() => setIcon(iconName)}
+                >
+                  {getIcon(iconName)}
+                  {iconName}
+                </button>
+              ))}
           </div>
           <div className="relative z-0 w-full mb-6 group mt-5 pb-4">
             <label

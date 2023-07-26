@@ -75,6 +75,8 @@ CREATE TABLE answers (
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Nina Robinson','nina.robinson@example.com','bethany',false,'2021/07/01');
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Don Bishop','don.bishop@example.com','abraham',false,'2021/02/03');
 INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('Heather Simmmons','heather.simmmons@example.com','575757',true,'2021/03/04');
+INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('user','User1234@example.com','$argon2i$v=19$m=16,t=2,p=1$R3lxemFNN2N1RHJPdU5oNQ$njhb5y5dfrYuJMarCRht8w',false,'2021/03/04');
+INSERT INTO users(name,mail,password,admin,creation_date) VALUES ('admin','Admin1234@example.com','$argon2i$v=19$m=16,t=2,p=1$UDNyeTFRcFdEbEdEN21hbg$Mo0tljAXsCKSlroYf2Zs7w',true,'2021/03/04');
 
 
 INSERT INTO formations(title,icon) VALUES ('Utiliser Ligne bleue','lignebleue');
@@ -113,12 +115,12 @@ INSERT INTO quizz(title) VALUES ('Quizz - TikTok');
 
 
 
-INSERT INTO images(src, alt) VALUES ('/assets/images/SwitchOff.jpg','Arreter/Démarrer téléphone');
-INSERT INTO images(src, alt) VALUES ('/assets/images/QRCode.png','Utiliser QR code');
-INSERT INTO images(src, alt) VALUES ('/assets/images/EcranTactile.png','Manipuler écran tactile');
-INSERT INTO images(src, alt) VALUES ('/assets/images/Téléphoner.png','Téléphoner');
+INSERT INTO images(src, alt) VALUES ('SwitchOff.jpg','Arreter/Démarrer téléphone');
+INSERT INTO images(src, alt) VALUES ('QRCode.png','Utiliser QR code');
+INSERT INTO images(src, alt) VALUES ('EcranTactile.png','Manipuler écran tactile');
+INSERT INTO images(src, alt) VALUES ('Téléphoner.png','Téléphoner');
 INSERT INTO images(src, alt) VALUES ('Src5','Différence entre SMS, mail, message');
-INSERT INTO images(src, alt) VALUES ('/assets/images/SMS.png','Envoyer et recevoir SMS');
+INSERT INTO images(src, alt) VALUES ('SMS.png','Envoyer et recevoir SMS');
 INSERT INTO images(src, alt) VALUES ('Src6','Gestion des contacts');
 INSERT INTO images(src, alt) VALUES ('Src6','Lexicologie Android');
 INSERT INTO images(src, alt) VALUES ('Faire une photo ou une video','Faire une photo ou une video');

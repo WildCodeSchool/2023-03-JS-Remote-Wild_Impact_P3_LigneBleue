@@ -4,7 +4,7 @@ import connexion from "../services/connexion";
 
 function Login() {
   const [auth, setAuth] = useState({
-    email: "",
+    mail: "",
     password: "",
   });
 
@@ -16,8 +16,13 @@ function Login() {
   const login = async (event) => {
     event.preventDefault();
     try {
-      await connexion.post("/connexion", auth);
-      navigate("/parcours");
+      const log = await connexion.post("/connexion", auth);
+
+      if (log.role === 1) {
+        navigate("/admin/tuto");
+      } else {
+        navigate("/parcours");
+      }
     } catch (error) {
       console.error(error);
     }
@@ -43,9 +48,9 @@ function Login() {
             <input
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="username"
-              value={auth.email}
-              type="email"
-              name="email"
+              value={auth.mail}
+              type="mail"
+              name="mail"
               required
               placeholder="E-mail ou nom d'utilisateur"
               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"

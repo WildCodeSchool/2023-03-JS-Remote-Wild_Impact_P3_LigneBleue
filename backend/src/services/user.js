@@ -2,7 +2,7 @@ const Joi = require("joi");
 
 const checkUserData = (req, res, next) => {
   const { error } = Joi.object({
-    email: Joi.string().email().required(),
+    mail: Joi.string().email().required(),
     password: Joi.string()
       .min(6)
       .max(30)

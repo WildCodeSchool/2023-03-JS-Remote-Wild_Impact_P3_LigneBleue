@@ -10,7 +10,7 @@ const authControllers = require("./controllers/authControllers");
 
 const { checkUserData } = require("./services/user");
 const { checkTutorialData } = require("./services/tutorial");
-const { checkUser } = require("./services/jwt");
+// const { checkUser } = require("./services/jwt");
 
 router.post("/signup", checkUserData, authControllers.signup);
 router.post("/connexion", checkUserData, authControllers.login);
@@ -36,6 +36,6 @@ router.put("/tutorials/:id", tutorialsControllers.editTutorial);
 router.delete("/quizz/:id", quizzControllers.destroy);
 router.delete("/tutorials/:id", tutorialsControllers.destroy);
 
-router.use(checkUser);
+// router.use(checkUser);
 
 module.exports = router;
