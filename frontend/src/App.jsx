@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="flex flex-col bg-white h-screen">
       <BrowserRouter>
-        <div className="bg-yellow h-2/3">
+        <div className="bg-yellow h-32">
           <Header />
           <Breadcrumbs />
 
