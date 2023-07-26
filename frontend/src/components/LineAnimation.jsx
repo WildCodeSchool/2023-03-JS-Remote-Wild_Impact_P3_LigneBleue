@@ -5,8 +5,7 @@ function LineAnimation() {
   return (
     <div>
       <svg
-        width="1500"
-        height="800"
+        className=" w-[1450px] h-[800px] max-[820px]:h-[500px] max-[820px]:w-[800px]"
         viewBox="0 0 659 360"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

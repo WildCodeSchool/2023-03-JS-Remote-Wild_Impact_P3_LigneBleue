@@ -24,8 +24,8 @@ function Progress() {
 
   return (
     <>
-      <section className=" bg-champagne pb-40 mx-4 mb-6 rounded-3xl">
-        <div className="  flex">
+      <section className=" max-[400px]:h-[50rem] bg-champagne pb-40 mx-4 mb-6 rounded-3xl">
+        <div className="  flex max-[400px]:flex-col">
           <div className="min-w-[30%]">
             <h1 className=" text-blue text-[3rem] max-[700px]:text-lg font-bold pl-6">
               Votre Parcours
@@ -35,7 +35,7 @@ function Progress() {
               alt="img"
               className=" w-28 h-30 pt-8 pl-8 opacity-80 max-[700px]:hidden"
             />
-            <p className="pl-8 pb-4 text-xl font-bold opacity-25">
+            <p className=" max-[400px]:text-xs pl-8 pb-4 text-xl font-bold opacity-25">
               Cliquer sur une catégorie pour connaitre le détail de votre
               avancement.
             </p>
@@ -49,26 +49,42 @@ function Progress() {
             <div className="pt-6 max-[700px]:hidden">
               <LineAnimation />
             </div>
-            <div className="absolute grid grid-cols-6 ">
+            <div className="max-[400px]:gap-8 max-[400px]:grid-cols-2 max-[400px]:grid-rows-6 absolute grid grid-cols-6 ">
               {ProgressionCategories.map((formation, index) => (
                 <div
                   key={formation.id}
                   className={` ${
-                    index === 0 || index === 6 ? "col-start-1 col-end-2" : ""
+                    index === 0 || index === 6
+                      ? "min-[1600px]:col-start-1 min-[1600px]:col-end-2"
+                      : ""
                   }
-                ${index === 5 || index === 11 ? "col-start-6 col-end-6" : ""}${
-                    index === 1 || index === 7 ? "col-start-3 col-end-4" : ""
-                  } ${index === 2 || index === 8 ? "col-start-5" : ""} ${
-                    index === 3 || index === 9 ? "col-start-2 col-end-3" : ""
-                  } ${index === 4 || index === 10 ? "col-start-4" : ""}`}
+                ${
+                  index === 5 || index === 11
+                    ? "min-[1600px]:col-start-6 min-[1600px]:col-end-6"
+                    : ""
+                }${
+                    index === 1 || index === 7
+                      ? "min-[1600px]:col-start-3 min-[1600px]:col-end-4"
+                      : ""
+                  } ${
+                    index === 2 || index === 8 ? "min-[1600px]:col-start-5" : ""
+                  } ${
+                    index === 3 || index === 9
+                      ? "min-[1600px]:col-start-2 min-[1600px]:col-end-3"
+                      : ""
+                  } ${
+                    index === 4 || index === 10
+                      ? "min-[1600px]:col-start-4"
+                      : ""
+                  }`}
                 >
-                  <div className=" max-[700px]:h-8 max-[700px]:w-8 h-36 w-36 px-3 py-3 mx-2 active:col-span-2 bg-white shadow-xl  rounded-lg transition hover:rotate-2 hover:scale-150 focus:outline-none focus:ring hover:bg-blue_light  active:font-bold  ">
+                  <div className="  max-[400px]:hover:scale-110 max-[400px]:gap-10 max-[400px]:h-28 max-[400px]:w-28 max-[400px]:text-xs  h-36 w-36 px-3 py-3 mx-2 active:col-span-2 bg-white shadow-xl  rounded-lg transition hover:rotate-2 hover:scale-150 focus:outline-none focus:ring hover:bg-blue_light  active:font-bold  ">
                     <h3 className="text-center pt-2">{formation.title}</h3>
                     <div className="flex justify-center">
                       <Icons icon={formation.icon} />
                     </div>
                   </div>
-                  <p className=" text-center">2/3</p>
+                  <p className=" max-[400px]:hidden text-center">2/3</p>
                 </div>
               ))}
             </div>
