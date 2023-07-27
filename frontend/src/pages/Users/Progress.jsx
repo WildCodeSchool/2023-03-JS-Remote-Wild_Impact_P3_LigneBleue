@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Icons from "../../components/Icons";
 import LineAnimation from "../../components/LineAnimation";
 import Picture from "../../assets/picture.png";
 import Arrived from "../../assets/arrived.png";
 import connexion from "../../services/connexion";
 import Footerbis from "../../components/Footerbis";
+import check from "../../assets/check.png";
 
 function Progress() {
   const [ProgressionCategories, setProgressionCategories] = useState([]);
@@ -51,6 +53,7 @@ function Progress() {
             </div>
             <div className="max-[400px]:gap-8 max-[400px]:grid-cols-2 max-[400px]:grid-rows-6 absolute grid grid-cols-6 ">
               {ProgressionCategories.map((formation, index) => (
+                <Link to={`/parcours/progression/${formation.id}`}>
                 <div
                   key={formation.id}
                   className={` ${
@@ -81,9 +84,11 @@ function Progress() {
                     <div className="flex justify-center">
                       <Icons icon={formation.icon} />
                     </div>
+                    <p className=" max-[400px]:hidden text-center">2/3</p>
                   </div>
                   <p className="  max-[400px]:hidden text-center">2/3</p>
                 </div>
+                </Link>
               ))}
             </div>
           </div>
