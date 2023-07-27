@@ -9,12 +9,15 @@ import "./Formation.css";
 
 function TutoProgress() {
   const [list, setList] = useState([]);
+  const [validatedTuto, setValidatedTuto] = useState(0);
   const { fid } = useParams();
 
   const getTutorialsList = async () => {
     try {
       const tutoList = await connexion.get(`/formations/${fid}`);
       setList(tutoList);
+      const validated = tutoList.filter((el) => el.validated === 1);
+      setValidatedTuto(validated.length);
     } catch (error) {
       console.error(error);
     }
@@ -26,6 +29,9 @@ function TutoProgress() {
 
   return (
     <>
+      <h2 className="text-center text-blue text-xl mt-4 font-bold">
+        Vous avez validé {validatedTuto} tutos sur 8 ! Continuez!{" "}
+      </h2>
       <section>
         <div className="py-5 pr-4 pl-4 mb-1">
           <div className="bg-champagne grid grid-cols-3 max-sm:grid max-sm:grid-cols-2 place-items-center rounded-3xl">
@@ -43,9 +49,11 @@ function TutoProgress() {
                       <Icons icon={tutorial.icon} />
                     </div>
                   </Link>
-                  <span className="w-10 h-10 ml-32">
-                    <img src={check} alt="check" />
-                  </span>
+                  {tutorial.validated === 1 && (
+                    <span className="w-10 h-10 ml-32">
+                      <img src={check} alt="check" />
+                    </span>
+                  )}
                 </div>
               ))}
             {list.length === 0 && <NoContent />}
