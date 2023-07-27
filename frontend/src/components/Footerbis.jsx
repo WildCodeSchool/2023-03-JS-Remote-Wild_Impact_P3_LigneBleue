@@ -18,13 +18,14 @@ function Footerbis() {
         </div>
       </div>
       <div className="flex justify-center items-center h-20 w-72  bg-yellow rounded-tl-full max-sm:w-40 max-sm:grid max-sm:grid-cols-2">
-        <div className="max-sm:pt-3 pr-3">
+        <div className="max-sm:pt-3 pr-3 max-sm:justify-self-end">
           <img className="w-10" src={userIcon} alt="User icon" />
         </div>
         <div className="pt-2">
           <Link to="/connexion">
-            <div className="flex text-base text-center text-blue font-bold max-sm:text-xs w-32">
-              Accéder à mon parcours
+            <div className="flex text-base text-blue font-bold max-sm:text-xs w-32 gap-1 max-sm:flex-col">
+              <p>Mon</p>
+              <p>parcours</p>
             </div>
           </Link>
         </div>
