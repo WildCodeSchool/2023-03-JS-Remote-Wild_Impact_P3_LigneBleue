@@ -26,7 +26,7 @@ function TutorialsList() {
   return (
     <>
       <section>
-        <div className="py-5 pr-4 pl-4 mb-1">
+        <div className="py-5 px-4 mb-1">
           <div className="bg-champagne grid grid-cols-3 max-sm:grid max-sm:grid-cols-2 place-items-center rounded-3xl">
             {list.length > 0 &&
               list.map((tutorial) => (

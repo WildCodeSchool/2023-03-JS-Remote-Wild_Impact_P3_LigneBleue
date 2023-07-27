@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import ReactPlayer from "react-player";
 import connexion from "../../services/connexion";
 import quizzModel from "../../models/QuizzModel";
 import ressourceModel from "../../models/RessourceModel";
+import Footerbis from "../../components/Footerbis";
 
 function Tutoriel() {
   const [openQuizz, setOpenQuizz] = useState(false);
-  const [openRessource, setOpenRessource] = useState(true);
+  const [openRessource, setOpenRessource] = useState(false);
   const [quizz, setQuizz] = useState(quizzModel);
   const [tuto, setTuto] = useState([]);
   const [ressources, setRessources] = useState(ressourceModel);
+  const [count, setCount] = useState(0);
   const { tid } = useParams();
 
   const getTutorials = async () => {
@@ -41,6 +44,13 @@ function Tutoriel() {
     }
   };
 
+  const handleClick = (e) => {
+    // eslint-disable-next-line eqeqeq
+    if (e.target.value == 1) {
+      setCount(count + 1);
+    }
+  };
+
   useEffect(() => {
     getQuizz();
     getTutorials();
@@ -69,7 +79,7 @@ function Tutoriel() {
       </section>
       <section>
         <div className={openQuizz ? "open" : null}>
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 bg-champagne mx-4 rounded-3xl">
             <button
               type="button"
               className="text-center"
@@ -82,22 +92,27 @@ function Tutoriel() {
                 (Une seule réponse valide par question)
               </p>
             </button>
+
             {openQuizz &&
               quizz.questions.length > 0 &&
               quizz.questions.map((quest) => (
                 <details className="mt-10 cursor-cell">
                   <summary className="flex">
-                    <p className="text-lg ">{quest.content}</p>
+                    <p className="text-lg ml-10 ">{quest.content}</p>
                   </summary>
-                  <div className="mt-4">
+                  <div className="my-4 ">
                     {quest.answers.map((answer) => (
-                      <div className="w-full flex flex-row justify-between">
-                        <label className=" text-gray-500">
+                      <div className="flex flex-row justify-left gap-4 px-4">
+                        <label
+                          htmlFor="answer"
+                          className="w-full flex flex-row justify-evenly  text-gray-500 mx-10 gap-4"
+                        >
                           {answer.answers}
                           <input
                             type="checkbox"
                             className=""
-                            value={answer.answers}
+                            value={answer.status}
+                            onClick={handleClick}
                           />
                         </label>
                       </div>
@@ -105,12 +120,13 @@ function Tutoriel() {
                   </div>
                 </details>
               ))}
+            {count === 4 && <h1> BRAVO!</h1>}
           </div>
         </div>
       </section>
       <section>
         <div className={openRessource ? "open" : null}>
-          <div className="text-center mb-4">
+          <div className="text-center mb-4 bg-champagne mx-4 rounded-3xl">
             <button
               type="button"
               className="text-center"
@@ -123,14 +139,15 @@ function Tutoriel() {
             {openRessource &&
               ressources.length > 0 &&
               ressources.map((ress) => (
-                <div key={ress.id}>
+                <div key={ress.id} className="flex flex-col items-center">
                   <h2>{ress.name}</h2>
-                  <p>{ress.content}</p>
+                  <ReactPlayer url={ress.content} controls playing muted />
                 </div>
               ))}
           </div>
         </div>
       </section>
+      <Footerbis />
     </>
   );
 }
