@@ -102,8 +102,11 @@ function Tutoriel() {
                   </summary>
                   <div className="my-4 ">
                     {quest.answers.map((answer) => (
-                      <div className="w-full flex flex-row justify-between">
-                        <label key={answer.id} className=" text-gray-500">
+                      <div className="flex flex-row justify-left gap-4 px-4">
+                        <label
+                          htmlFor="answer"
+                          className="w-full flex flex-row justify-evenly  text-gray-500 mx-10 gap-4"
+                        >
                           {answer.answers}
                           <input
                             type="checkbox"
