@@ -12,6 +12,7 @@ function Tutoriel() {
   const [quizz, setQuizz] = useState(quizzModel);
   const [tuto, setTuto] = useState([]);
   const [ressources, setRessources] = useState(ressourceModel);
+  const [count, setCount] = useState(0);
   const { tid } = useParams();
 
   const getTutorials = async () => {
@@ -40,6 +41,13 @@ function Tutoriel() {
       setRessources(ressourcesList);
     } catch (error) {
       console.error(error);
+    }
+  };
+
+  const handleClick = (e) => {
+    // eslint-disable-next-line eqeqeq
+    if (e.target.value == 1) {
+      setCount(count + 1);
     }
   };
 
@@ -99,8 +107,9 @@ function Tutoriel() {
                           {answer.answers}
                           <input
                             type="checkbox"
-                            className="text-center"
-                            value={answer.answers}
+                            className=""
+                            value={answer.status}
+                            onClick={handleClick}
                           />
                         </label>
                       </div>
@@ -108,6 +117,7 @@ function Tutoriel() {
                   </div>
                 </details>
               ))}
+            {count === 4 && <h1> BRAVO!</h1>}
           </div>
         </div>
       </section>

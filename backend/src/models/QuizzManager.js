@@ -16,7 +16,7 @@ class QuizzManager extends AbstractManager {
 
   findQuestion(id) {
     return this.database.query(
-      `select q.id, q.content, JSON_ARRAYAGG(JSON_OBJECT('id', a.id, 'answers', a.content)) as answers
+      `select q.id, q.content, JSON_ARRAYAGG(JSON_OBJECT('id', a.id, 'answers', a.content, 'status' , a.status)) as answers
          from questions as q
          inner join answers as a on a.question_id = q.id 
         where q.quizz_id = ? 
